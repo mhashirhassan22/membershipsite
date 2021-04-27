@@ -53,13 +53,13 @@ def requestcode(request):
     account_sid = 'AC25a06a6346e507691a44414a56dfd055'
     auth_token = '762bf7cce3514918e9c1dbe5c5c7931a'
     client = Client(account_sid, auth_token)
-    if(request.session['phone']):
+    try:
         verification = client.verify \
                             .services('VA7f2d07a28a78b9879da08b5875f66f50') \
                             .verifications \
                             .create(to=request.session['phone'], channel='sms')
-    else:
-        return HttpResponse("Error sending message, please try again later!")
+    except:
+        return HttpResponse("Incorrect phone number.")
     return render(request, 'change_password.html')
 
 
