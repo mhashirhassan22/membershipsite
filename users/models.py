@@ -28,48 +28,50 @@ class User(AbstractUser):
 
 class ServiceArea(models.Model):
     name = models.CharField(max_length=200, unique=True, blank=False, null=False)
-
-if(ServiceArea.objects.count()<5):
-    t = ServiceArea.objects.create(name="Global")
-    t = ServiceArea.objects.create(name="Asia-Pacific")
-    t = ServiceArea.objects.create(name="China")
-    t = ServiceArea.objects.create(name="India")
-    t = ServiceArea.objects.create(name="Europe")
-    t = ServiceArea.objects.create(name="Latin America")
-    t = ServiceArea.objects.create(name="Middle East & Africa")
-    t = ServiceArea.objects.create(name="USA/Canada")
-
+try:
+    if(ServiceArea.objects.count()<5):
+        t = ServiceArea.objects.create(name="Global")
+        t = ServiceArea.objects.create(name="Asia-Pacific")
+        t = ServiceArea.objects.create(name="China")
+        t = ServiceArea.objects.create(name="India")
+        t = ServiceArea.objects.create(name="Europe")
+        t = ServiceArea.objects.create(name="Latin America")
+        t = ServiceArea.objects.create(name="Middle East & Africa")
+        t = ServiceArea.objects.create(name="USA/Canada")
+except:
+    pass
 
 class Interest(models.Model):
     name = models.CharField(max_length=300, unique=True, blank=False, null=False)
 
-
-if(Interest.objects.count()<23):
-    t = Interest.objects.create(name="Agency management")
-    t = Interest.objects.create(name="Resource and capabilities")
-    t = Interest.objects.create(name="Brand (incl. brand safety)")
-    t = Interest.objects.create(name="Social (incl. influencer)")
-    t = Interest.objects.create(name="Content and creative production")
-    t = Interest.objects.create(name="Sustainability")
-    t = Interest.objects.create(name="Data and technology")
-    t = Interest.objects.create(name="Transformation")
-    t = Interest.objects.create(name="Diversity and Inclusion")
-    t = Interest.objects.create(name="Emerging trends")
-    t = Interest.objects.create(name="Advertising standards / self-regulation")
-    t = Interest.objects.create(name="Evolution of marketing procurement")
-    t = Interest.objects.create(name="Alcohol marketing policy")
-    t = Interest.objects.create(name="Innovation")
-    t = Interest.objects.create(name="Digital policy")
-    t = Interest.objects.create(name="Marcomms planning")
-    t = Interest.objects.create(name="Food marketing policy")
-    t = Interest.objects.create(name="Measurement and effectiveness")
-    t = Interest.objects.create(name="Marketing Law")
-    t = Interest.objects.create(name="Media buying (incl. programmatic)")
-    t = Interest.objects.create(name="Marketing to children")
-    t = Interest.objects.create(name="Partnerships and sponsorship")
-    t = Interest.objects.create(name="Privacy")
-    t = Interest.objects.create(name="Research and consumer insights")
-    
+try:
+    if(Interest.objects.count()<23):
+        t = Interest.objects.create(name="Agency management")
+        t = Interest.objects.create(name="Resource and capabilities")
+        t = Interest.objects.create(name="Brand (incl. brand safety)")
+        t = Interest.objects.create(name="Social (incl. influencer)")
+        t = Interest.objects.create(name="Content and creative production")
+        t = Interest.objects.create(name="Sustainability")
+        t = Interest.objects.create(name="Data and technology")
+        t = Interest.objects.create(name="Transformation")
+        t = Interest.objects.create(name="Diversity and Inclusion")
+        t = Interest.objects.create(name="Emerging trends")
+        t = Interest.objects.create(name="Advertising standards / self-regulation")
+        t = Interest.objects.create(name="Evolution of marketing procurement")
+        t = Interest.objects.create(name="Alcohol marketing policy")
+        t = Interest.objects.create(name="Innovation")
+        t = Interest.objects.create(name="Digital policy")
+        t = Interest.objects.create(name="Marcomms planning")
+        t = Interest.objects.create(name="Food marketing policy")
+        t = Interest.objects.create(name="Measurement and effectiveness")
+        t = Interest.objects.create(name="Marketing Law")
+        t = Interest.objects.create(name="Media buying (incl. programmatic)")
+        t = Interest.objects.create(name="Marketing to children")
+        t = Interest.objects.create(name="Partnerships and sponsorship")
+        t = Interest.objects.create(name="Privacy")
+        t = Interest.objects.create(name="Research and consumer insights")
+except:
+    pass  
 
 class UserInterest(models.Model):
     user = models.ForeignKey(

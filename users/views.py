@@ -41,25 +41,25 @@ def requestcode(request):
     else:
         email = request.POST['email']
         phone = request.POST['phone']
-        request.session['email'] = email
         try:
             exist = User.objects.get(email=email)
-            if(exist):
-                if(exist.phone == phone):
-                    pass
-                else:
-                    return HttpResponse("Phone does not match the user")
+            if(exist and exist.phone and phone and exist.phone == phone):
+                request.session['email'] = email
+                request.session['phone'] = exist.phone
             else:
-                return HttpResponse("No user with this email")
+                return HttpResponse("Phone does not match the user")
         except:
             return HttpResponse("Unexpected Error...!")
     account_sid = 'AC25a06a6346e507691a44414a56dfd055'
     auth_token = '762bf7cce3514918e9c1dbe5c5c7931a'
     client = Client(account_sid, auth_token)
-    verification = client.verify \
-                        .services('VA7f2d07a28a78b9879da08b5875f66f50') \
-                        .verifications \
-                        .create(to='+923228080110', channel='sms')
+    if(request.session['phone']):
+        verification = client.verify \
+                            .services('VA7f2d07a28a78b9879da08b5875f66f50') \
+                            .verifications \
+                            .create(to=request.sesison['phone'], channel='sms')
+    else:
+        return HttpResponse("Error sending message, please try again later!")
     return render(request, 'change_password.html')
 
 
@@ -74,7 +74,7 @@ def confirmcode(request):
         verification = client.verify \
                                 .services('VA7f2d07a28a78b9879da08b5875f66f50') \
                                 .verification_checks \
-                                .create(to='+923228080110', code=code)
+                                .create(to=request.sesison['phone'], code=code)
         print(verification.status)
         if(verification.status == 'pending'):
             return HttpResponse("NOT CORRECT PASSWORD")
@@ -94,6 +94,7 @@ def set_password(request):
             else:
                 return HttpResponse("No user with this email")
             del request.session['email']
+            del request.session['phone']
         except:
             return HttpResponse("User Not Found")
         p1 = request.POST['password1']
