@@ -1,0 +1,193 @@
+
+* {
+   font-size: 18px;
+   line-height: 32px;
+}
+.register{
+   background: -webkit-linear-gradient(left, #64943E, #96bf48);
+   /* background: -webkit-linear-gradient(left, #3b5998, rgb(0, 140, 255)); */
+   margin-top: 3%;
+   padding: 3%;
+}
+.register-left{
+   text-align: center;
+   color: #fff;
+   margin-top: 4%;
+}
+
+.register-left input{
+   border: none;
+   border-radius: 1.5rem;
+   padding: 2%;
+   width: 60%;
+   background: #f8f9fa;
+   font-weight: bold;
+   color: #383d41;
+   margin-bottom: 3%;
+   cursor: pointer;
+}
+.register-left a{
+   border: none;
+   border-radius: 1.5rem;
+   padding: 2%;
+   padding-left: 8%;
+   padding-right: 8%;
+   width: 100%;
+   background: #f8f9fa;
+   font-weight: bold;
+   color: #383d41;
+   margin-bottom: 3%;
+   cursor: pointer;
+}
+.register-right{
+   background: #f8f9fa;
+   border-top-left-radius: 10% 50%;
+   border-bottom-left-radius: 10% 50%;
+}
+.register-left img{
+   width: 100%;
+   -webkit-animation: mover 2s infinite  alternate;
+   animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+   0% { transform: translateY(0); }
+   100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+   0% { transform: translateY(0); }
+   100% { transform: translateY(-20px); }
+}
+.register-left p{
+   font-weight: lighter;
+   padding: 12%;
+   margin-top: -9%;
+}
+.register .register-form{
+   padding: 10%;
+   margin-top: 10%;
+}
+.btnRegister{
+   float: right;
+   margin-top: 10%;
+   border: none;
+   border-radius: 1.5rem;
+   padding: 2%;
+   background: #3b5998;
+   color: #fff;
+   font-weight: 600;
+   width: 100%;
+   cursor: pointer;
+}
+.btnlogin{
+   float: left;
+   margin-top: 5%;
+   border: none;
+   border-radius: 1.5rem;
+   padding: 2%;
+   background: #3b5998;
+   color: #fff;
+   font-weight: 600;
+   width: 100%;
+   cursor: pointer;
+}
+.register .nav-tabs{
+   margin-top: 3%;
+   border: none;
+   background: #3b5998;
+   border-radius: 1.5rem;
+   width: 28%;
+   float: right;
+}
+.register .nav-tabs .nav-link{
+   padding: 2%;
+   height: 34px;
+   font-weight: 600;
+   color: #fff;
+   border-top-right-radius: 1.5rem;
+   border-bottom-right-radius: 1.5rem;
+}
+.register .nav-tabs .nav-link:hover{
+   border: none;
+}
+.register .nav-tabs .nav-link.active{
+   width: 100px;
+   color: #3b5998;
+   padding-bottom: 32px;
+   border: 2px solid #3b5998;
+   border-top-left-radius: 1.5rem;
+   border-bottom-left-radius: 1.5rem;
+}
+.register-heading{
+   text-align: center;
+   margin-top: 8%;
+   margin-bottom: -15%;
+   color: #495057;
+}
+.login-heading{
+   text-align: center;
+   margin-top: 8%;
+   margin-bottom: -15%;
+   color: #495057;
+}
+
+/* The Modal (background) */
+.modal {
+   display: none; /* Hidden by default */
+   position: fixed; /* Stay in place */
+   z-index: 1; /* Sit on top */
+   padding-top: 100px; /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgb(0,0,0); /* Fallback color */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   
+ }
+ 
+ /* Modal Content */
+ .modal-content {
+   background-color: #fefefe;
+   margin: auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 40%;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+ /* The Close Button */
+ .close {
+   color: #aaaaaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+ }
+ 
+ .close:hover,
+ .close:focus {
+   color: #000;
+   text-decoration: none;
+   cursor: pointer;
+ }
+ @media screen and (max-width: 768px) {
+    .modal-content{
+       width: 100%;
+       height: auto;
+    }
+ }

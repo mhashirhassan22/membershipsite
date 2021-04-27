@@ -1,0 +1,813 @@
+{% include 'head.html' %}
+    
+{% load static %}
+<style>
+  body{
+    /* background: url('{% static "img/marketing.jpg" %}') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  }
+  
+ .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #3b5998;;
+   color: white;
+   text-align: center;
+ }
+ .dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.hovel:hover{
+  color:white;
+  background-color: #3b5898bb;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+html {
+    height: 100%
+}
+
+#grad1 {
+    /* border: #000000;
+    border-width: 8px;
+    border-style: solid; */
+}
+
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
+
+#msform fieldset .form-card {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    padding: 20px 40px 30px 40px;
+    box-sizing: border-box;
+    width: 94%;
+    margin: 0 3% 20px 3%;
+    position: relative
+}
+
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform fieldset .form-card {
+    text-align: left;
+    color: #9E9E9E
+}
+
+#msform input,
+#msform textarea {
+    padding: 0px 8px 4px 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #2C3E50;
+    font-size: 18px;
+    letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: none;
+    font-weight: bold;
+    border-bottom: 2px solid skyblue;
+    outline-width: 0
+}
+
+#msform .action-button {
+    width: 100px;
+    background: skyblue;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
+}
+
+select.list-dt {
+    border: none;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    padding: 2px 5px 3px 5px;
+    margin: 2px
+}
+
+select.list-dt:focus {
+    border-bottom: 2px solid skyblue
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    border-radius: 0.5rem;
+    position: relative
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #000000
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 12px;
+    width: 20%;
+    float: left;
+    position: relative
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f023"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #interest:before {
+    font-family: FontAwesome;
+    content: "\f150"
+}
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f09d"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 18px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: skyblue
+}
+
+.radio-group {
+    position: relative;
+    margin-bottom: 25px
+}
+
+.radio {
+    display: inline-block;
+    width: 204;
+    height: 104;
+    border-radius: 0;
+    background: lightblue;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 8px 2px
+}
+
+.radio:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
+}
+
+.radio.selected {
+    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+</style>
+
+
+
+
+</style>
+<script> 
+
+function submitform(){
+  $("#logform").submit();
+}
+
+
+</script>
+    <body>
+
+      <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #3b5998;">
+            <a href="#" class="navbar-brand">
+                <img src="{% static 'img/logo.png' %}" height="80" alt="NSMAR">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active" style="color: white;">Become A Member</a>
+                </div>
+                <div class="navbar-nav ml-auto px-5">
+                  <ul id="topnav" class="navbar-nav  w-100 justify-content-left px-1 py-2" >
+                  <li class="nav-item" style="display: flex;align-items: flex-start;">
+                    <a class="nav-link" href="#" style="color: white;">
+                        Already A Member?  Call Us We Are Here To Serve You </a>  
+
+                        <a class="nav-link" href="?" style="color: white;">
+                            <strong style="text-decoration: underline;font-size: larger;"> 555 123 4567</strong> </a>  
+                        
+
+                  </li>                
+                  </ul>
+                </div>
+            </div>
+  
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: -1%; display: flex; align-items: flex-end;">
+
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar2Collapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse  justify-content-left navbar-collapse" id="navbar2Collapse">
+            <div class="navbar-nav d-flex justify-content-end">
+                <a href="#" class="hovel nav-item nav-link active" style="padding-right: 35px;padding-left: 30px;">
+                    Email us: 
+                    <strong style="text-decoration: underline;"> sales@nsamr.ca </strong>
+                </a>
+            </div>
+
+        </div>
+          <div class="collapse  justify-content-end navbar-collapse" id="navbar2Collapse">
+              <div class="navbar-nav d-flex justify-content-end" style="margin-right: 5%;">
+  
+                <li class="nav-item" style="display: flex;align-items: flex-start;">
+                    <a class="nav-link" href="#" style="color: black;">
+                        Not Yet A Member?  Call Us And Get The Help You Need </a>  
+
+                        <a class="nav-link" href="?" style="color: black;">
+                            <strong style="text-decoration: underline;font-size: larger;"> 145 145 1234 </strong> </a>  
+                        
+
+                  </li>   
+              </div>
+
+          </div>
+
+      </nav>
+    </div>
+
+
+
+<!-- MultiStep Form -->
+<div class="container-fluid" id="grad1">
+  <div class="row justify-content-center mt-0">
+      <div class="col-11 col-xl-9 col-md-7 col-lg-6 text-center p-0 mb-3" style="border: #2C3E50;">
+          <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+              <h2><strong>Membership Registration</strong></h2>
+              <p>Get Customized Help And Expert Assistance.  Each Member is catered to based on their specific needs.  
+                  A ‘one size fits all’ approach is neither 
+                  appropriate nor proportionate, as developments occur at different speeds in different sectors, different areas.  
+                  We really do it for <strong style="color: red;">you</strong>!</p>
+              <div class="row">
+                  <div class="col-md-12 mx-0">
+                      <form id="msform">
+                          <!-- progressbar -->
+                          <ul id="progressbar">
+                              <li class="active" id="account"><strong>Account</strong></li>
+                              <li id="personal"><strong>Personal</strong></li>
+                              <li id="interest"><strong>Interest</strong></li>
+                              <li id="payment"><strong>Payment</strong></li>
+                              <li id="confirm"><strong>Finish</strong></li>
+                          </ul> <!-- fieldsets -->
+                          <fieldset id="10">
+                              <div class="form-card">
+                                  <h2 class="fs-title">Account Information</h2> 
+                                  <input type="email" name="email" placeholder="Email Id" /> 
+                                  <input type="text" name="user name" placeholder="UserName" />
+                                   <input type="password" name="password" placeholder="Password" /> 
+                                   <input type="password" name="password2" placeholder="Confirm Password"/>
+                                   <input type="text" name="Phone" placeholder="Contact No." /> 
+                                   <p>If this is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about 
+                                       your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. 
+                                       If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:</p>
+                                   <div>
+                                    <input class="form-check-input" style="margin-left: 38%;margin-top: 1.2%;" type="checkbox" value="" id="flexCheckDefault" checked>
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        &#8226;  Contact me using automated calls.
+                                        (We may still call you using other means if we need to speak with you.)                                    
+                                    </label>
+                                  </div>
+                                  <div>
+                                    <input class="form-check-input" style="margin-top: 1.2%;" type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label class="form-check-label" for="flexCheckChecked">
+                                        &#8226; Contact me using text messages
+                                    </label>
+                                  </div>
+                                  <p style="padding-top: 10px;">
+                                    Adding my number confirms that I'm authorized to add this number and consent to receiving autodialed and prerecorded calls and
+                                     texts for the reasons described in our <strong>Privacy Policy</strong>. 
+                                     Standard rates may apply.
+                                </p>
+                                </div> 
+                              <p id="error" style="background-color: rgba(216, 79, 79, 0.699);"></p>
+                              <input type="button" name="next" class="next action-button" value="Next Step" />
+                          </fieldset>
+                          <fieldset id="11">
+                              <div class="form-card">
+                                  <h2 class="fs-title">Personal Information</h2> 
+                                  <input type="text" name="First Name" placeholder="First Name" /> 
+                                  <input type="text" name="Last Name" placeholder="Last Name" /> 
+                                  <input type="text" name="Business Name" placeholder="Business Name" /> 
+                                  <input type="text" name="Website" placeholder="Website URL" /> 
+                                  <input type="text" name="Work Title" placeholder="Work Title" /> 
+                                  <input type="text" name="Address" placeholder="Address" />
+                                    <div class="form-group">
+                                        <strong> Select Country </strong>
+                                        <select class="form-control" name="select1" id="select1">
+                                            <option disabled selected value> -- </option>
+                                                    {% for country in countries %}
+                                                        <option value="{{ country.id }}">{{ country.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        <br>
+                                        <strong> Select Region </strong>
+                                        <select class="form-control" name="select3" id="select3">
+                                            <option disabled selected value> -- </option>
+                                                    {% for region in regions %}
+                                                        <option value="{{ region.country_id }}" data-region="{{ region.id }}">{{ region.name }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        <br>
+                                        <strong> Select City </strong>
+                                        <select class="form-control" name="select2" id="select2">
+                                            <option disabled selected value> -- </option>
+                                                    {% for city in cities %}
+                                                        <option value="{{ city.region_id }}">{{ city.name }}</option>
+                                                    {% endfor %}
+                                            </select>
+                                    </div>
+                                    <br>
+                                    <strong> Select Timezone </strong>
+                                    <select class="form-control" name="select2" id="select2">
+                                        <option disabled selected value> -- </option>
+                                                {% for city in timezone %}
+                                                    <option value="{{ city.region_id }}">{{ city }}</option>
+                                                {% endfor %}
+                                        </select>
+                                <br>
+                                <strong> Select Service Area </strong>
+                                <select class="form-control" name="select2" id="select2">
+                                    <option disabled selected value> -- </option>
+                                            {% for city in service %}
+                                                <option value="{{ city.region_id }}">{{ city.name }}</option>
+                                            {% endfor %}
+                                    </select>
+                                <script>
+                                    var $select1 = $('#select1'),
+                                        $select2 = $('#select2'),
+                                        $options = $select2.find('option');
+                                        $select3 = $('#select3'),
+                                        $options3 = $select3.find('option');
+
+                                    $select1.on('change', function() {
+                                        $select3.html($options3.filter('[value="' + this.value + '"]'));
+                                        // $select2.html($options.filter('[value="' + this.value + '"]'));
+                                    }).trigger('change');
+
+
+                                    
+                                    $select3.on('change', function() {
+                                        var value2 = $(this).find(':selected').data('region');
+                                        $select2.html($options.filter('[value="' + value2 + '"]'));
+                                    }).trigger('change');
+                                </script>                                  
+                              </div> 
+                              <p id="error1" style="background-color: rgba(216, 79, 79, 0.699);"></p>
+                              <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                              <input type="button" name="next" class="next action-button" value="Next Step" />
+                          </fieldset>
+
+
+
+
+
+                          <fieldset id="113">
+                            <div class="form-card">
+                                <h2 class="fs-title">Topic of Interest</h2> 
+
+                              <div class="card shadow border-0 mb-5">
+                                  <div class="card-body p-5">
+                                      <ul class="list-group list-group-horizontal-xl mx-auto" style="display: grid;grid-template-columns: repeat(4, 1fr);grid-gap: 1em;">
+                                          <li class="list-group-item rounded-0">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheck11" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck11">Agency management</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheck27" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck27">Resource and capabilities</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheck28" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck28">Brand (incl. brand safety)</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheck29" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheck29">Social (incl. influencer)</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customChecka9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customChecka9">Content and creative production</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckb9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckb9">Sustainability</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckc9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckc9">Data and technology</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckd9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckd9">Transformation</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customChecke9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customChecke9">Diversity and Inclusion</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckf9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckf9">Emerging trends</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckg9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckg9">Advertising standards / self-regulation</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckh9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckh9">Evolution of marketing procurement</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customChecki9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customChecki9">Alcohol marketing policy</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckj9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckj9">Innovation</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckk9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckk9">Digital policy</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckl9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckl9">Marcomms planning</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckm9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckm9">Food marketing policy</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckn9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckn9">Measurement and effectiveness</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customChecko9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customChecko9">Marketing Law</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckp9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckp9">Media buying (incl. programmatic)</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckq9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckq9">Marketing to children</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckr9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckr9">Partnerships and sponsorship</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customChecks9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customChecks9">Privacy</label>
+                                              </div>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <div class="custom-control custom-checkbox">
+                                                  <input class="custom-control-input" id="customCheckt9" type="checkbox">
+                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="customCheckt9">Research and consumer insights</label>
+                                              </div>
+                                          </li>
+                                          
+                                      </ul>
+                                  </div>
+                              </div>
+                                
+                            </div> 
+                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
+                            <input type="button" name="next" class="next action-button" value="Next Step" />
+                        </fieldset>
+
+
+                          <fieldset>
+                              <div class="form-card">
+                                  <h2 class="fs-title">Payment Information</h2>
+                                  <div class="radio-group">
+                                  </div> <label class="pay">Card Holder Name*</label> <input type="text" name="holdername" placeholder="" />
+                                  <div class="row">
+                                      <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="cardno" placeholder="" /> </div>
+                                      <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="cvcpwd" placeholder="***" /> </div>
+                                  </div>
+                                  <div class="row">
+                                      <div class="col-3"> <label class="pay">Expiry Date*</label> </div>
+                                      <div class="col-9"> <select class="list-dt" id="month" name="expmonth">
+                                              <option selected>Month</option>
+                                              <option>January</option>
+                                              <option>February</option>
+                                              <option>March</option>
+                                              <option>April</option>
+                                              <option>May</option>
+                                              <option>June</option>
+                                              <option>July</option>
+                                              <option>August</option>
+                                              <option>September</option>
+                                              <option>October</option>
+                                              <option>November</option>
+                                              <option>December</option>
+                                          </select> <select class="list-dt" id="year" name="expyear">
+                                              <option selected>Year</option>
+                                          </select> 
+                                        </div>
+                                  </div>
+                              </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="button" name="make_payment" class="next action-button" value="Confirm" />
+                          </fieldset>
+                          <fieldset>
+                              <div class="form-card">
+                                  <h2 class="fs-title text-center">Success !</h2> <br><br>
+                                  <div class="row justify-content-center">
+                                      <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
+                                  </div> <br><br>
+                                  <div class="row justify-content-center">
+                                      <div class="col-7 text-center">
+                                          <h5>You Have Successfully Signed Up</h5>
+                                      </div>
+                                  </div>
+                              </div>
+                          </fieldset>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+    <div class="footer">
+      <p>Copyright Protected - NSMAR</p>
+    </div>
+
+    </body>
+
+
+    
+<script>
+    $(document).ready(function(){
+  
+  var current_fs, next_fs, previous_fs; //fieldsets
+  var opacity;
+  
+  $(".next").click(function(){
+  
+  current_fs = $(this).parent();
+  var f = document.getElementById($(this).closest("fieldset").attr('id'));
+  var input = f.getElementsByTagName("input");
+if(f.id == "10"){
+    for (i = 0; i < 5 ; i++) {
+        if(input[i].value == ""){
+            // window.alert("All fields are required!");
+            if(input[i].checkValidity()){
+                document.getElementById("error").innerHTML = input[i].name + " is required!";
+                input[i].focus();
+                return;
+            }
+        }
+    }
+
+    document.getElementById("error").innerHTML = "";
+}
+if(f.id == "11"){
+    for (i = 0; i < input.length; i++) {
+        if(input[i].value == ""){
+            // window.alert("All fields are required!");
+            if(input[i].checkValidity()){
+                document.getElementById("error1").innerHTML = input[i].name + " is required!";
+                input[i].focus();
+                return;
+            }
+        }
+    }
+
+    document.getElementById("error1").innerHTML = "";
+}
+//   console.log(input[1].value);
+  next_fs = $(this).parent().next();
+  
+  //Add Class Active
+  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+  
+  //show the next fieldset
+  next_fs.show();
+  //hide the current fieldset with style
+  current_fs.animate({opacity: 0}, {
+  step: function(now) {
+  // for making fielset appear animation
+  opacity = 1 - now;
+  
+  current_fs.css({
+  'display': 'none',
+  'position': 'relative'
+  });
+  next_fs.css({'opacity': opacity});
+  },
+  duration: 600
+  });
+  });
+  
+  $(".previous").click(function(){
+  
+  current_fs = $(this).parent();
+  previous_fs = $(this).parent().prev();
+  
+  //Remove class active
+  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+  
+  //show the previous fieldset
+  previous_fs.show();
+  
+  //hide the current fieldset with style
+  current_fs.animate({opacity: 0}, {
+  step: function(now) {
+  // for making fielset appear animation
+  opacity = 1 - now;
+  
+  current_fs.css({
+  'display': 'none',
+  'position': 'relative'
+  });
+  previous_fs.css({'opacity': opacity});
+  },
+  duration: 600
+  });
+  });
+  
+  $('.radio-group .radio').click(function(){
+  $(this).parent().find('.radio').removeClass('selected');
+  $(this).addClass('selected');
+  });
+  
+  $(".submit").click(function(){
+  return false;
+  })
+  
+  });
+  </script>

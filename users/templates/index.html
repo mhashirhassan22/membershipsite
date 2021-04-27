@@ -1,0 +1,273 @@
+  {% include 'head.html' %}   
+  {% load static %}
+  <div class="container register">
+    <div class="row">
+        <div class="col-md-3 register-left">
+            <img src="{% static 'img/logo.png' %}" alt=""/>
+            <p>National Sales & Marketing Resources</p><br>
+            <small>Already have an account?</small>
+            <a href="{% url 'users:login' %}" name="" style="color: #3b5998;">Login</a><br/>
+        </div>
+        <div class="col-md-9 register-right">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Individual</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Business</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Register as a Individual</h3>
+                    <form id="IndividualForm">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="First Name *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Your Email *" value=""  required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password *" value=""  required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="phone" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" required/>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Last Name *" value=""  required/>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control"  placeholder="Confirm Password *" value=""  required/>
+                            </div>
+
+                            <!-- <button type="submit" class="btnRegister">Register</button> -->
+
+                                            <!-- The Modal -->
+                                            <div id="myModal" class="modal">
+                                                
+                                            <!-- Modal content -->
+                                            <div class="modal-content">
+                                                <span style="margin-left: 95%;" class="close">&times;</span>
+                                                <h3 >Disclaimer</h3>
+                                                <div id="div1"></div>
+                
+                
+                                                    <div class="maxl">
+                                                        <label class="radio inline"> 
+                                                            <input type="checkbox" checked>
+                                                            <span> 
+                                                                Contact me using automated calls.
+                                                                (We may still call you using other means if we need to speak with you.)
+                                                             </span> 
+                                                        </label><br>
+                                                        <label class="radio inline"> 
+                                                            <input type="checkbox" checked>
+                                                            <span>Contact me using text messages </span> 
+                                                        </label>
+                                                    </div>
+                
+                                                    <small>
+                                                        Adding my number confirms that I'm authorized to add this number and consent to receiving autodialed and prerecorded calls and texts for the reasons described in our <strong>Privacy Policy</strong>. Standard rates may apply.
+                                                    </small>
+                                                    
+                                                <button class="btnRegister">Confirm Signup</button>
+                                            </div>
+
+                                            </div>
+                        </div>
+                        
+                        <span style="margin-left: 95%;" class="close">&times;</span>
+                        <!-- <h3 >Disclaimer</h3> -->
+                        <div id="div2"></div>
+
+<p>If this is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:</p>
+                            <div class="maxl">
+                                <label class="radio inline"> 
+                                    <input type="checkbox" checked>
+                                    <span> 
+                                        Contact me using automated calls.
+                                        (We may still call you using other means if we need to speak with you.)
+                                     </span> 
+                                </label><br>
+                                <label class="radio inline"> 
+                                    <input type="checkbox" checked>
+                                    <span>Contact me using text messages </span> 
+                                </label>
+                            </div>
+
+                            <p>
+                                Adding my number confirms that I'm authorized to add this number and consent to receiving autodialed and prerecorded calls and texts for the reasons described in our <strong>Privacy Policy</strong>. Standard rates may apply.
+                            </p>
+                            
+
+                        <input type="submit" class="btnRegister"  value="Register"/>
+
+                    </div>
+                </form>
+                
+                </div>
+
+
+                
+                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3  class="register-heading">Register as a Business</h3>
+                    <form id="BusinessForm">
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Business Name *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Contact Name *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Username *" value="" required/>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" required/>
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email *" value="" required/>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Password *" value="" required/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Confirm Password *" value="" required/>
+                            </div>
+
+
+
+
+                                                    <!-- The Modal -->
+                                                    <div id="bModal" class="modal">
+                                                
+                                                        <!-- Modal content -->
+                                                        <div class="modal-content">
+                                                            <span style="margin-left: 95%;" class="close">&times;</span>
+                                                            <h3 >Disclaimer</h3>
+                                                            <div id="div2"></div>
+                            
+                            
+                                                                <div class="maxl">
+                                                                    <label class="radio inline"> 
+                                                                        <input type="checkbox" checked>
+                                                                        <span> 
+                                                                            Contact me using automated calls.
+                                                                            (We may still call you using other means if we need to speak with you.)
+                                                                         </span> 
+                                                                    </label><br>
+                                                                    <label class="radio inline"> 
+                                                                        <input type="checkbox" checked>
+                                                                        <span>Contact me using text messages </span> 
+                                                                    </label>
+                                                                </div>
+                            
+                                                                <small>
+                                                                    Adding my number confirms that I'm authorized to add this number and consent to receiving autodialed and prerecorded calls and texts for the reasons described in our <strong>Privacy Policy</strong>. Standard rates may apply.
+                                                                </small>
+                                                                
+                                                            <button class="btnRegister">Confirm Signup</button>
+                                                        </div>
+            
+                                                        </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>				                            
+<script>
+    // Get the modal
+    var modal1 = document.getElementById("myModal");
+    
+    // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    $('#IndividualForm').on('submit', function(e){
+        $("#div1").empty();
+        var para = document.createElement("p");
+        var node = document.createTextNode("if ");
+        node.textContent += document.getElementById("phone").value;
+        node.textContent += " is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:";
+        para.appendChild(node);
+        var element = document.getElementById("div1");
+        element.appendChild(para);
+        modal1.style.display = "block";
+        e.preventDefault();
+});
+    // btn.onclick = function() {
+
+        
+
+    // }
+    // When the user clicks on <span> (x), close the modal
+    // span.onclick = function() {
+    //   modal1.style.display = "none";
+    // }
+
+    </script>
+    	                            
+<script>
+    // Get the modal
+    var modal = document.getElementById("bModal");
+    
+    // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    $('#BusinessForm').on('submit', function(e){
+        $("#div2").empty();
+        var para = document.createElement("p");
+        var node = document.createTextNode("if ");
+        node.textContent += document.getElementById("phone").value;
+        node.textContent += " is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:";
+        para.appendChild(node);
+        var element = document.getElementById("div2");
+        element.appendChild(para);
+        modal.style.display = "block";
+        e.preventDefault();
+});
+    // btn.onclick = function() {
+
+        
+
+    // }
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+      document.getElementById("myModal").style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+      if (event.target == document.getElementById("myModal")){
+        document.getElementById("myModal").style.display = "none";
+      }
+    }
+    </script>

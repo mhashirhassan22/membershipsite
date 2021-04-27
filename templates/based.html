@@ -1,0 +1,115 @@
+    {% include 'head.html' %}
+    
+{% load static %}
+<style>
+  body{
+    background: url('{% static "img/marketing.jpg" %}') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+  
+ .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #3b5998;;
+   color: white;
+   text-align: center;
+ }
+ .dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.hovel:hover{
+  color:white;
+  background-color: #3b5898bb;
+}
+
+
+</style>
+<script> 
+
+function submitform(){
+  $("#logform").submit();
+}
+
+
+</script>
+    <body>
+
+      <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #3b5998;">
+            <a href="#" class="navbar-brand">
+                <img src="{% static 'img/logo.png' %}" height="80" alt="NSMAR">
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active" style="color: white;">Basic Membership</a>
+                </div>
+                <div class="navbar-nav ml-auto px-5">
+                  <ul id="topnav" class="navbar-nav  w-100 justify-content-left px-1 py-2" >
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://example.com" style="color: white;">
+                      Help
+                    </a>
+
+                  </li>                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" style="color: white;padding-bottom: 15px;" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      John Smith
+                    </a>
+                    <div id="topnavdropdown" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
+                      <a class="dropdown-item" href="#">Message Center</a>
+                      <a class="dropdown-item" href="#">Profile Settings</a>
+                      <form id="logform" method="post" action="{% url 'account_logout' %}">
+                        {% csrf_token %}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                        {% endif %}
+                        <!-- <button  class="nav-link" style="background-color: orangered;"  type="submit">Logout</button> -->
+                      </form>
+                      <a class="dropdown-item"  href="javascript:submitform();">Log out</a>
+                      
+                    </div>
+                  </li>
+                  </ul>
+                </div>
+            </div>
+  
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: -1%;">
+
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar2Collapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbar2Collapse">
+              <div class="navbar-nav">
+                  <a href="#" class="hovel nav-item nav-link active" style="padding-right: 35px;padding-left: 30px;">Home</a>
+                  <a href="#" class="hovel nav-item nav-link" style="padding-right: 35px;">Activity</a>
+                  <a href="#" class="hovel nav-item nav-link" style="padding-right: 35px;">Products & Services</a>
+                  <a href="#" class="hovel nav-item nav-link" style="padding-right: 35px;">Marketing for Growth</a>
+              </div>
+
+          </div>
+
+      </nav>
+    </div>
+
+
+
+    <div class="footer">
+      <p>Copyright Protected - NSMAR</p>
+    </div>
+
+    </body>
