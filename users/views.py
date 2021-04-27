@@ -57,7 +57,7 @@ def requestcode(request):
         verification = client.verify \
                             .services('VA7f2d07a28a78b9879da08b5875f66f50') \
                             .verifications \
-                            .create(to=request.sesison['phone'], channel='sms')
+                            .create(to=request.session['phone'], channel='sms')
     else:
         return HttpResponse("Error sending message, please try again later!")
     return render(request, 'change_password.html')
@@ -74,7 +74,7 @@ def confirmcode(request):
         verification = client.verify \
                                 .services('VA7f2d07a28a78b9879da08b5875f66f50') \
                                 .verification_checks \
-                                .create(to=request.sesison['phone'], code=code)
+                                .create(to=request.session['phone'], code=code)
         print(verification.status)
         if(verification.status == 'pending'):
             return HttpResponse("NOT CORRECT PASSWORD")
