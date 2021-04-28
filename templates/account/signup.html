@@ -5,7 +5,9 @@
 
 {% block content %}
 {% include 'head.html' %}
-    
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 {% load static %}
 <style>
   body{
@@ -401,21 +403,22 @@ function submitform(){
                                   <input type="text" id="User Name" name="username" placeholder="UserName" />
                                    <input type="password" id="Password" name="password1" placeholder="Password" /> 
                                    <input type="password" id="Confirm Password" name="password2" placeholder="Confirm Password"/>
-                                   <input type="text" id="Phone" name="phone" placeholder="Contact No." /> 
+                                   <input type="text" id="Phone" name="phone" placeholder="Contact No." />
+                                   
                                    <p>If this is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about 
                                        your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. 
                                        If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:</p>
-                                   <div>
-                                    <input class="form-check-input" style="margin-left: 38%;margin-top: 1.2%;" type="checkbox" value="" id="flexCheckDefault" checked>
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        &#8226;  Contact me using automated calls.
+                                    <div class="d-flex justify-content-left" style="display: inline-flex;"> 
+                                    <input type="checkbox" value="" id="flexCheckDefault" checked>
+                                    <label for="flexCheckDefault">
+                                        Contact me using automated calls
                                         (We may still call you using other means if we need to speak with you.)                                    
                                     </label>
                                   </div>
-                                  <div>
-                                    <input class="form-check-input" style="margin-top: 1.2%;" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        &#8226; Contact me using text messages
+                                  <div class="d-flex justify-content-left" style="display: inline-flex;width: auto; align-self: flex-start;"> 
+                                    <input type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <label for="flexCheckChecked">
+                                        Contact me using text messages
                                     </label>
                                   </div>
                                   <p style="padding-top: 10px;">
