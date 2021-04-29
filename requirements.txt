@@ -30,6 +30,7 @@ django-autoslug==1.9.8
 django-autoslug-iplweb==1.9.4.dev0
 django-cities-light==3.8.1
 django-coverage-plugin==1.6.0
+django-credit-cards==0.4.1
 django-crispy-forms==1.8.1
 django-debug-toolbar==2.1
 django-environ==0.4.5

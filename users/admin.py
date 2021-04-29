@@ -11,5 +11,5 @@ User = get_user_model()
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    pass
+    fieldsets = (("User", {"fields": ("phone", "business_name", "website")}),) + admin.UserAdmin.fieldsets
 
