@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from decimal import Decimal
 from django.views.decorators.csrf import csrf_exempt
@@ -11,17 +11,15 @@ import os
 from twilio.rest import Client
 import pytz
 from .models import User
+import json
+from django.http import JsonResponse
+from datetime import date
 
-@login_required
+# @login_required
 def index(request):
-    context = {
-        'cities': City.objects.all(),
-        'regions': Region.objects.all(),
-        'countries': Country.objects.all(),
-        'timezone': pytz.common_timezones,
-        'service': ServiceArea.objects.all()
-    }
-    return render(request, 'based.html', context)
+    if request.user.is_authenticated:
+        return render(request, 'based.html', {})
+    return render(request, 'landing_page.html', {})
 
 
 def login(request):
@@ -47,9 +45,9 @@ def requestcode(request):
                 request.session['email'] = email
                 request.session['phone'] = exist.phone
             else:
-                return HttpResponse("Phone does not match the user")
+                return render(request, 'forgot_password.html', {'error':'Phone does not match the user'})
         except:
-            return HttpResponse("Unexpected Error...!")
+            return render(request, 'forgot_password.html', {'error':'Credentials not correct.'})
     account_sid = 'AC25a06a6346e507691a44414a56dfd055'
     auth_token = '762bf7cce3514918e9c1dbe5c5c7931a'
     client = Client(account_sid, auth_token)
@@ -59,7 +57,7 @@ def requestcode(request):
                             .verifications \
                             .create(to=request.session['phone'], channel='sms')
     except:
-        return HttpResponse("Incorrect phone number.")
+        return render(request, 'forgot_password.html', {'error':'Incorrect phone number.'})
     return render(request, 'change_password.html')
 
 
@@ -77,7 +75,7 @@ def confirmcode(request):
                                 .create(to=request.session['phone'], code=code)
         print(verification.status)
         if(verification.status == 'pending'):
-            return HttpResponse("NOT CORRECT PASSWORD")
+            return render(request, 'change_password.html', {'error':'Verification code does not match. Please try again.'})
         return render(request, 'confirm_password.html')
 
 
@@ -87,19 +85,54 @@ def set_password(request):
         return render(request, 'confirm_password.html')
     else:
         try:
-            user = User.objects.filter(email=request.session['email'])
+            user = User.objects.get(email=request.session['email'])
             print(request.session['email'])
             if(user):
                 pass
             else:
-                return HttpResponse("No user with this email")
+                return render(request, 'confirm_password.html', {'error':'User not found. Connect Interrupted!'})
             del request.session['email']
             del request.session['phone']
         except:
-            return HttpResponse("User Not Found")
+            return render(request, 'confirm_password.html', {'error':'User not found. Connect Interrupted!'})
         p1 = request.POST['password1']
         p2 = request.POST['password2']
-        user.set_password(p1)
-        user.save()
+        if(p1 and p2 and p1 == p2):
+            user.set_password(p1)
+            user.save()
+        else:
+            return render(request, 'confirm_password.html', {'error':'Password fields do not match'})
 
-        return HttpResponse("success in changing password. Please login again")
+        return redirect("login_again")
+
+
+def login_again(request):
+    return render(request, 'login_again.html')
+
+
+
+def verify_payment(request):
+    if request.method == 'GET':
+        return render(request, 'confirm_password.html')
+    else:
+        context = {}
+        card_number = json.loads(request.POST.get("card_number"))
+        card_code = json.loads(request.POST.get("card_code"))
+        card_expiry = json.loads(request.POST.get("card_expiry"))
+        print(card_expiry)
+        print(card_number)
+        print(card_code)
+        obj = CreditCard()
+        try:
+            obj.cc_code = card_code
+            obj.card_number = card_number
+            if(card_expiry>date.today().month):
+                print("AAAAAAAAAAAAA")
+            obj.card_expiry = date.today()
+            context['success'] = "VERified"
+
+        except:
+            context['fail'] = "fail"
+
+        # obj.save()
+        return JsonResponse(context)

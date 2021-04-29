@@ -1,15 +1,27 @@
 from django.contrib.auth.models import AbstractUser
 from django.db.models import CharField
 from django.db import models
+from creditcards.models import CardNumberField, CardExpiryField, SecurityCodeField
+from creditcards import types
 import uuid
 # # Create your models here.
+
+
+
+class CreditCard(models.Model):
+    cc_number = CardNumberField(('card number'))
+    cc_expiry = models.DateTimeField()
+    cc_code = SecurityCodeField(('security code'))
+
+    @property
+    def card_type(self):
+        return types.get_type(self.cc_number) if cc_number else None
 
 
 class User(AbstractUser):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     member_id = models.CharField(max_length=10, null=False, blank=True)
     work_title = models.CharField(max_length=50, null=True, blank=True)
-    credit_card = models.CharField(max_length=30, null=True, blank=True)
     business_name = models.CharField(max_length=256, null=True, blank=True)
     website = models.CharField(max_length=50, null=True, blank=True)
     address = models.CharField(max_length=256, null=True, blank=True)
@@ -28,6 +40,7 @@ class User(AbstractUser):
 
 class ServiceArea(models.Model):
     name = models.CharField(max_length=200, unique=True, blank=False, null=False)
+
 try:
     if(ServiceArea.objects.count()<5):
         t = ServiceArea.objects.create(name="Global")

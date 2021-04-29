@@ -13,4 +13,6 @@ urlpatterns = [
         path('forgot-password-request/', requestcode , name="forget_password"),
         path('verify-password-request/', confirmcode , name="verify_code"),
         path('set-password/', set_password , name="set_password"),
+        path('redirect-login/', login_again , name="login_again"),
+        path('verify/payment/', verify_payment , name="verify-payment"),
 ]

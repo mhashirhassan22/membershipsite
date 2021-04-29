@@ -296,7 +296,7 @@ function submitform(){
     
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active" style="color: white;">Become A Member</a>
+                    <a href="{% url 'account_signup' %}" class="nav-item nav-link active" style="color: white;">Become A Member</a>
                 </div>
                 <div class="navbar-nav ml-auto px-5">
                   <ul id="topnav" class="navbar-nav  w-100 justify-content-left px-1 py-2" >
@@ -360,11 +360,11 @@ function submitform(){
                       <form id="msform">
                           <!-- progressbar -->
                           <ul id="progressbar">
-                              <li class="active" id="account" style="margin-left: 38%;"><p>Welcome <strong style="color: red;">Back</strong>!</p></li>
+                              <li class="active" id="account" style="margin-left: 38%;"><p>Password Changed Successfully!</p></li>
                           </ul> <!-- fieldsets -->
                           <fieldset id="10">
                               <div class="form-card">
-                                  <h2 class="fs-title">Account Information</h2> 
+                                  <h2 class="fs-title">Go to Login</h2> 
                                   <input type="email" name="email" placeholder="Email Id" /> 
                                    <input type="password" name="password" placeholder="Password" />
                                    <div>

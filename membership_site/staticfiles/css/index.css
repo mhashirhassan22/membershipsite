@@ -1,10 +1,10 @@
 
 * {
-   font-size: 18px;
+   font-size: 16px;
    line-height: 32px;
 }
 .register{
-   background: -webkit-linear-gradient(left, #64943E, #96bf48);
+   background: -webkit-linear-gradient(left,#11c293 , #61D2B4);
    margin-top: 3%;
    padding: 3%;
 }
@@ -13,6 +13,7 @@
    color: #fff;
    margin-top: 4%;
 }
+
 .register-left input{
    border: none;
    border-radius: 1.5rem;
@@ -82,7 +83,7 @@
    border: none;
    border-radius: 1.5rem;
    padding: 2%;
-   background: #3b5998;
+   background: #587cca;
    color: #fff;
    font-weight: 600;
    width: 100%;
@@ -189,4 +190,3 @@
        height: auto;
     }
  }
-

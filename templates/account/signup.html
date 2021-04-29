@@ -19,11 +19,10 @@
   }
   
  .footer {
-   position: fixed;
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: #3b5998;;
+   background-color: #61D2B4;
    color: white;
    text-align: center;
  }
@@ -122,7 +121,7 @@ html {
 
 #msform .action-button {
     width: 100px;
-    background: skyblue;
+    background: #61D2B4;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -163,7 +162,7 @@ select.list-dt {
 }
 
 select.list-dt:focus {
-    border-bottom: 2px solid skyblue
+    border-bottom: 2px solid #61D2B4
 }
 
 .card {
@@ -249,7 +248,7 @@ select.list-dt:focus {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: skyblue
+    background: #61D2B4
 }
 
 .radio-group {
@@ -298,7 +297,7 @@ function submitform(){
     <body>
 
       <div class="bs-example">
-        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #3b5998;">
+        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #61D2B4">
             <a href="#" class="navbar-brand">
                 <img src="{% static 'img/logo.png' %}" height="80" alt="NSMAR">
             </a>
@@ -308,7 +307,7 @@ function submitform(){
     
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active" style="color: white;">Become A Member</a>
+                    <a href="{% url 'account_signup' %}" class="nav-item nav-link active" style="color: white;">Become A Member</a>
                 </div>
                 <div class="navbar-nav ml-auto px-5">
                   <ul id="topnav" class="navbar-nav  w-100 justify-content-left px-1 py-2" >
@@ -404,22 +403,24 @@ function submitform(){
                                    <input type="password" id="Password" name="password1" placeholder="Password" /> 
                                    <input type="password" id="Confirm Password" name="password2" placeholder="Confirm Password"/>
                                    <input type="text" id="Phone" name="phone" placeholder="Contact No." />
-                                   
+                                   <small>Please enter phone with country code and without spaces</small>
                                    <p>If this is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about 
                                        your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. 
                                        If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:</p>
                                     <div class="d-flex justify-content-left" style="display: inline-flex;"> 
+                                        <label for="flexCheckDefault">
+                                            Contact me using automated calls
+                                            (We may still call you using other means if we need to speak with you.)                                    
+                                        </label>
                                     <input type="checkbox" value="" id="flexCheckDefault" checked>
-                                    <label for="flexCheckDefault">
-                                        Contact me using automated calls
-                                        (We may still call you using other means if we need to speak with you.)                                    
-                                    </label>
+
                                   </div>
                                   <div class="d-flex justify-content-left" style="display: inline-flex;width: auto; align-self: flex-start;"> 
-                                    <input type="checkbox" value="" id="flexCheckChecked" checked>
                                     <label for="flexCheckChecked">
                                         Contact me using text messages
                                     </label>
+                                    <input type="checkbox" value="" id="flexCheckChecked" checked>
+
                                   </div>
                                   <p style="padding-top: 10px;">
                                     Adding my number confirms that I'm authorized to add this number and consent to receiving autodialed and prerecorded calls and
@@ -453,7 +454,7 @@ function submitform(){
                                         <br>
                                         <strong> Select Region </strong>
                                         <select class="form-control" name="state" id="select3">
-                                            <option disabled selected value> -- </option>
+                                            <option id="disabled1" disabled selected value> -- </option>
                                             {% for region in form.state.field.queryset %}
                                                         <option value="{{ region.country_id }}" data-region="{{ region.id }}">{{ region.name }}</option>
                                             {% endfor %}
@@ -461,7 +462,7 @@ function submitform(){
                                         <br>
                                         <strong> Select City </strong>
                                         <select class="form-control" name="city" id="select2">
-                                            <option disabled selected value> -- </option>
+                                            <option id="disabled2" disabled selected value> -- </option>
                                             {% for city in form.city.field.queryset %}
                                                     <option value="{{ city.region_id }}">{{ city.name }}</option>
                                             {% endfor %}
@@ -472,12 +473,7 @@ function submitform(){
                                     {{form.timezone}}
                                 <br>
                                 <strong> Select Service Area </strong>
-                                <select class="form-control" name="servicearea">
-                                    <option disabled selected value> -- </option>
-                                            {% for city in service %}
-                                                <option value="{{ city.region_id }}">{{ city.name }}</option>
-                                            {% endfor %}
-                                    </select>
+                                    {{form.servicearea}}
                                     <script>
                                         var $select1 = $('#select1'),
                                             $select2 = $('#select2'),
@@ -487,6 +483,7 @@ function submitform(){
     
                                         $select1.on('change', function() {
                                             $select3.html($options3.filter('[value="' + this.value + '"]'));
+                                            document.getElementById("disabled1").selected=true;
                                             // $select2.html($options.filter('[value="' + this.value + '"]'));
                                         }).trigger('change');
     
@@ -495,6 +492,7 @@ function submitform(){
                                         $select3.on('change', function() {
                                             var value2 = $(this).find(':selected').data('region');
                                             $select2.html($options.filter('[value="' + value2 + '"]'));
+                                            document.getElementById("disabled2").selected=true;
                                         }).trigger('change');
                                     </script>                                  
                               </div> 
@@ -540,12 +538,12 @@ function submitform(){
                                   <div class="radio-group">
                                   </div> <label class="pay">Card Holder Name*</label> <input type="text" name="holdername" placeholder="" />
                                   <div class="row">
-                                      <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="cardno" placeholder="" /> </div>
-                                      <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="cvcpwd" placeholder="***" /> </div>
+                                      <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="card_number" placeholder="" /> </div>
+                                      <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="card_code" placeholder="***" /> </div>
                                   </div>
                                   <div class="row">
                                       <div class="col-3"> <label class="pay">Expiry Date*</label> </div>
-                                      <div class="col-9"> <select class="list-dt" id="month" name="expmonth">
+                                      <div class="col-9"> <select class="list-dt" id="month" name="card_month">
                                               <option selected>Month</option>
                                               <option>January</option>
                                               <option>February</option>
@@ -559,12 +557,12 @@ function submitform(){
                                               <option>October</option>
                                               <option>November</option>
                                               <option>December</option>
-                                          </select> <select class="list-dt" id="year" name="expyear">
+                                          </select> <select class="list-dt" id="year" name="card_year">
                                               <option selected>Year</option>
                                           </select> 
                                         </div>
                                   </div>
-                              </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input type="submit" name="make_payment" class="next action-button" value="Confirm" />
+                              </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input name="make_payment" type="submit" class="next action-button" value="Confirm" />
                           </fieldset>
                           <fieldset>
                               <div class="form-card">
@@ -586,11 +584,16 @@ function submitform(){
       </div>
   </div>
 </div>
+<div class="d-flex flex-column">
+    <nav>
+    </nav>
+    <main class="flex-fill">
+    </main>
+    <footer class="footer">
+        <p>Copyright Protected - NSMAR</p>
+    </footer>
+</div>
 
-
-    <div class="footer">
-      <p>Copyright Protected - NSMAR</p>
-    </div>
 
     </body>
 
@@ -690,7 +693,7 @@ $(document).ready(function(){
         document.getElementById("fieldset2error").innerHTML = "Alert: ";
         document.getElementById("fieldset2error").style.display = "none";
     }
-//   console.log(input[1].value);
+  console.log(input[1].value);
   next_fs = $(this).parent().next();
   
   //Add Class Active
@@ -750,8 +753,39 @@ $(document).ready(function(){
   $(".submit").click(function(){
   return false;
   })
-  
   });
+
+  function verify(){
+            var csrf_token = $('[name="csrfmiddlewaretoken"]').val();
+            var card_number = $(".card_number").value;
+            var card_code = $(".card_code").value;
+            var card_month = $(".card_month").value;
+            var card_year = $(".card_year");
+            if(card_number == "" && card_code == "" && card_month == "" && card_year == ""){
+                $("#carderror").innerHTML = "All fields are required";
+                return;
+            }
+            $.ajax({
+                url: "/verify/payment/",
+                type: "POST",
+                data: {
+                    'csrfmiddlewaretoken': csrf_token,
+                    'card_number': JSON.stringify(card_number),
+                    'card_code': JSON.stringify(card_code),
+                    'card_expiry': JSON.stringify(card_month+card_year),        
+                },
+                success: function(data) {
+                    if (data["success"]){
+                        console.log("Payment verified");
+                    }
+                    else 
+                    {
+                        console.log("NOT VERIFIED");
+                    }
+                }
+            });
+  }
+
   </script>
 
 {% endblock %}
