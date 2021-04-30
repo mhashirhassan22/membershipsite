@@ -19,7 +19,7 @@ from datetime import date
 def index(request):
     if request.user.is_authenticated:
         return render(request, 'based.html', {})
-    return render(request, 'landing_page.html', {})
+    return render(request, 'first.html', {})
 
 
 def login(request):

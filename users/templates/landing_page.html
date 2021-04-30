@@ -22,12 +22,27 @@
     <link rel="stylesheet" href="{% static 'landing/css/animate.css' %}">
     <link rel="stylesheet" href="{% static 'landing/css/main.css' %}">    
     <link rel="stylesheet" href="{% static 'landing/css/responsive.css' %}">
+    <style>
+      #myModal {
+        outline: none;
+        right:70%;
+        margin-top: 35%;
+    }
+    @media (max-width: 480px) {
+      #myModal {
+        top:55%;
+    right: inherit;
+  }
+}
+    .pointer {cursor: pointer;}
+    </style>
 
   </head>
   <body>
 
     <!-- Header Section Start -->
     <header id="hero-area" data-stellar-background-ratio="0.5">    
+      
       <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
         <div class="container">
@@ -38,7 +53,7 @@
               <i class="lnr lnr-menu"></i>
             </button>
           </div>
-          <div class="collapse navbar-collapse" id="main-navbar">
+          <div class="row collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#hero-area">Home</a>
@@ -362,6 +377,26 @@
     </section>
     <!-- Contact Section End -->
 
+  <!-- Button trigger modal -->
+  <div class="modal fade" id="myModal" data-backdrop=false>
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <b>Want free advertisement and help for your business?</b>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <a class="btn pointer" style="color: gray;" data-dismiss="modal">Skip Trial</a>
+          <a href="{% url 'account_signup' %}" class="btn pointer" style="color: blue;" data-dismiss="modal">7 DAYS FREE</a>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
     <!-- Footer Section Start -->
     <footer>          
       <div class="container">
@@ -426,6 +461,15 @@
     <script src="{% static 'landing/js/form-validator.min.js' %}"></script>
     <script src="{% static 'landing/js/contact-form-script.js' %}"></script>   
     <script src="{% static 'landing/js/main.js' %}"></script>
+    <script>
+      setTimeout(function() { showModal(); }, 3000);
+      function showModal(){
+        var y = window.scrollY+450;
+        console.log(y);
+        console.log(window.scrollY);
+        $("#myModal").modal('toggle');
 
+      }
+    </script>
   </body>
 </html>

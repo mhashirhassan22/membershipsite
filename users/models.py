@@ -56,6 +56,9 @@ except:
 
 class Interest(models.Model):
     name = models.CharField(max_length=300, unique=True, blank=False, null=False)
+    
+    def __str__(self):
+        return self.name
 
 try:
     if(Interest.objects.count()<23):
