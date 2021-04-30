@@ -611,7 +611,7 @@ function passwordIsValid(password){
     return !(/^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/.test(password));
 }
 function phoneIsValid(phone){
-    return /^\d+$/.test(phone);
+    return /^\d+$/.test(phone.substring(1));
 }
 function websiteIsValid(website){
     return /^((?!-)[A-Za-z0-9-]{1, 63}(?<!-)\\.)+[A-Za-z]{2, 6}$/.test(website);

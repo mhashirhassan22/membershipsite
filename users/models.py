@@ -18,24 +18,6 @@ class CreditCard(models.Model):
         return types.get_type(self.cc_number) if cc_number else None
 
 
-class User(AbstractUser):
-    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    member_id = models.CharField(max_length=10, null=False, blank=True)
-    work_title = models.CharField(max_length=50, null=True, blank=True)
-    business_name = models.CharField(max_length=256, null=True, blank=True)
-    website = models.CharField(max_length=50, null=True, blank=True)
-    address = models.CharField(max_length=256, null=True, blank=True)
-    is_business = models.BooleanField(default=False)
-    phone = models.CharField(max_length=60, null=True, blank=True)
-    country = models.CharField(max_length=60, null=True, blank=True)
-    state = models.CharField(max_length=60, null=True, blank=True)
-    city = models.CharField(max_length=60, null=True, blank=True)
-    timezone = models.CharField(max_length=60, null=True, blank=True)
-
-    
-    def __str__(self):
-        return self.username
-
 
 
 class ServiceArea(models.Model):
@@ -53,6 +35,34 @@ try:
         t = ServiceArea.objects.create(name="USA/Canada")
 except:
     pass
+
+
+
+class User(AbstractUser):
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
+    member_id = models.CharField(max_length=10, null=False, blank=True)
+    work_title = models.CharField(max_length=50, null=True, blank=True)
+    business_name = models.CharField(max_length=256, null=True, blank=True)
+    website = models.CharField(max_length=50, null=True, blank=True)
+    address = models.CharField(max_length=256, null=True, blank=True)
+    is_business = models.BooleanField(default=False)
+    phone = models.CharField(max_length=60, null=True, blank=True)
+    country = models.CharField(max_length=60, null=True, blank=True)
+    state = models.CharField(max_length=60, null=True, blank=True)
+    city = models.CharField(max_length=60, null=True, blank=True)
+    timezone = models.CharField(max_length=60, null=True, blank=True)
+    servicearea = models.ForeignKey(
+        ServiceArea,
+        on_delete=models.PROTECT,
+        related_name='user_interests',
+    )
+
+
+    
+    def __str__(self):
+        return self.username
+
+
 
 class Interest(models.Model):
     name = models.CharField(max_length=300, unique=True, blank=False, null=False)
