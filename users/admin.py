@@ -17,7 +17,7 @@ class UserInterestInline(admin.TabularInline):
 
 @admin.register(User)
 class UserAdmin(UserAdmin):
-    fieldsets = auth_admin.UserAdmin.fieldsets + (("User", {"fields": ("phone", "business_name", "website", "address","country","state","city","timezone")}),)
+    fieldsets = auth_admin.UserAdmin.fieldsets + (("User", {"fields": ("phone", "business_name", "website", "address","country","state","city","timezone","servicearea")}),)
     inlines = [ UserInterestInline, ]
 
 

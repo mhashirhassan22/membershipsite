@@ -110,3 +110,6 @@ class UserInterest(models.Model):
         related_name='interests'
     )
 
+    def __str__(self):
+        return self.interest
+

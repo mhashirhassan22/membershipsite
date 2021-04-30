@@ -28,7 +28,7 @@ class CustomSignupForm(UserCreationForm):
     state = forms.ModelChoiceField(queryset=Region.objects.all().distinct(), empty_label="-")
     timezone = forms.ChoiceField(choices=[(x, x) for x in pytz.common_timezones])
     interest = forms.ChoiceField(choices=[(x.name, x.name) for x in Interest.objects.all().distinct()], required=False)
-    servicearea = forms.ChoiceField(choices=[(x.name, x.name) for x in ServiceArea.objects.all().distinct()], required=False)
+    servicearea = forms.ModelChoiceField(queryset=ServiceArea.objects.all().distinct(), empty_label="-")
     # cc_number = CardNumberField(label='Card Number', required=False)
     # cc_expiry = forms.DateTimeField(required=False)
     # cc_code = SecurityCodeField(label='CVV/CVC', required=False)
@@ -55,7 +55,8 @@ class CustomSignupForm(UserCreationForm):
             'country',
             'city',
             'state',
-            'timezone'
+            'timezone',
+            'servicearea'
             
         ]
 
@@ -85,15 +86,6 @@ class CustomSignupForm(UserCreationForm):
         # Ensure you call the parent classes save.
         # .save() returns a User object.
         user = super(CustomSignupForm, self).save(request)
-        try:
-            area = request.POST['servicearea']
-            if(area):
-                obj = UserInterest()
-                obj.interest = ServiceArea.objects.get(id=area)
-                obj.user = user
-                obj.save()
-        except:
-            print("INTEREST NOT SAVED")
 
         for x in request.POST.getlist("checks[]"):
             obj = UserInterest()
