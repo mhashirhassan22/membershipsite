@@ -1,20 +1,6 @@
-<!DOCTYPE html>
-
-{% load static %}
-<html lang="en">
-<head>
-  <title>{% block title %} NSMAR {% endblock %}</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</head>
+    {% include 'head.html' %}
     
+{% load static %}
 <style>
 
  .footer {
@@ -50,22 +36,6 @@
 .fa-12x{
   font-size: 1.2em;
 }
-</style>
-<style>
-  #myModal {
-    outline: none;
-    right:80%;
-    margin-top: 35%;
-
-}
-
-@media (max-width: 480px) {
-  #myModal {
-    top:55%;
-right: inherit;
-}
-}
-.pointer {cursor: pointer;}
 </style>
 
 <script> 
@@ -138,7 +108,6 @@ function submitform(){
               </div>
 
           </div>
-
           <div class="collapse navbar-collapse" id="navbarCollapse">
 
             <div class="navbar-nav ml-auto px-5">
@@ -190,33 +159,4 @@ function submitform(){
         </div>
       </div>
     </div>
-    <div class="modal fade" id="myModal" style="margin-right:89%" data-backdrop=false>
-      <div class="modal-dialog">
-        <div class="modal-content">
-  
-          <!-- Modal body -->
-          <div class="modal-body">
-            <b>Want free advertisement and help for your business?</b>
-          </div>
-          
-          <!-- Modal footer -->
-          <div class="modal-footer">
-            <a class="btn pointer" style="color: gray;" data-dismiss="modal">Skip Trial</a>
-            <a href="{% url 'account_signup' %}" class="btn pointer" style="color: blue;" data-dismiss="modal">7 DAYS FREE</a>
-          </div>
-          
-        </div>
-      </div>
-    </div>
-    
-    <script>
-      setTimeout(function() { showModal(); }, 3000);
-      function showModal(){
-        var y = window.scrollY+450;
-        console.log(y);
-        console.log(window.scrollY);
-        $("#myModal").modal('toggle');
-
-      }
-    </script>
     </body>
