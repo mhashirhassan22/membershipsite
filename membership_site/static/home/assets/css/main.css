@@ -33,6 +33,9 @@ Text Domain:  Marazzo
 
 
 /*desktop*/
+.hid{
+  display: hidden;
+}
 .p1{
   font-size: small;width: 70%;
 }
@@ -1550,8 +1553,10 @@ header{
   -o-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
   font-weight:500;
+  padding: 0px 5px 5px 4px;
   letter-spacing:normal;
-      position: relative;
+  position: relative;
+  margin-top: 17px
 
 }
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li .menu-label {
@@ -1765,7 +1770,70 @@ header{
 .header-nav .navbar-default .dropdown .dropdown-menu.pages .links > li > a:focus {
   margin-left: 0px;
 }
+@media only screen and (min-width: 1200px) {
+
+  .btn-success:hover{
+    background-color: rgb(72, 187, 166);
+  }
+
+  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="_blank"] {
+    padding-left: 15px;
+  }
+  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="vbar"] {
+    border-right-width: 1px;
+    border-right-style: solid;
+    padding-right: 5px;
+  }
+  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="vbar1"] {
+    border-right-width: 1px;
+    border-right-style: solid;
+    padding-right: 5px;
+    padding-left: 4px;
+  }
+  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="vbar2"] {
+    padding-left: 5px;
+    margin-right: 50px;
+  }
+  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="logo"] {
+    padding-left: 0px;
+    font-size: 24px;
+    font-weight: 700;
+    color:#0ea55f;
+    margin-top: 0px;
+    padding-top: 12px;
+    margin-right: 60px;
+  }
+  .col-sm-4 {
+    width: 41%;
+}
+.distance{
+  margin-left: 70px;
+  width: 48.333%;
+}
+.pad1{
+  margin-left: -24px;
+}
+.body-content{
+  background-color:white;
+  margin-top: 0px;
+  padding-top: 30px;
+}
+.ok {
+  width: 35%;
+}
+.head1{
+  color: #5a99d0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+}
+
+
 @media (min-width: 768px) and (max-width: 991px) {
+  .wid{
+    width: 90.333%;
+  }
   html, body {
     height: 100%;
     width: 100%; 
@@ -1783,7 +1851,6 @@ header{
     font-weight:320;
     position: relative;
     padding: 18px 10px 10px 10px;
-  
   }
   li{
     padding-left: 0px;
@@ -1804,18 +1871,22 @@ padding-right: 0px;
   div.logo{
     padding: 0 20px 0 20px;
     margin-right: 5px;
-    
-  
   }
+
   div.logo h2{
     margin-top: 10px;
   }
   .col-sm-8 {
-    width: 100%;
+    width: 60%;
+    text-align: left;
+    width: 53%;
+    text-align: left;
+    margin-left: 40px;
 }
 .ok{
   float: right;
 }
+
 }
 
 @media only screen and (max-width: 767px) {
@@ -1856,20 +1927,26 @@ padding-right: 0px;
   a {
     cursor: pointer;
   }
+  .head1{
+    font-size: 8px;
+    text-decoration: underline;
+    margin-left: 10px;
+    color: #0f6cb2;
+  }
   
   .header-top-inner h4{
-    font-size: 9px;
+    font-size: medium;
     text-align: center;
   }
   .header-top-inner button{
-    font-size: 9px;
+    font-size: x-small;
     background-color: rgb(182, 0, 0);
     color: white;
     padding: 2px 2px;
     margin-right: 120px;
-    margin-left: 100px;
+    margin-left: 90px;
     margin-top: 2px;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
   }
   div.logo{
     padding: 0 0 0 20px;
@@ -1894,7 +1971,7 @@ padding-right: 0px;
     padding-left: 25px;
   }
   .top-bar .cnt-account ul > li a span{display: none;}
-  .navbar-toggle {float:left; border:none}
+  .navbar-toggle {float:left; }
   .navbar-default .navbar-toggle .icon-bar {background-color: rgb(7, 7, 7);}
   .navbar-collapse {box-shadow:none; border:none; padding-right: 15px; padding-left: 15px;}
   .header-style-1 .header-nav .navbar-default .navbar-collapse {padding-right: 15px; padding-left: 15px;}
@@ -1914,6 +1991,9 @@ padding-right: 0px;
   }
   .p1{
     font-size: small;width: 100%;
+  }
+  .hide {
+    display: hidden;
   }
   }
  
