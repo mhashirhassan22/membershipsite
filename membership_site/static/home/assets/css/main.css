@@ -30,68 +30,16 @@ Text Domain:  Marazzo
 /*===================================================================================*/
 /*  Body
 /*===================================================================================*/
-@media only screen and (max-width: 767px) {
-img{
-  max-height: 300;
-  width: 300px;
-}
-.header-top-inner{
-  display: block;
-}
-a{
-  cursor: pointer;
-}
 
-.header-top-inner h4{
-  font-size: 9px;
-}
-div.logo{
-  padding: 0 0 0 20px;
-}
-div.col-sm-4{
-  padding: 0 10px 0 15px;
-}
-div.col-sm-8{
-  padding: 0 20px 0 15px;
-}
-div.main-header {
-  padding: 0px 0px 10px 0px;
-  background: #0ea55f;
-}
-div.right{
-  padding-left: 25px;
-}
-.top-bar .cnt-account ul > li a span{display: none;}
-.navbar-toggle {float:left; border:none}
-.navbar-default .navbar-toggle .icon-bar {background-color: #fff;}
-.navbar-collapse {box-shadow:none; border:none; padding-right: 15px; padding-left: 15px;}
-.header-style-1 .header-nav .navbar-default .navbar-collapse {padding-right: 15px; padding-left: 15px;}
-.header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a {border:none;    padding: 10px 10px;}
-.mega-menu img {width:100%;    display: none;}
-.sidebar .side-menu nav .nav > li > .mega-menu .yamm-content .dropdown-banner-holder {
-   right: 0px; 
-   top: 0px; 
-}
-.yamm .dropdown-menu .yamm-content .col-menu {margin-bottom:15px}
 
-.top-search-holder {
-  padding: 0 15px;
-}
-div.form-search button{
-
-  background-color:  #6caee0;
-  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  color: #black;
-  padding: 15px 22px;
-  margin-left: -4px;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background-color: #0ea55f;
-
-}
-} 
 /*desktop*/
+.p1{
+  font-size: small;width: 70%;
+}
+.p{
+  font-size: small;
+  width: 70%;
+}
 .mobile-break{
   visibility: hidden;
 }
@@ -114,49 +62,67 @@ div.form-search button{
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
   padding: 14px 15px 14px 10px;
   border: 1px solid #b6c3cd;;
-  border-right: 0;
   color:#4E565C;
   outline: none;
   -webkit-appearance: none;
 }
 
 .form-search button{
-  border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  background-color:  #6caee0;
+  background-color: rgba(28, 155, 28, 0.767);
+  color: white;
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
-  color: #black;
-  padding: 15px 22px;
-  margin-left: -4px;
+  padding: 12px 12px 12px 12px;
+  margin-left: 5px;
   cursor: pointer;
-  border: none;
+  font-weight: 500;
+  border-radius: 4px;
+  border: white;
   outline: none;
   background-color: #0ea55f;
-  border-radius: 0px 999px 999px 0px;
-  padding-top: 13.1px;
-  padding-bottom: 14px;
+  font-size: 16px;
+
+}
+.form-search button:hover{
+  background-color: rgb(72, 187, 166);
 }
 
 .form-search i{
   top: 15px;
   left: 20px;
   font-size: 16px;
-  color: #white;
+  color: white;
 }
 
 
 .header-style-1 .header-nav {
   background: white;
   border-top: 1px solid hsla(0,0%,100%,.2);
-  border-radius: 0px 0px 0px 200px;
 }
 .logo {
   color: white;
   padding: 0px 0px 0px 120px;
+  text-align: right;
 }
 button{
   background-color:red;
   color:white;
+}
+.header-top-inner button{
+  background-color: rgb(182, 0, 0);color: white;
+  display: inline-block;
+padding: 6px 12px;
+margin-bottom: 0;
+font-size: 16px;
+font-weight: 400;
+line-height: 1.42857143;
+text-align: center;
+white-space: nowrap;
+vertical-align: middle;
+cursor: pointer;
+user-select: none;
+background-image: none;
+border: 1px solid transparent;
+border-radius: 4px;
 }
 .header-top-inner {
 text-align: center;
@@ -167,7 +133,9 @@ text-align: center;
 }
 ul {
   list-style: none;
+  
 }
+
 a {
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
@@ -200,7 +168,9 @@ a:active,
 a:focus {
   cursor:pointer ;
 }
-
+img[src="assets/images/blank.gif"] {
+  background: url("../images/ajax.gif") no-repeat scroll center center #ffffff;
+}
 
 .btn-upper {
   text-transform: uppercase;
@@ -834,7 +804,7 @@ a {
   color: #12cca7;
 }
 .header-style-1 .header-nav {
-  background: #12cca7;
+  background: white;
 }
 .cnt-home .header-style-1 .header-nav .navbar .navbar-nav > li.active {
 
@@ -1479,6 +1449,7 @@ header{
     text-align: center;
     font-weight: normal;
     margin-right: 11px;
+    background: url(../images/icon-cart.png) no-repeat top left;
     padding: 15px 0px;
     border-radius: 5px;
     width: 50px;
@@ -1570,11 +1541,10 @@ header{
 
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-  color: #FFFFFF;
+  color: black;
   font-family: 'Barlow', sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   line-height:normal;
-  padding: 18px 18px;
   -webkit-transitio: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
@@ -1795,4 +1765,155 @@ header{
 .header-nav .navbar-default .dropdown .dropdown-menu.pages .links > li > a:focus {
   margin-left: 0px;
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  html, body {
+    height: 100%;
+    width: 100%; 
+    margin: 0;
+    overflow-x: hidden;
+   }
+   .nav-outer{
+     font-size: 2px;
+   }
+   .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: black;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight:320;
+    position: relative;
+    padding: 18px 10px 10px 10px;
+  
+  }
+  li{
+    padding-left: 0px;
+padding-right: 0px;
+  }
+  .header-top-inner h4{
+    font-size: 12px;
+    text-align: center;
+  }
+  .header-top-inner button{
+    font-size: 12px;
+    background-color: rgb(182, 0, 0);
+    color: white;
+    padding: 6px 6px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+  div.logo{
+    padding: 0 20px 0 20px;
+    margin-right: 5px;
+    
+  
+  }
+  div.logo h2{
+    margin-top: 10px;
+  }
+  .col-sm-8 {
+    width: 100%;
+}
+.ok{
+  float: right;
+}
+}
 
+@media only screen and (max-width: 767px) {
+  html, body {
+    height: 100%;
+    width: 100%; 
+    margin: 0;
+    overflow-x: hidden;
+   }
+  img{
+    max-height: 300;
+    width: 300px;
+  }
+  .header-top-inner{
+    display: block;
+  }
+  .form-search input{
+    width: 100%;
+  }
+  .form-search button{
+    border-radius:4px;
+    background-color:  #6caee0;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    color: white;
+    margin-top:15px;
+    padding: 10px 12px 10px 12px;
+    font-weight: 500;
+    margin-left:0px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #0ea55f;
+  
+  } 
+  .form-search button:hover{
+    background-color: rgb(72, 187, 166);
+  }
+  a {
+    cursor: pointer;
+  }
+  
+  .header-top-inner h4{
+    font-size: 9px;
+    text-align: center;
+  }
+  .header-top-inner button{
+    font-size: 9px;
+    background-color: rgb(182, 0, 0);
+    color: white;
+    padding: 2px 2px;
+    margin-right: 120px;
+    margin-left: 100px;
+    margin-top: 2px;
+    margin-bottom: 4px;
+  }
+  div.logo{
+    padding: 0 0 0 20px;
+    margin-right: 25px;
+    text-align: left;
+  
+  }
+  div.logo h2{
+    margin-top: 20px;
+  }
+  div.col-sm-4{
+    padding: 0 10px 0 15px;
+  }
+  div.col-sm-8{
+    padding: 0 20px 0 15px;
+  }
+  div.main-header {
+    padding: 0px 0px 10px 0px;
+    background: #0ea55f;
+  }
+  div.right{
+    padding-left: 25px;
+  }
+  .top-bar .cnt-account ul > li a span{display: none;}
+  .navbar-toggle {float:left; border:none}
+  .navbar-default .navbar-toggle .icon-bar {background-color: rgb(7, 7, 7);}
+  .navbar-collapse {box-shadow:none; border:none; padding-right: 15px; padding-left: 15px;}
+  .header-style-1 .header-nav .navbar-default .navbar-collapse {padding-right: 15px; padding-left: 15px;}
+  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a {border:none;    }
+  .mega-menu img {width:100%;    display: none;}
+  .sidebar .side-menu nav .nav > li > .mega-menu .yamm-content .dropdown-banner-holder {
+     right: 0px; 
+     top: 0px; 
+  }
+  .yamm .dropdown-menu .yamm-content .col-menu {margin-bottom:15px}
+  
+  .top-search-holder {
+    padding: 0 15px;
+  }
+  .p1 {
+    width: 100%;
+  }
+  .p1{
+    font-size: small;width: 100%;
+  }
+  }
+ 

@@ -118,7 +118,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'membership_db',
         'USER': 'postgres',
-        'PASSWORD':'123321123',
+        'PASSWORD':'Helloworld123',
         'HOST': 'localhost',
         'PORT':'5432'
     }
@@ -177,6 +177,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = "/media/"
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_ROOT, 'static','home'),
     # Extra lookup directories for collectstatic to find static files
 )
 
