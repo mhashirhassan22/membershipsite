@@ -22,7 +22,7 @@ def index(request):
     return render(request, 'homepage/home.html', {})
 
 def contactus(request):
-    return render(request, 'homepage/contactus.html')
+    return render(request, 'contact/contactus.html')
 
 def login(request):
     return render(request, 'logine.html')

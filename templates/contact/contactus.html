@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="MediaCenter, Template, eCommerce">
+<meta name="robots" content="all">
+<title>Nsamr</title>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href=" {% static 'assets/css/bootstrap.min.css' %} ">
+
+<!-- Customizable CSS -->
+<link rel="stylesheet" href=" {% static 'assets/css/main.css' %} ">
+<link rel="stylesheet" href=" {% static 'assets/css/contact.css' %} ">
+
+<script src="https://kit.fontawesome.com/c2bb281b83.js" crossorigin="anonymous"></script>
+</head>
+<body class="cnt-home">
+<header class="header-style-1"> 
+  
+  <!-- ============================================== TOP MENU ============================================== -->
+  <div class="top-bar animate-dropdown" style="background-color:white;">
+    <div class="container">
+      <div class="header-top-inner">
+       <h4> <i class="fas fa-exclamation-triangle fa-lg" style="color:rgb(182, 0, 0);"></i>
+        Do you want more customers? <button class="responsive1" id="button1"> YES, I WANT MORE CUSTUMERS</button>
+        <a style="text-decoration: underline;"></a><span class="head1">NO, I HAVE ENOUGH CUSTOMERS</span></h4>
+
+      </div>
+    </div>
+  </div>
+  <!-- /.header-top --> 
+  <!-- ============================================== TOP MENU : END ============================================== -->
+  <div class="main-header">
+      <div class="row">
+          <div class="logo"> 
+             <div class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder pad1"> 
+                 <p>Help Center</p>
+             </div>    
+             <div class="ok col-sm-4">
+                <p>Contact Customer Service</p>
+            </div>
+             <div class="col-lg-2" >
+                <p class="first">Community forum</p>
+                <p>Resolution forum</p>
+            </div>
+           </div>
+          
+    </div>
+  </div>
+
+  
+</header>
+<div class="body-content outer-top-vs" id="top-banner-and-menu" >
+  <div class="container">
+    <div style="margin-left: 200px;width:70%">
+   <h1 style="font-weight: 200;font-size: 40px;">Tell us about your issue so we can help you more quickly.</h1>
+        <div id="searchBox" class="mobile-form">
+            <form action="/search" class="search-form" id="searchform" method="get">
+                <input id="sbox" name="q" placeholder="Email" type="text" x-webkit-speech=""><br>
+                <input id="sbox" name="q" placeholder="Email" type="text" x-webkit-speech=""><br>
+                <button class="btn btn-success">Submit</button>
+            </form>
+        </div>
+        <div class="info">
+        <h1 style="font-size:33px;margin-bottom: 0px;">NATIONAL SALES AND MARKETING RESOURCES </h1><span>has a very transparent Customer Service Policy.</span><br>
+        <span>You can reach Customer Service by E-Mail at support@nsamr.com by phone at (888) 123-9670.</span><br>
+        <h1 style="font-size:33px;margin-bottom: 0px;">NATIONAL SALES AND MARKETING RESOURCES </h1><span>also has active Facebook, Twitter, Instagram, and YouTube pages</span><br>
+        <span>You can reach Customer Service by E-Mail at support@nsamr.com by phone at (888) 123-9670.</span><br>
+        <span>Any returns can be sent back to the company's mailing address in Toronto, Canada.</span>
+        </div>
+    </div><br><br>
+    <div class="footer">
+<p>Copyrights xit</p>
+</div>
+  </div>
+</div>
+<!-- JavaScripts placed at the end of the document so the pages load faster --> 
+<script src=" {% static 'assets/js/jquery-1.11.1.min.js' %} "></script> 
+<script src=" {% static 'assets/js/bootstrap.min.js' %} "></script> 
+<script src=" {% static 'assets/js/bootstrap-hover-dropdown.min.js' %} "></script> 
+</body>
+
+</html>

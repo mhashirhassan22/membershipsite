@@ -1,5 +1,8 @@
 
 /*desktop*/
+.info span{
+  font-size: 16px;
+}
 .footer {
   position: fixed;
   left: 0;
@@ -1284,7 +1287,7 @@ header{
 }
 
 .main-header {
-  padding: 15px 0px 15px 0px;
+  padding: 22px 0px 22px 0px;
   background: #0ea55f;
 }
 .main-header .logo-holder {
@@ -1749,8 +1752,7 @@ header{
 .header-nav .navbar-default .dropdown .dropdown-menu.pages .links > li > a:focus {
   margin-left: 0px;
 }
-@media only screen and (min-width: 1200px) {
-
+/*Dektop*/
   .btn-success:hover{
     background-color: rgb(72, 187, 166);
   }
@@ -1789,17 +1791,14 @@ header{
   margin-left: 70px;
   width: 48.333%;
 }
-.pad1{
-  margin-left: -24px;
-}
+
 .body-content{
   background-color:white;
   margin-top: 0px;
-  padding-top: 30px;
+  padding-top: 10px;
+  width: 100%;
 }
-.ok {
-  width: 35%;
-}
+
 .head1{
   color: #5a99d0;
   text-decoration: underline;
@@ -1808,9 +1807,37 @@ header{
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="_blank1"] {
   background-color: #0ea55f;color: white;margin-top: 10px;margin-bottom: 13px;padding: 6px 15px 4px 15px;font-size: larger;
 }
-
-
+.pad1{
+  margin-left: -24px;
+  width: 22%;
+  font-family: 'PayPal-Sans',sans-serif;
+  font-weight:bolder ;
+  margin-top: 20px;
+  font-size: 30px;
 }
+.ok {
+  width: 40%;
+  font-size: 30px;
+  font-weight: lighter;
+text-transform: none;
+font-family: 'PayPal-Sans-Big',sans-serif;
+  margin-top: 20px;
+}
+.col-lg-2{
+width: 24%;
+font-family: 'PayPal-Sans',sans-serif;
+font-size: 16px;
+font-weight: bolder;
+margin-top: 6px;
+}
+.col-lg-2 .first{
+  margin-top: 12px;
+}
+.col-lg-2 p{
+  margin-bottom: 0px;
+}
+
+
 
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -2020,4 +2047,112 @@ padding-right: 0px;
     margin-bottom: 30px;
   }
   }
- 
+  div#searchBox {
+    float: none;
+    text-align: center;
+    color: #777;
+    margin-top: 4em;
+}
+
+#searchform {
+    padding: 8px 0 0;
+}
+
+#searchform input {
+  height: 45px;
+  width: 100%;
+  padding: 6px 56px 6px 36px;
+  border: 1px solid #b7bcbf;
+  border-radius: 4px;
+}
+
+.mobile-form #searchform {
+    padding-top: 2.5px;
+    width: 215px;
+}
+
+div#searchBox #searchform {
+    width: 100%;
+}
+
+div#searchBox #searchform input {
+    padding: 5px;
+    display: block;
+}
+
+#searchBox i.fa.fa-search {
+    padding: 8px;S
+    cursor: pointer;
+}
+
+.sb-icon-search,
+.sb-search-submit {
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.sb-search-submit {
+    background: #fff;
+    /* IE needs this */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    /* IE 8 */
+    filter: alpha(opacity=0);
+    /* IE 5-7 */
+    opacity: 0;
+    color: transparent;
+    border: none;
+    outline: none;
+    z-index: 100;
+}
+
+div#searchBox #searchform .sb-icon-search {
+    /* color: #fff; */
+    /* background: #3f91c3; */
+    z-index: 90;
+    /* font-size: 22px; */
+    font-family: 'FontAwesome';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    top: -1px;
+}
+
+div#searchBox #searchform .sb-icon-search:before {
+    content: "\f002";
+}
+
+span#noEasy {
+    display: block;
+    /* overflow: hidden; */
+    position: relative;
+    width: 30px;
+    height: 30px;
+    float: left;
+    padding-left: 3px;
+}
+
+span#noEasy input {
+    width: 30px;
+    padding: 0 !important;
+}
+
+input#sbox {
+    line-height: 31px;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+span#noEasy:hover {
+    color: #444;
+}
