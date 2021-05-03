@@ -1828,9 +1828,9 @@ header{
 .h2 {
   width: 40%;
   font-size: 30px;
-  font-weight: 300;
+  font-weight:100 ;
   text-transform: none;
-  font-family: 'PayPal-Sans-Big',sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-top: 20px;
 }
 .ok {
@@ -1839,9 +1839,9 @@ header{
 .col-lg-2{
   width: 24%;
   font-family: 'PayPal-Sans',sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bolder;
-  margin-top: 6px;
+  margin-bottom: 0px;
   }
   .col-lg-2 .first{
     margin-top: 12px;
@@ -2248,12 +2248,29 @@ padding-left: 0px;
   font-size: large;
 }
 .float{
-  margin-bottom: 200px;
-  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 .h6{
   font-weight: 100;
 font-size: 18px;
 margin-bottom: 10px;
 margin-left: 140px;
+}
+
+.faq{
+  font-weight: 500;
+font-family: 'PayPal-Sans',sans-serif;
+color: #0070ba;
+font-size: large;
+}
+
+.float1 li{
+  float: left;
+  font-size: small;
+  margin-right: 30px;
+  text-align: center;
+}
+.float1{
+  margin-left: 200px;
 }
