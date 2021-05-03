@@ -1,0 +1,33 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="body-content outer-top-vs" id="top-banner-and-menu" >
+  <div class="container-fluid">
+    <div class="col-lg-7 distance">
+     <h1 style="margin-top:0px; font-size: 42px;font-weight: bold;">
+     <span style="color: rgb(73, 72, 72);">We help Anyone, Anywhere,<br></span>
+            <span style="color: rgb(73, 72, 72);">Any business sell more<br></span>
+            <span style="color: rgba(21, 138, 21, 0.767);">Be successful</span>
+     </h1><br>
+     <form method="GET" action="" role="search"  class="form-search">
+                <input  placeholder="Enter your email address here..."  name="srch- {% static 'term" id="srch' %} -term" type="text" />
+                <span> <button class="bt1">Start Free Trial</button></span>
+            </form>
+     <br>
+        <p class="p1">
+            
+            Try NATIONAL SALES AND MARKETING RESOURCES nsmar.ca free for 7 days.
+            By entering your email, you agree to receive marketing emails from 
+            NATIONAL SALES AND MARKETING RESOURCES nsmar.ca
+
+          </p>
+     </div>
+     <div class="col-sm-4 wid" >
+     <img style="max-height:400px;width:100%" src="https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
+     </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,27 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 {% load static %}
-<head>
-<!-- Meta -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<meta name="keywords" content="MediaCenter, Template, eCommerce">
-<meta name="robots" content="all">
-<title>Nsamr</title>
-
-<!-- Bootstrap Core CSS -->
-<link rel="stylesheet" href=" {% static 'assets/css/bootstrap.min.css' %} ">
-
-<!-- Customizable CSS -->
-<link rel="stylesheet" href=" {% static 'assets/css/main.css' %} ">
-
-<script src="https://kit.fontawesome.com/c2bb281b83.js" crossorigin="anonymous"></script>
-
-</head>
-<body class="cnt-home">
-<!-- ============================================== HEADER ============================================== -->
 <header class="header-style-1"> 
   
   <!-- ============================================== TOP MENU ============================================== -->
@@ -76,12 +53,12 @@
                 <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar1">Sell More</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar2">Market</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar">Pricing</a> </li>
-                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar">About Us</a> </li>
-                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar">Blog</a> </li>
-                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " >FAQs</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="/contactus" target="vbar">About Us</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar">Blog</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar3">FAQs</a> </li>
                 <li class="dropdown contact"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="_blank"><i class="fa fa-user" style="color: #0ea55f;"></i> login</a> </li>
                 <li class="dropdown">
-                 <button class="btn btn-success" style="background-color: #0ea55f;color: white;margin-top: 10px;margin-bottom: 13px;padding: 6px 15px 4px 15px;font-size: larger;">Start free trial</button> </li>
+                 <button target="_blank1" class="btn btn-success" style="background-color: #0ea55f;color: white;margin-top: 10px;margin-bottom: 13px;padding: 6px 15px 4px 15px;font-size: larger;">Start free trial</button> </li>
                 
               </ul>
               <!-- /.navbar-nav -->
@@ -103,44 +80,3 @@
   <!-- ============================================== NAVBAR : END ============================================== --> 
   
 </header>
-
-<!-- ============================================== HEADER : END ============================================== -->
-<div class="body-content outer-top-vs" id="top-banner-and-menu" >
-  <div class="container-fluid">
-    <div class="col-lg-7 distance">
-     <h1 style="margin-top:0px; font-size: 42px;font-weight: bold;">
-     <span style="color: rgb(73, 72, 72);">We help Anyone, Anywhere,<br></span>
-            <span style="color: rgb(73, 72, 72);">Any business sell more<br></span>
-            <span style="color: rgba(21, 138, 21, 0.767);">Be successful</span>
-     </h1><br>
-     <form method="GET" action="" role="search"  class="form-search">
-                <input  placeholder="Enter your email address here..."  name="srch- {% static 'term" id="srch' %} -term" type="text" />
-                <span> <button class="bt1">Start Free Trial</button></span>
-            </form>
-     <br>
-        <p class="p1">
-            
-            Try NATIONAL SALES AND MARKETING RESOURCES nsmar.ca free for 7 days.
-            By entering your email, you agree to receive marketing emails from 
-            NATIONAL SALES AND MARKETING RESOURCES nsmar.ca
-
-          </p>
-     </div>
-     <div class="col-sm-4 wid" >
-     <img style="max-height:400px;width:100%" src="https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
-     </div>
-    </div>
-  </div>
-</div>
-
-
-
-
-<!-- JavaScripts placed at the end of the document so the pages load faster --> 
-<script src=" {% static 'assets/js/jquery-1.11.1.min.js' %} "></script> 
-<script src=" {% static 'assets/js/bootstrap.min.js' %} "></script> 
-<script src=" {% static 'assets/js/bootstrap-hover-dropdown.min.js' %} "></script> 
-
-</body>
-
-</html>
