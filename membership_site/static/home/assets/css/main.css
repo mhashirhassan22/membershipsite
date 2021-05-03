@@ -2067,7 +2067,7 @@ padding-right: 0px;
     float: none;
     text-align: center;
     color: #777;
-    margin-top: 4em;
+    margin-top: 20px;
 }
 
 #searchform {
@@ -2196,6 +2196,42 @@ span#noEasy:hover {
   display: inline-block;
   margin-bottom: -7px;
 }
+.icon-resolution {
+  background-image: url(https://www.paypalobjects.com/digitalassets/c/icons/rescenter_blue_72.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+      margin-bottom: 0px;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  margin-bottom: -7px;
+}
+.icon-callus {
+  background-image: url(https://www.paypalobjects.com/digitalassets/c/icons/call_blue_72_2x.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+      margin-bottom: 0px;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  margin-bottom: -7px;
+}
+.icon-community {
+  background-image: url(https://www.paypalobjects.com/digitalassets/c/icons/man_blue_72_2x.png);
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 auto;
+      margin-bottom: 0px;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  margin-bottom: -7px;
+}
 .con{
   margin-left: 45px;
 padding-left: 0px;
@@ -2205,4 +2241,19 @@ padding-left: 0px;
 }
 .p4{
   margin-left: 20px;
+}
+.float li{
+  width: 25%;
+  float: left;
+  font-size: large;
+}
+.float{
+  margin-bottom: 200px;
+  margin-top: 30px;
+}
+.h6{
+  font-weight: 100;
+font-size: 18px;
+margin-bottom: 10px;
+margin-left: 140px;
 }
