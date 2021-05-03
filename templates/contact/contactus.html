@@ -23,27 +23,67 @@
 </head>
 <body class="cnt-home">
 <header class="header-style-1"> 
-  
-  <!-- ============================================== TOP MENU ============================================== -->
-  <div class="top-bar animate-dropdown" style="background-color:white;">
-    <div class="container">
-      <div class="header-top-inner">
-       <h4> <i class="fas fa-exclamation-triangle fa-lg" style="color:rgb(182, 0, 0);"></i>
-        Do you want more customers? <button class="responsive1" id="button1"> YES, I WANT MORE CUSTUMERS</button>
-        <a style="text-decoration: underline;"></a><span class="head1">NO, I HAVE ENOUGH CUSTOMERS</span></h4>
-
+    <div class="top-bar animate-dropdown" style="background-color:#0ea55f;">
+      <div style="margin-left:45px">
+            <span style="text-align:left;font-size:22px;font-weight:bolder;color:white">NATIONAL SALES AND MARKETING RESOURCES </span>
+            <span style="float:right;font-size:18px;font-weight:light;color:white;margin-right:14px">support@nsamr.com | (888) 123-9670</span>
+            
       </div>
-    </div>
+        
+
   </div>
+  <div class="header-nav">
+    <div class="container con" style="width: 100%;">
+      <div class="yamm navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        <div class="nav-bg-class">
+          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+            <div class="nav-outer">
+              <ul class="nav navbar-nav">
+                <li class="dropdown" > <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="logo">NSAMR</a> </li>
+                <li class="dropdown" > <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="vbar1">Who are we</a> </li>
+                <li class="dropdown" > <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="vbar1">What we do </a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="vbar1">Become a member</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar1">Get help and benefits</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar1">Sell More</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar2">Market</a> </li>
+                <li class="dropdown p4"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="vbar">Pricing</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="/contactus" target="vbar">About Us</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar">Blog</a> </li>
+                <li class="dropdown "> <a data-hover="dropdown"  href="" target="vbar3">FAQs</a> </li>
+                <li class="dropdown p3 contact"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="_blank"><i class="fa fa-user" style="color: #0ea55f;"></i> login</a> </li>
+                <li class="dropdown">
+                 <button target="_blank1" class="btn btn-success" style="background-color: #0ea55f;color: white;margin-top: 10px;margin-bottom: 13px;padding: 6px 15px 4px 15px;font-size: larger;">Start free trial</button> </li>
+                
+              </ul>
+              <!-- /.navbar-nav -->
+              <div class="clearfix"></div>
+            </div>
+            <!-- /.nav-outer --> 
+          </div>
+          <!-- /.navbar-collapse --> 
+          
+        </div>
+        <!-- /.nav-bg-class --> 
+      </div>
+      <!-- /.navbar-default --> 
+    </div>
+    <!-- /.container-class --> 
+    
+  </div>
+
   <!-- /.header-top --> 
   <!-- ============================================== TOP MENU : END ============================================== -->
   <div class="main-header">
       <div class="row">
           <div class="logo"> 
-             <div class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder pad1"> 
+             <div class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder pad1 h1"> 
                  <p>Help Center</p>
              </div>    
-             <div class="ok col-sm-4">
+             <div class=" col-sm-4 h2">
                 <p>Contact Customer Service</p>
             </div>
              <div class="col-lg-2" >
@@ -59,8 +99,10 @@
 </header>
 <div class="body-content outer-top-vs" id="top-banner-and-menu" >
   <div class="container">
+  <h1 style="font-weight: 200;font-size: 45px;color:black;margin-left:180px;margin-top:0px">We Are Here For You When You Need Us </h1>
     <div style="margin-left: 200px;width:70%">
-   <h1 style="font-weight: 200;font-size: 40px;">Tell us about your issue so we can help you more quickly.</h1>
+    
+   <p class="h6">Tell us about your issue so we can help you more quickly.</p>
         <div id="searchBox" class="mobile-form">
             <form action="/search" class="search-form" id="searchform" method="get">
                 <input id="sbox" name="q" placeholder="Email" type="text" x-webkit-speech=""><br>
@@ -68,18 +110,64 @@
                 <button class="btn btn-success">Submit</button>
             </form>
         </div>
+        <h3>Common Issues</h3>
+        <hr>
+        <ul>
+        <li><p class="faq">Payments</p><p>Holds, declines, refunds, balance</p></li><hr>
+        <li><p class="faq">Account profile and set up</p><p>Credit or debit card, bank account, email, phone</p></li><hr>
+        <li><p class="faq">Disputes and account limitations</p><p>Payment dispute, chargeback, limitation</p></li><hr>
+        <li><p class="faq">Donations</p><p>Nonprofit, PayPal Giving Fund</p></li><hr>
+        <li><p class="faq">Business solutions</p><p>Fees, orders, PayPal solutions</p></li><hr>
+        </ul>
         <div class="info">
         <h1 style="font-size:33px;margin-bottom: 0px;">NATIONAL SALES AND MARKETING RESOURCES </h1><span>has a very transparent Customer Service Policy.</span><br>
-        <span>You can reach Customer Service by E-Mail at support@nsamr.com by phone at (888) 123-9670.</span><br>
+        <span>You can reach Customer Service by E-Mail at <b>support@nsamr.com</b> by phone at <b>(888) 123-9670.</b></span><br>
         <h1 style="font-size:33px;margin-bottom: 0px;">NATIONAL SALES AND MARKETING RESOURCES </h1><span>also has active Facebook, Twitter, Instagram, and YouTube pages</span><br>
-        <span>You can reach Customer Service by E-Mail at support@nsamr.com by phone at (888) 123-9670.</span><br>
-        <span>Any returns can be sent back to the company's mailing address in Toronto, Canada.</span>
-        </div>
+        <span>You can reach Customer Service by E-Mail at <b>support@nsamr.com</b> by phone at <b>(888) 123-9670</b>.</span><br>
+        <span>Any returns can be sent back to the company's mailing address in <b>Toronto<b>, <b>Canada</b>.</span><br>
+        <h1 style="font-size:33px;margin-bottom: 0px;">Other ways to contact us</h1>
+        <ul class="float">
+        <li>
+        <span class="icon-chat">
+        </span>
+        <p> support@nsamr.com</p>
+        </li>
+         <li>
+         <span class="icon-resolution"></span>
+        <p>Resolve transaction or account issues</p>
+         </li>
+        <li>
+        <span class="icon-callus">
+        </span>
+        <p>(888) 123-9670</p>
+        </li>
+         <li>
+         <span class="icon-community">
+        </span>
+        <p>Resolve transaction or account issues</p>
+         </li>
+        </ul>
+        
+
     </div><br><br>
+    
+    <br>
+    <br>
     <div class="footer">
-<p>Copyrights xit</p>
+<p>Copyrights 2021</p>
 </div>
   </div>
+  <hr>
+  <ul class="float1">
+        <li>Contact</li>
+        <li>Fees</li>
+        <li>Security</li>
+        <li>About</li>
+        <li>Developers</li>
+    </ul>
+    <br>
+    <br>
+    <br>
 </div>
 <!-- JavaScripts placed at the end of the document so the pages load faster --> 
 <script src=" {% static 'assets/js/jquery-1.11.1.min.js' %} "></script> 
