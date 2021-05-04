@@ -71,8 +71,8 @@
 <header class="header-style-1"> 
     <div class="top-bar animate-dropdown" style="background-color:#0ea55f;">
       <div class="top3">
-            <span class="top1">NATIONAL SALES AND MARKETING RESOURCES </span>
-            <span class="top2">support@nsamr.com | (888) 123-9670</span>
+            <span class="top1 hid">NATIONAL SALES AND MARKETING RESOURCES </span>
+            <span class="top2" >support@nsamr.com | (888) 123-9670</span>
             
       </div>
         
@@ -84,11 +84,15 @@
       <div class="navbar-header">
        <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <div class="hid_desktop">
+                <h2>NSAMR</h2>
         </div>
+        </div>
+        
         <div class="nav-bg-class">
           <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
-            <div class="nav-outer">
-              <ul class="nav navbar-nav">
+           
+              <ul class="nav_css nav navbar-nav " style="float:left">
                 <li class="dropdown" > <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="logo">NSAMR</a> </li>
                 <li class="dropdown" > <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="vbar1">Who are we</a> </li>
                 <li class="dropdown" > <a data-hover="dropdown"  href=" {% static 'category.html' %} " target="vbar1">What we do </a> </li>
@@ -100,14 +104,13 @@
                 <li class="dropdown"> <a data-hover="dropdown"  href="/contactus" target="vbar">About Us</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar">Blog</a> </li>
                 <li class="dropdown "> <a data-hover="dropdown"  href="" target="vbar3">FAQs</a> </li>
-                <li class="dropdown p3 contact"> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="_blank"><i class="fa fa-user" style="color: #0ea55f;"></i> login</a> </li>
-                <li class="dropdown">
-                 <button target="_blank1" class="btn btn-success" style="background-color: #0ea55f;color: white;margin-top: 10px;margin-bottom: 13px;padding: 6px 15px 4px 15px;font-size: larger;">Start free trial</button> </li>
+                <li class="hid_mobile dropdown p3 contact "> <a data-hover="dropdown"  href=" {% static 'contact.html' %} " target="_blank"><i class="fa fa-user" style="color: #0ea55f;"></i> login</a> </li>
+                <li class=" hid_mobile dropdown ">
+                 <button target="_blank1" class="bt1 btn btn-success" >Start free trial</button> </li>
                 
               </ul>
-              <!-- /.navbar-nav -->
-              <div class="clearfix"></div>
-            </div>
+             
+            
             <!-- /.nav-outer --> 
           </div>
           <!-- /.navbar-collapse --> 
@@ -155,17 +158,17 @@ function showSib(sib_id){
 </script>
 <div class="body-content outer-top-vs" id="top-banner-and-menu" >
   <div class="container-fluid">
-  <div class="cardcss">
+  <div class="tapa2 cardcss ">
     <div class="card text-white bg-success mb-3 ">
-        <span class="card-header"> <span class="blink" style="margin-left:5px">	&dArr;</span > &nbsp;We are Available!</span>
+        <span class="card-header"> <span class="blink" style="color:black;margin-left:5px">	&dArr;</span > &nbsp;We are Available!</span>
              <div class="card-body">
-                  <p class="card-text"><span class="blink" style="color:black;">&#9658</span> We have active Facebook, Twitter, Instagram, and YouTube pages.
-                  <br><span class="blink" style="color:black;">&#9658</span> You can reach Customer Service by E-Mail at<b>support@nsamr.com</b>by phone at <b>(888) 123-9670</b></p>
+                  <p class="card-text"><span class="blink" style="color:white;">&#9658</span> We have active Facebook, Twitter, Instagram, and YouTube pages.
+                  <br><span class="blink" style="color:white;">&#9658</span> You can reach Customer Service by E-Mail at <b>support@nsamr.com</b>by phone at <b>(888) 123-9670</b></p>
              </div>
         </div>
     </div>
   <span class="block1">We Are Here For You When You Need Us </span>
-    <div style="width:70%">
+    <div class="tid">
 
    <p class="h6">Tell us about your issue so we can help you more quickly.</p>
         <div id="searchBox" class="mobile-form">
@@ -175,7 +178,7 @@ function showSib(sib_id){
                 <button class="btn btn-success btn-lg">Submit</button>
             </form>
         </div>
-        <h3>Common Issues</h3>
+        <h3 class="center" style="font-weight:bold">Common Issues</h3>
         <hr>
 
    
@@ -247,16 +250,16 @@ function showSib(sib_id){
                   <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
                     <div class="card-block">
                     </h4>Fees, orders, PayPal solutions</h4>
-                    </div><hr>
+                    </div>
                   </div>
                 </div>
               </li>
             </ul>
 
         <div class="info">
-        <h1 style="font-size:33px;margin-bottom: 0px;">NATIONAL SALES AND MARKETING RESOURCES </h1><span>has a very transparent Customer Service Policy.</span><br>
+        <h1 class="hd2">NATIONAL SALES AND MARKETING RESOURCES </h1><span>has a very transparent Customer Service Policy.</span><br>
         <span>You can reach Customer Service by E-Mail at <b>support@nsamr.com</b> by phone at <b>(888) 123-9670.</b></span><br><br><br>
-        <h1 style="font-size:33px;margin-bottom: 0px;">Other ways to contact us</h1>
+        <h1 class="hd1">Other ways to contact us</h1>
         <ul class="float">
         <li>
         <span class="icon-chat">
@@ -283,11 +286,7 @@ function showSib(sib_id){
     </div><br><br>
 
     <br>
-    <br>
 
-  <hr>
-  
-    <br>
     <br>
     <br>
 </div>
@@ -301,7 +300,7 @@ function showSib(sib_id){
             <li>About</li>
             <li>Developers</li>
         </ul>
-       
+    <h4 style="color:white;background-color:black;text-align:center;padding-bottom:10px;padding-top:5px">Copyrights &copy; 2021</h4>    
     </div>
 
 <!-- JavaScripts placed at the end of the document so the pages load faster --> 
