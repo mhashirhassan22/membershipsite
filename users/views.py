@@ -22,7 +22,23 @@ def index(request):
     return render(request, 'homepage/home.html', {})
 
 def contactus(request):
-    return render(request, 'contact/contactus.html')
+    if request.method == "GET":
+        context = {}
+        context['faq_list'] = FAQ.objects.all()
+        return render(request, 'contact/contactus.html', context)
+    else:
+        context = {}
+        email = request.POST['email']
+        message = request.POST['message']
+        contact = Contact()
+        try:
+            contact.email = email
+            contact.message = message
+            contact.save()
+            context['success'] = "Your message is received. We will Contact you soon!"
+        except:
+            context['fail'] = "OPS! We could not get your message. Please try again."
+        return render(request, 'contact/contactus.html', context)
 
 def login(request):
     return render(request, 'logine.html')
