@@ -159,9 +159,13 @@ a:active,
 a:focus {
   cursor:pointer ;
 }
+<<<<<<< HEAD
 img[src="assets/images/blank.gif"] {
   background: url("../images/ajax.gif") no-repeat scroll center center #ffffff;
 }
+=======
+
+>>>>>>> 5f365138bb7f314981f6f86f34fbc20baf48784d
 
 .btn-upper {
   text-transform: uppercase;
@@ -1432,6 +1436,7 @@ header{
   overflow:hidden
 }
 
+<<<<<<< HEAD
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .basket:before {
     content: '';
     /* height: 40px; */
@@ -1447,6 +1452,8 @@ header{
     height: 51px;
     float: left;
 }
+=======
+>>>>>>> 5f365138bb7f314981f6f86f34fbc20baf48784d
 
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .basket-item-count {
   -webkit-border-radius: 100px;
