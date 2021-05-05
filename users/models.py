@@ -55,6 +55,8 @@ class User(AbstractUser):
         ServiceArea,
         on_delete=models.PROTECT,
         related_name='user_interests',
+        null=True,
+        blank=True,
     )
 
 
