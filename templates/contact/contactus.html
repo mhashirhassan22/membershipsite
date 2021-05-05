@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<!-- Meta -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<meta name="keywords" content="MediaCenter, Template, eCommerce">
+<meta name="robots" content="all">
+<title>Nsamr</title>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href=" {% static 'assets/css/bootstrap.min.css' %} ">
+
+<!-- Customizable CSS -->
+<link rel="stylesheet" href=" {% static 'assets/css/contact.css' %} ">
+
+<script src="https://kit.fontawesome.com/c2bb281b83.js" crossorigin="anonymous"></script>
+<style>
+
+
+.widget-list {
+  li {
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.widget {
+  .card-header {
+    background: #fff;
+    a {
+      width: 100%;
+      display: block;
+      &:after {
+        content: "+";
+        position: absolute;
+        right: 40px;
+        top: .9rem;
+        transition: transform .25s ease-in-out;
+      }
+      &:hover,
+      &:focus {
+      text-decoration: none;
+      }
+      &[aria-expanded="true"] {
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  .card-block {
+    padding: 0 1.3rem;
+    .widget-list {
+      li {
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
+</style>
+</head>
+<body class="cnt-home">
+
+<header class="header-style-1"> 
+    <div class="top-bar animate-dropdown" style="background-color:#679141;">
+      <div class="top3">
+            <span class="top1 hid">NATIONAL SALES AND MARKETING RESOURCES </span>
+            <span class="top2" >support@nsamr.com | (888) 123-9670</span>
+            
+      </div>
+        
+
+  </div>
+  <div class="header-nav">
+    <div class="container con" style="width: 100%;">
+      <div class="yamm navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+       <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button"> 
+       <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <div class="hid_desktop">
+                <h2>NSAMR</h2>
+        </div>
+        </div>
+        
+        <div class="nav-bg-class">
+          <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+           
+              <ul class="nav_css nav navbar-nav " style="float:left">
+                <li class="dropdown" > <a data-hover="dropdown"  href="#" target="logo">NSAMR</a> </li>
+                <li class="dropdown" > <a data-hover="dropdown"  href="#" target="vbar1">Who are we</a> </li>
+                <li class="dropdown" > <a data-hover="dropdown"  href="#" target="vbar1">What we do </a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar1">Become a member</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar1">Get help and benefits</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar1">Sell More</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar2">Market</a> </li>
+                <li class="dropdown p4"> <a data-hover="dropdown"  href="#" target="vbar">Pricing</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="/contactus" target="vbar">About Us</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar">Blog</a> </li>
+                <li class="dropdown "> <a data-hover="dropdown"  href="" target="vbar3">FAQs</a> </li>
+                <li class="hid_mobile dropdown p3 contact "> <a data-hover="dropdown"  href="#" target="_blank"><i class="fa fa-user" style="color: #679141;"></i> login</a> </li>
+                <li class=" hid_mobile dropdown ">
+                 <button target="_blank1" class="bt1 btn btn-success" >Start free trial</button> </li>
+                
+              </ul>
+             
+            
+            <!-- /.nav-outer --> 
+          </div>
+          <!-- /.navbar-collapse --> 
+          
+        </div>
+        <!-- /.nav-bg-class --> 
+      </div>
+      <!-- /.navbar-default --> 
+    </div>
+    <!-- /.container-class --> 
+    
+  </div>
+
+  <!-- /.header-top --> 
+  <!-- ============================================== TOP MENU : END ============================================== -->
+  <div class="main-header">
+      <div class="row">
+          <div class="logo"> 
+             <div class="col-lg-7 col-md-6 col-sm-8 col-xs-12 top-search-holder pad1 h1"> 
+                 <p>Help Center</p>
+             </div>    
+             <div class=" col-sm-4 h2">
+                <p>Contact Customer Service</p>
+            </div>
+             <div class="col-lg-2" >
+                <p class="first">Community Forum</p>
+                <p>Resolution Forum</p>
+                <p>Message Centre</p>
+            </div>
+           </div>
+          
+    </div>
+  </div>
+
+  
+</header>
+<script>
+function showSib(sib_id){
+    console.log("#");
+    $("#"+sib_id).toggle();
+    $("#"+sib_id).attr({
+    "display" : "block",
+  });
+}
+</script>
+<div class="body-content outer-top-vs" id="top-banner-and-menu" >
+  <div class="container-fluid">
+  <div class="tapa2 cardcss ">
+    <div class="card text-white bg-success mb-3 ">
+        <span class="card-header"> <span class="blink" style="color:black;margin-left:5px">	&dArr;</span > &nbsp;We are Available!</span>
+             <div class="card-body">
+                  <p class="card-text"><span class="blink" style="color:white;">&#9658</span> We have active Facebook, Twitter, Instagram, and YouTube pages.
+                  <br><span class="blink" style="color:white;">&#9658</span> You can reach Customer Service by E-Mail at <b>support@nsamr.com</b>by phone at <b>(888) 123-9670</b></p>
+             </div>
+        </div>
+    </div>
+  <span class="block1">We Are Here For You When You Need Us </span>
+    <div class="tid">
+
+   <p class="h6">Tell us about your issue so we can help you more quickly.</p>
+        <div id="searchBox" class="mobile-form">
+            <form action="/search" class="search-form" id="searchform" method="get">
+                <input id="sbox" name="q" placeholder="Email" type="text" x-webkit-speech=""><br>
+                <textarea id="sbox" name="q" placeholder="Type your message here..." type="text" x-webkit-speech=""></textarea><br>
+                <button class="btn btn-success btn-lg">Submit</button>
+            </form>
+        </div>
+        <h3 class="center" style="font-weight:bold">Common Issues</h3>
+        <hr>
+
+   
+            <h2 class="sr-only">Solodev Content Management System</h2>
+            <ul class="list1">
+            <li>
+                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
+                  <div role="tab" id="headingOne">
+                      <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        Payments
+                      </button><hr>
+                  <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="card-block">
+                      </h4>Holds, declines, refunds, balance</h4>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div></li>
+            <li>
+                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
+                  <div role="tab" id="headingTwo">
+                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
+                        Account profile and set up
+                      </button>
+                  </div><hr>
+                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="card-block">
+                      </h4>Credit or debit card, bank account, email, phone</h4>
+                    </div><hr>
+                  </div>
+                </div>
+                </li>
+            <li>
+                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
+                  <div role="tab" id="headingThree">
+                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
+                        Disputes and account limitations
+                      </button><hr>
+                  </div>
+                  <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                    <div class="card-block">
+                      </h4>Payment dispute, chargeback, limitation</h4>
+                    </div><hr>
+                  </div>
+                </div>
+              </li>
+            <li>
+                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
+                  <div role="tab" id="headingFour">
+                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
+                        Donations
+                      </button><hr>
+                  </div>
+                  <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                    <div class="card-block">
+                    </h4>Nonprofit, PayPal Giving Fund</h4>
+                    </div><hr>
+                  </div>
+                </div>
+              </li>
+             <li>
+                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
+                  <div role="tab" id="headingFour">
+                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
+                        Business Solutions
+                      </button><hr>
+                  </div>
+                  <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+                    <div class="card-block">
+                    </h4>Fees, orders, PayPal solutions</h4>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+        <div class="info">
+        <h1 class="hd2">NATIONAL SALES AND MARKETING RESOURCES </h1><span>has a very transparent Customer Service Policy.</span><br>
+        <span>You can reach Customer Service by E-Mail at <b>support@nsamr.com</b> by phone at <b>(888) 123-9670.</b></span><br><br><br>
+        <h1 class="hd1">Other ways to contact us</h1>
+        <ul class="float">
+        <li>
+        <span class="icon-chat">
+        </span>
+        <p> support@nsamr.com</p>
+        </li>
+         <li>
+         <span class="icon-resolution"></span>
+        <p>Resolve transaction or account issues</p>
+         </li>
+        <li>
+        <span class="icon-callus">
+        </span>
+        <p>(888) 123-9670</p>
+        </li>
+         <li>
+         <span class="icon-community">
+        </span>
+        <p>Resolve transaction or account issues</p>
+         </li>
+        </ul>
+        
+
+    </div><br><br>
+
+    <br>
+
+    <br>
+    <br>
+</div>
+ </div>
+    <div class="footer">
+       <footer class="mainfooter" role="contentinfo">
+  <div class="footer-middle">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-6">
+        <!--Column1-->
+        <div class="footer-pad">
+          <h4>Quick Links</h4>
+          <ul class="list-unstyled">
+            <li>Contact</li>
+            <li>Fees</li>
+            <li>Security</li>
+            <li>About</li>
+            <li style="padding-bottom:15px">Developers</li>
+          </ul>
+        </div>
+      </div>
+
+    	<div class="col-md-3 alu" >
+    		<h4>Follow Us</h4>
+            <ul class="social-network social-circle">
+             <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+             <li><a href="#" class="icontwitter" title="Linkedin"><i class="fa fa-twitter"></i></a></li>
+             <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+             <li><a href="#" class="iconyoutube" title="Linkedin"><i class="fab fa-youtube"></i></a></li>
+            </ul>				
+		</div>
+    </div>
+	<div class="row">
+		<div class="col-md-12 copy">
+			<p class="text-center">&copy; Copyright 2021 -  All rights reserved.</p>
+		</div>
+	</div> 
+    </div>
+
+<!-- JavaScripts placed at the end of the document so the pages load faster --> 
+<script src=" {% static 'assets/js/jquery-1.11.1.min.js' %} "></script> 
+<script src=" {% static 'assets/js/bootstrap.min.js' %} "></script> 
+</body>
+
+</html>

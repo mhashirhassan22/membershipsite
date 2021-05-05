@@ -8,6 +8,7 @@ app_name = 'users'
 urlpatterns = [
         path('', index , name="index"),
         path('login/', login , name="login"),
+        path('contactus/', contactus , name="contactus"),
         path('signup/', signup , name="signup"),
         path('forgot-password/', forgot , name="forgot"),
         path('forgot-password-request/', requestcode , name="forget_password"),

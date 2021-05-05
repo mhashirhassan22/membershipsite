@@ -19,8 +19,10 @@ from datetime import date
 def index(request):
     if request.user.is_authenticated:
         return render(request, 'based.html', {})
-    return render(request, 'home1.html', {})
+    return render(request, 'homepage/home.html', {})
 
+def contactus(request):
+    return render(request, 'contact/contactus.html')
 
 def login(request):
     return render(request, 'logine.html')
