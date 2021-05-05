@@ -112,20 +112,21 @@ WSGI_APPLICATION = 'membership_site.wsgi.application'
 #     }
 # }
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'membership_db',
         'USER': 'postgres',
-        'PASSWORD':'Helloworld123',
+        'PASSWORD':'123321123',
         'HOST': 'localhost',
         'PORT':'5432'
     }
 }
 
 
-
 SITE_ID = 1
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
