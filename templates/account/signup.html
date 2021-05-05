@@ -10,6 +10,8 @@
 </head>
 {% load static %}
 <style>
+.hint { display: none; color: gray; font-style: italic; }
+input:focus + .hint { display: inline; }
   body{
     /* background: url('{% static "img/marketing.jpg" %}') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -285,7 +287,6 @@ select.list-dt:focus {
 
 
 
-</style>
 <script> 
 
 function submitform(){
@@ -400,7 +401,8 @@ function submitform(){
                                   <h2 class="fs-title">Account Information</h2>
                                   <input type="email" id="Email" name="email" placeholder="Email Id" /> 
                                   <input type="text" id="User Name" name="username" placeholder="UserName" />
-                                   <input type="password" id="Password" name="password1" placeholder="Password" /> 
+                                   <input type="password" id="Password" name="password1" placeholder="Password" /> <span class="hint">Minimum 8 length, 1 uppercase, 1 smallcase and 1 special character</span>
+                                   <p id="passwordMeter" style="color: #2C3E50;"></p>
                                    <input type="password" id="Confirm Password" name="password2" placeholder="Confirm Password"/>
                                    <input type="text" id="Phone" name="phone" placeholder="Contact No." />
                                    <small>Please enter phone with country code and without spaces</small>
@@ -625,13 +627,40 @@ function websiteIsValid(website){
 
 
 
-
-
 $(document).ready(function(){
   
   var current_fs, next_fs, previous_fs; //fieldsets
   var opacity;
   
+
+  $("#Password").on("keyup change", function(e) {
+    let p = $("#Password")[0].value;
+  if(!passwordIsValid(p)){
+      $("#passwordMeter").text("Weak Password");  
+      $("#passwordMeter").css("color", "red");
+      return;
+  }
+  else if(passwordIsValid(p) && p.length > 12){
+    $("#passwordMeter").text("Strong Password");  
+    $("#passwordMeter").css("color", "green");
+    return;
+
+  }
+  else{
+    $("#passwordMeter").text("Good Password");  
+    $("#passwordMeter").css("color", "orange");
+    return;
+
+  }
+});
+
+$("#Password").on("focusout", function(e) {
+    $("#passwordMeter").css("display", "none");
+});
+
+$("#Password").on("focusin", function(e) {
+    $("#passwordMeter").css("display", "block");
+});
   $(".next").click(function(){
   
   current_fs = $(this).parent();
@@ -759,6 +788,11 @@ $(document).ready(function(){
   $(".submit").click(function(){
   return false;
   })
+
+
+
+
+  
   });
 
   function verify(){
