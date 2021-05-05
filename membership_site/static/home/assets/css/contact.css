@@ -305,7 +305,7 @@
     font-size: 16px;
   }
   .footer li{
-      padding-left: 50px;
+    padding-left: 128px;
 
   }
   .footer p{
@@ -2378,8 +2378,8 @@
       }
       .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="vbar1"] {
         width: 425%;
-border-bottom-width: 1px;
-border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
         padding-right: 5px;
         padding-left: 0px;
       }
@@ -2387,8 +2387,8 @@ border-bottom-style: solid;
         padding-left: 0px;
         margin-right: 0px;
         width: 425%;
-border-bottom-width: 1px;
-border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
       }
       .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="logo"] {
         display: none;
