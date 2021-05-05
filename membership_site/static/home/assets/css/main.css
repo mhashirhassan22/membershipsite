@@ -1967,15 +1967,11 @@ padding-right: 0px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
   }
-  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="_blank"] {
-    display: none;
-  }
+
   .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > a[target="logo"] {
     display: none;
   }
-  .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li > button[target="_blank1"] {
-    display: none;
-  }
+
   .hid_mob{
     display: none;
   }
