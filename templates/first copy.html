@@ -1,0 +1,162 @@
+    {% include 'head.html' %}
+    
+{% load static %}
+<style>
+
+ .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #61D2B4;;
+   color: white;
+   text-align: center;
+ }
+ .dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+.form-contro {
+    height: calc(1.5em + .75rem + 2px);
+    width: 70%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.fa-12x{
+  font-size: 1.2em;
+}
+</style>
+
+<script> 
+
+function submitform(){
+  $("#logform").submit();
+}
+
+
+</script>
+
+<script src="https://kit.fontawesome.com/c2bb281b83.js" crossorigin="anonymous"></script>
+    <body>
+
+      <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-light justify-content-center " style="background-color: white;">
+              <div class="d-flex justify-content-center">
+               <h4 style="align-items: center;align-self: center;"> <i class="fas fa-exclamation-triangle fa-lg" style="color:rgb(182, 0, 0);"></i>
+                Do you want more customers? <button class="btn btn-lg" style="background-color: rgb(182, 0, 0);color: white;"> Yes, I WANT MORE CUSTOMERS</button>
+                <a style="text-decoration: underline;font-size: large;color: rgb(79, 79, 223);padding-left: 20px;">NO, I HAVE ENOUGH CUSTOMERS</a></h4>
+        
+              </div>
+      </nav>
+
+
+        <nav class="navbar navbar-expand-md navbar-light " style="background-color: rgba(28, 155, 28, 0.767);padding: 50px;">
+            <a href="#" class="navbar-brand ">
+                <h3 style="color: white;padding-left: 50px;font-size:2vw;">NATIONAL SALES & MARKETING RESOURCES</h3>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <div class="navbar-nav ml-auto px-5">
+                  <p style="color: white;font-size: 18px;">We are here to help you, Call us now <b>1-888-631-5556</b>
+                  <br>
+                  Please tell us how can we help you, We are here to help you <b>sales@nsamr.com</b>
+                  <br>
+                  <i class="fab fa-facebook fa-12x" style="margin-left: 60%;"></i>&ensp;
+                  <i class="fab fa-twitter fa-12x"></i>&ensp;
+                  <i class="fab fa-linkedin-in fa-12x"></i>&ensp;
+                  <i class="fab fa-youtube fa-12x"></i>
+                  </p>
+
+                </div>
+              </div>
+  
+        </nav>
+        <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: -1%;">
+          <a href="#" class="navbar-brand">
+            <h3 style="color: green;padding-left: 50px;">NSMAR</h3>
+        </a>
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar2Collapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbar2Collapse">
+              <div class="navbar-nav">
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Who We Are </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Who We Do </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="{% url 'account_signup' %}" class="hovel nav-item nav-link active" style="   font-size:14px;">Become A Member </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Get Help & Benefits </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Sell More </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Market </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Who We Are </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+                  <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Who We Are </a><div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+
+              </div>
+
+          </div>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+
+            <div class="navbar-nav ml-auto px-5">
+              
+              <div style="border-left:1px solid rgba(0, 0, 0, 0.164);height:26px;margin-top: 1%;"></div>
+              <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Pricing</a>
+              <div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+              <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">About Us</a>
+              <div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+              <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">Blog</a>
+              <div style="border-left:1px solid rgba(0, 0, 0, 0.308);height:36px;margin-top: 0.5%;"></div>
+              <a href="#" class="hovel nav-item nav-link active" style="   font-size:14px;">FAQs</a>
+
+              <a href="{% url 'account_login' %}" class="hovel nav-item nav-link active" style="font-size:14px;padding-left: 20px;">
+                <i class="fas fa-user-shield" style="color:rgba(28, 155, 28, 0.767) ;"></i>
+              Login
+              </a>
+              <button class="btn" style="background-color: rgba(28, 155, 28, 0.767);color: white;">Start Free Trial</button>
+
+            </div>
+          </div>
+      </nav>
+    </div>
+
+
+
+    <div class="container-fluid">
+      <div class="row" style="padding-left: 60px;padding-right: 50px;">
+        <div class="col">
+          <h1 style="color: rgb(73, 72, 72);padding-top: 40px;font-size:2.0vw;width: 100%;">
+            <span style="color: rgb(73, 72, 72);font-size:2.5vw;">We help Anyone, Anywhere, Anywhere<br></span>
+            <span style="color: rgb(73, 72, 72);font-size:2.5vw;">Any business sell more<br></span>
+            <span style="color: rgba(21, 138, 21, 0.767);font-size:2.5vw;">Be successful</span>
+          </h1>
+        <div class="d-flex" style="display: inline-flex;padding-top: 20px;">
+          <input  class="form-contro" placeholder="Enter your Email Address">
+          <button class="btn btn-success" style="padding-left:20px;padding-right: 20px;margin-left: 2%;">Start Free Trial</button></div>
+          <p style="font-size: small;width: 70%;">
+            
+            Try NATIONAL SALES AND MARKETING RESOURCES nsmar.ca free for 7 days.
+            By entering your email, you agree to receive marketing emails from 
+            NATIONAL SALES AND MARKETING RESOURCES nsmar.ca
+
+          </p>
+        </div>
+        <div class="col">
+          <img src="{% static 'img/home.png' %}" width="85%">
+
+        </div>
+      </div>
+    </div>
+    </body>
