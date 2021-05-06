@@ -124,24 +124,24 @@ WSGI_APPLICATION = 'membership_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'membership_db',
-        'USER': 'postgres',
-        'PASSWORD':'123321123',
-        'HOST': 'localhost',
-        'PORT':'5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'membership_db',
+#         'USER': 'postgres',
+#         'PASSWORD':'123321123',
+#         'HOST': 'localhost',
+#         'PORT':'5432'
+#     }
+# }
 
 
 SITE_ID = 1
@@ -204,4 +204,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import dj_database_url 
 prod_db  =  dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(prod_db)
+if prod_db:
+    DATABASES['default'].update(prod_db)
