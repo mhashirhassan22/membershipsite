@@ -20,13 +20,32 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+)n))v33yvhnr*hpias)g&&&3%%h)fp#6)$7g3k0k*i6xzrfuz'
+# SECRET_KEY = '+)n))v33yvhnr*hpias)g&&&3%%h)fp#6)$7g3k0k*i6xzrfuz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 import os
+
+
+
+
+
+
+
+
+# Digital ocean config
+from django.core.management.utils import get_random_secret_key
+
+
+
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
+
+
+
+
+
 
 # Application definition
 

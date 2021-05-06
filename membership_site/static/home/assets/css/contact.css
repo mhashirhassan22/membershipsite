@@ -2892,9 +2892,3 @@ ul.social-network li {
     font-family: sans-serif;
     font-size: larger;
   }
-  @keyframes blinker {
-    50% {
-      opacity: 0;
-    }
-
-  }

@@ -101,10 +101,10 @@
                 <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar1">Sell More</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar2">Market</a> </li>
                 <li class="dropdown p4"> <a data-hover="dropdown"  href="#" target="vbar">Pricing</a> </li>
-                <li class="dropdown"> <a data-hover="dropdown"  href="/contactus" target="vbar">About Us</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown" onclick="javascript:window.location.href='{% url "users:contactus" %}';"  target="vbar">Contact Us</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar">Blog</a> </li>
                 <li class="dropdown "> <a data-hover="dropdown"  href="" target="vbar3">FAQs</a> </li>
-                <li class="hid_mobile dropdown p3 contact "> <a data-hover="dropdown"  href="#" target="_blank"><i class="fa fa-user" style="color: #679141;"></i> login</a> </li>
+                <li class="hid_mobile dropdown p3 contact "> <a data-hover="dropdown" onclick="javascript:window.location.href='{% url "account_login" %}';"   target="_blank"><i class="fa fa-user" style="color: #679141;"></i> login</a> </li>
                 <li class=" hid_mobile dropdown ">
                  <button target="_blank1" class="bt1 btn btn-success" >Start free trial</button> </li>
                 
