@@ -191,10 +191,10 @@ function showSib(sib_id){
               <li>
                 <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
                   <div role="tab" id="headingOne">
-                      <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                      <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapse{{faq.id}}" aria-expanded="false" aria-controls="collapse{{faq.id}}">
                         {{faq.title}}
                       </button><hr>
-                  <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div id="collapse{{faq.id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="card-block">
                       </h4>{{faq.description}}</h4>
                     </div>
