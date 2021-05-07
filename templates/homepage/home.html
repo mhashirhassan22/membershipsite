@@ -2,6 +2,16 @@
 {% load static %}
 
 {% block content %}
+
+<style>
+  .modal.custom .modal-dialog {
+    width:30%;
+    position:fixed;
+    bottom:0;
+    right:0;
+}
+</style>
+
 <div class="body-content outer-top-vs" id="top-banner-and-menu" >
   <div class="container-fluid" stye="padding-bottom: 30px;">
     <div class="col-lg-7 distance">
@@ -27,8 +37,41 @@
      <img style="max-height:400px;width:100%" src="https://images.unsplash.com/39/lIZrwvbeRuuzqOoWJUEn_Photoaday_CSD%20(1%20of%201)-5.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80">
      </div>
     </div>
+
+    <div class="modal custom" style="margin-bottom: 8%;" id="trackModal" tabindex="-1" role="dialog" aria-labelledby="trackModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+  
+              <div class="modal-header">
+              <button type="button" class="close" onclick="hideModal();" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h3 class="getlaid" id="trackModalLabel">
+                    <b>Want free advertisement and help for your business?</b>
+                  </h3>
+  
+              </div>
+  
+              <div class="modal-footer">
+                  <div class="btnmodal" data-dismiss="modal">
+                    <a class="btn pointer" style="color: gray;" data-dismiss="modal">Skip Trial</a>
+                    <a href="{% url 'account_signup' %}" class="btn pointer" style="color: blue;" data-dismiss="modal">7 DAYS FREE</a>
+                </div>
+  
+              </div>
+          </div>
+      </div>
+  </div>
   </div>
 
 </div>
+<script>
+  $(document).ready(function() {
+  setTimeout(function() {
+    $('#trackModal').addClass("show");
+  }, 5000);
+});
+  function hideModal(){
+    $('#trackModal').removeClass("show");
 
+  }
+</script>
 {% endblock content %}
