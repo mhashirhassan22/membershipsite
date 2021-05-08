@@ -22,14 +22,25 @@ class UserAdmin(UserAdmin):
 
 
 class ServiceAreaAdmin(admin.ModelAdmin):
-    # form = Productform
     list_display = ('name',)
 
 admin.site.register(ServiceArea, ServiceAreaAdmin)
 
 
 class InterestAdmin(admin.ModelAdmin):
-    # form = Productform
     list_display = ('name',)
 
 admin.site.register(Interest, InterestAdmin)
+
+
+class FAQAdmin(admin.ModelAdmin):
+    list_display = ('title','description')
+
+admin.site.register(FAQ, FAQAdmin)
+
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('email','message','is_resolved')
+    list_editable = ('is_resolved',)
+
+admin.site.register(Contact, ContactAdmin)

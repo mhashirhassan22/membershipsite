@@ -55,6 +55,8 @@ class User(AbstractUser):
         ServiceArea,
         on_delete=models.PROTECT,
         related_name='user_interests',
+        null=True,
+        blank=True,
     )
 
 
@@ -113,3 +115,13 @@ class UserInterest(models.Model):
     def __str__(self):
         return self.interest
 
+
+class FAQ(models.Model):
+    title = models.CharField(max_length=1012)
+    description = models.TextField()
+
+
+class Contact(models.Model):
+    email = models.CharField(max_length=100)
+    message = models.TextField()
+    is_resolved = models.BooleanField(default=False)

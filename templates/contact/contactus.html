@@ -101,10 +101,10 @@
                 <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar1">Sell More</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href="#" target="vbar2">Market</a> </li>
                 <li class="dropdown p4"> <a data-hover="dropdown"  href="#" target="vbar">Pricing</a> </li>
-                <li class="dropdown"> <a data-hover="dropdown"  href="/contactus" target="vbar">About Us</a> </li>
+                <li class="dropdown"> <a data-hover="dropdown" onclick="javascript:window.location.href='{% url "users:contactus" %}';"  target="vbar">Contact Us</a> </li>
                 <li class="dropdown"> <a data-hover="dropdown"  href="" target="vbar">Blog</a> </li>
                 <li class="dropdown "> <a data-hover="dropdown"  href="" target="vbar3">FAQs</a> </li>
-                <li class="hid_mobile dropdown p3 contact "> <a data-hover="dropdown"  href="#" target="_blank"><i class="fa fa-user" style="color: #679141;"></i> login</a> </li>
+                <li class="hid_mobile dropdown p3 contact "> <a data-hover="dropdown" onclick="javascript:window.location.href='{% url "account_login" %}';"   target="_blank"><i class="fa fa-user" style="color: #679141;"></i> login</a> </li>
                 <li class=" hid_mobile dropdown ">
                  <button target="_blank1" class="bt1 btn btn-success" >Start free trial</button> </li>
                 
@@ -163,7 +163,7 @@ function showSib(sib_id){
         <span class="card-header"> <span class="blink" style="color:black;margin-left:5px">	&dArr;</span > &nbsp;We are Available!</span>
              <div class="card-body">
                   <p class="card-text"><span class="blink" style="color:white;">&#9658</span> We have active Facebook, Twitter, Instagram, and YouTube pages.
-                  <br><span class="blink" style="color:white;">&#9658</span> You can reach Customer Service by E-Mail at <b>support@nsamr.com</b>by phone at <b>(888) 123-9670</b></p>
+                  <br><span class="blink" style="color:white;">&#9658</span> You can reach Customer Service by email at <b style="font-style: italic;">support@nsamr.com</b> by phone at <b style="font-style: italic;"> (888) 123-9670</b></p>
              </div>
         </div>
     </div>
@@ -172,10 +172,13 @@ function showSib(sib_id){
 
    <p class="h6">Tell us about your issue so we can help you more quickly.</p>
         <div id="searchBox" class="mobile-form">
-            <form action="/search" class="search-form" id="searchform" method="get">
-                <input id="sbox" name="q" placeholder="Email" type="text" x-webkit-speech=""><br>
-                <textarea id="sbox" name="q" placeholder="Type your message here..." type="text" x-webkit-speech=""></textarea><br>
-                <button class="btn btn-success btn-lg">Submit</button>
+            <form action="{% url 'users:contactus' %}" method="POST" class="search-form" id="searchform">
+              {% csrf_token %}
+                <input id="sbox" name="email" placeholder="Email" type="text" x-webkit-speech="" required><br>
+                <textarea id="sbox" name="message" placeholder="Type your message here..." type="text" x-webkit-speech="" required></textarea><br>
+                <button class="btn btn-success btn-lg btn-block" type="submit">Submit</button>
+                <p style="color: #0f8d52;">{{success}}</p>
+                <p style="color: red;">{{fail}}</p>
             </form>
         </div>
         <h3 class="center" style="font-weight:bold">Common Issues</h3>
@@ -184,76 +187,24 @@ function showSib(sib_id){
    
             <h2 class="sr-only">Solodev Content Management System</h2>
             <ul class="list1">
-            <li>
+              {% for faq in faq_list %}
+              <li>
                 <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
                   <div role="tab" id="headingOne">
-                      <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                        Payments
+                      <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapse{{faq.id}}" aria-expanded="false" aria-controls="collapse{{faq.id}}">
+                        {{faq.title}}
                       </button><hr>
-                  <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <div id="collapse{{faq.id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne">
                     <div class="card-block">
-                      </h4>Holds, declines, refunds, balance</h4>
+                      </h4>{{faq.description}}</h4>
                     </div>
                     <hr>
                   </div>
                 </div>
-              </div></li>
-            <li>
-                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
-                  <div role="tab" id="headingTwo">
-                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseOne">
-                        Account profile and set up
-                      </button>
-                  </div><hr>
-                  <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                    <div class="card-block">
-                      </h4>Credit or debit card, bank account, email, phone</h4>
-                    </div><hr>
-                  </div>
-                </div>
-                </li>
-            <li>
-                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
-                  <div role="tab" id="headingThree">
-                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseOne">
-                        Disputes and account limitations
-                      </button><hr>
-                  </div>
-                  <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                    <div class="card-block">
-                      </h4>Payment dispute, chargeback, limitation</h4>
-                    </div><hr>
-                  </div>
-                </div>
-              </li>
-            <li>
-                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
-                  <div role="tab" id="headingFour">
-                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseOne">
-                        Donations
-                      </button><hr>
-                  </div>
-                  <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
-                    <div class="card-block">
-                    </h4>Nonprofit, PayPal Giving Fund</h4>
-                    </div><hr>
-                  </div>
-                </div>
-              </li>
-             <li>
-                <div id="accordion" role="tablist" aria-multiselectable="true" class="widget hidden-sm-up">
-                  <div role="tab" id="headingFour">
-                    <button class="expand1" data-toggle="collapse"  data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseOne">
-                        Business Solutions
-                      </button><hr>
-                  </div>
-                  <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
-                    <div class="card-block">
-                    </h4>Fees, orders, PayPal solutions</h4>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              </div>
+            </li>
+              {% endfor %}
+
             </ul>
 
         <div class="info">

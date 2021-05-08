@@ -10,6 +10,8 @@
 </head>
 {% load static %}
 <style>
+.hint { display: none; }
+input:focus + .hint { display: inline; }
   body{
     /* background: url('{% static "img/marketing.jpg" %}') no-repeat center center fixed; 
   -webkit-background-size: cover;
@@ -22,7 +24,7 @@
    left: 0;
    bottom: 0;
    width: 100%;
-   background-color: #61D2B4;
+   background-color: #679141;
    color: white;
    text-align: center;
  }
@@ -121,7 +123,7 @@ html {
 
 #msform .action-button {
     width: 100px;
-    background: #61D2B4;
+    background: #679141;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -162,7 +164,7 @@ select.list-dt {
 }
 
 select.list-dt:focus {
-    border-bottom: 2px solid #61D2B4
+    border-bottom: 2px solid #679141
 }
 
 .card {
@@ -248,7 +250,7 @@ select.list-dt:focus {
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #61D2B4
+    background: #679141
 }
 
 .radio-group {
@@ -280,12 +282,50 @@ select.list-dt:focus {
     width: 100%;
     object-fit: cover
 }
+
+.regular-checkbox + label {
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.regular-checkbox:checked + label {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+.regular-checkbox:checked + label:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
+}
+
+
+.big-checkbox + label {
+	padding: 18px;
+}
+
+.big-checkbox:checked + label:after {
+	font-size: 28px;
+	left: 6px;
+}
+
+
 </style>
 
-
-
-
-</style>
 <script> 
 
 function submitform(){
@@ -297,7 +337,7 @@ function submitform(){
     <body>
 
       <div class="bs-example">
-        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #61D2B4">
+        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #679141">
             <a href="#" class="navbar-brand">
                 <img src="{% static 'img/logo.png' %}" height="80" alt="NSMAR">
             </a>
@@ -400,7 +440,8 @@ function submitform(){
                                   <h2 class="fs-title">Account Information</h2>
                                   <input type="email" id="Email" name="email" placeholder="Email Id" /> 
                                   <input type="text" id="User Name" name="username" placeholder="UserName" />
-                                   <input type="password" id="Password" name="password1" placeholder="Password" /> 
+                                   <input type="password" id="Password" name="password1" placeholder="Password" /> <span class="hint">Minimum 8 length, 1 uppercase, 1 smallcase and 1 special character</span>
+                                   <p id="passwordMeter" style="color: #2C3E50;"></p>
                                    <input type="password" id="Confirm Password" name="password2" placeholder="Confirm Password"/>
                                    <input type="text" id="Phone" name="phone" placeholder="Contact No." />
                                    <small>Please enter phone with country code and without spaces</small>
@@ -408,18 +449,18 @@ function submitform(){
                                        your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. 
                                        If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:</p>
                                     <div class="d-flex justify-content-left" style="display: inline-flex;"> 
-                                        <label for="flexCheckDefault">
+                                        <label for="flexCheckDefault" style="width:95%;float:left">
                                             Contact me using automated calls
                                             (We may still call you using other means if we need to speak with you.)                                    
                                         </label>
-                                    <input type="checkbox" value="" id="flexCheckDefault" checked>
+                                    <input type="checkbox" value="" id="flexCheckDefault" class="regular-checkbox big-checkbox" style="width:5%;float:left;height: 22px;" checked>
 
                                   </div>
                                   <div class="d-flex justify-content-left" style="display: inline-flex;width: auto; align-self: flex-start;"> 
-                                    <label for="flexCheckChecked">
+                                    <label for="flexCheckChecked" style="width:95%;float:left"> 
                                         Contact me using text messages
                                     </label>
-                                    <input type="checkbox" value="" id="flexCheckChecked" checked>
+                                    <input type="checkbox" value="" id="flexCheckChecked" class="regular-checkbox big-checkbox" style="width:5%;float:left;height: 22px;" checked>
 
                                   </div>
                                   <p style="padding-top: 10px;">
@@ -625,13 +666,41 @@ function websiteIsValid(website){
 
 
 
-
-
 $(document).ready(function(){
   
   var current_fs, next_fs, previous_fs; //fieldsets
   var opacity;
   
+
+  $("#Password").on("keyup change", function(e) {
+    let p = $("#Password")[0].value;
+  if(!passwordIsValid(p)){
+      $("#passwordMeter").text("Weak Password");  
+      $("#passwordMeter").css("color", "red");
+      return;
+  }
+  else if(passwordIsValid(p) && p.length > 12){
+    $("#passwordMeter").text("Strong Password");  
+    $("#passwordMeter").css("color", "green");
+    return;
+
+  }
+  else{
+    $("#passwordMeter").text("Good Password");  
+    $("#passwordMeter").css("color", "orange");
+    return;
+
+  }
+});
+
+$("#Password").on("focusout", function(e) {
+    $("#passwordMeter").css("display", "none");
+});
+
+
+$("#Password").on("focusin", function(e) {
+    $("#passwordMeter").css("display", "block");
+});
   $(".next").click(function(){
   
   current_fs = $(this).parent();
@@ -759,6 +828,11 @@ $(document).ready(function(){
   $(".submit").click(function(){
   return false;
   })
+
+
+
+
+  
   });
 
   function verify(){
