@@ -1,0 +1,29 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="body-content outer-top-vs" id="top-banner-and-menu" style="background-color:#c4d4c9;margin-top:0px" >
+  <div class="container pad01" >
+    <div class="wide">
+        <div class="block1">
+            <h3 style="font-weight: 600;line-height: 1.5;margin-top: 0px;">Add a payment method to your account</h3>
+            <p style="margin-bottom: 0px;">We ask for your payment method to verify your identity and to keep spammers out.</p>
+        </div>
+        <br>
+        <button class="block2">
+            <div class="img1">
+                <img src="https://ui-cdn.digitalocean.com/account-settings/fab692a/static/media/cc-icon.47d5bfed.svg" alt="credit card">
+                <p style="color:black;font-weight:bold;margin-top: 10px;">Credit Card</p>
+            </div>
+        </button>
+        <button class="block3">
+            <div class="img2">
+                <img src="https://dwglogo.com/wp-content/uploads/2016/08/PayPal_Logo_Icon.png" alt="PayPal" width="85px" height="75px">
+                <p style="color:black;font-weight:bold;margin-top: 10px;">PayPal</p>
+             </div>
+        </button>
+        </div>
+    </div>
+</div>
+{% endblock content %}

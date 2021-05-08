@@ -21,11 +21,14 @@ def index(request):
         return render(request, 'based.html', {})
     return render(request, 'homepage/home.html', {})
 
+def payment(request):
+    return render(request, 'payment_method.html', {})
+
 def contactus(request):
     if request.method == "GET":
         context = {}
         context['faq_list'] = FAQ.objects.all()
-        return render(request, 'contact/contactus.html', context)
+        return render(request, 'contactus.html', context)
     else:
         context = {}
         email = request.POST['email']

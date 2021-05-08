@@ -10,10 +10,26 @@
     bottom:0;
     right:0;
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  .modal.custom .modal-dialog {
+    width: 50%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+}
+@media only screen and (max-width: 767px) {
+  .modal.custom .modal-dialog {
+    width: 95%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+}
 </style>
 
 <div class="body-content outer-top-vs" id="top-banner-and-menu" >
-  <div class="container-fluid" stye="padding-bottom: 30px;">
+  <div class="container-fluid wide1" >
     <div class="col-lg-7 distance">
      <h1 style="margin-top:0px; font-size: 42px;font-weight: bold;">
      <span style="color: rgb(73, 72, 72);">We help Anyone, Anywhere,<br></span>
@@ -42,18 +58,18 @@
       <div class="modal-dialog">
           <div class="modal-content">
   
-              <div class="modal-header">
+              <div class="modal-header" style="font-family: 'Circular-Loom';">
               <button type="button" class="close" onclick="hideModal();" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h3 class="getlaid" id="trackModalLabel">
+                  <h3 class="getlaid" id="trackModalLabel" style="margin:0px">
                     <b>Want free advertisement and help for your business?</b>
                   </h3>
   
               </div>
   
-              <div class="modal-footer">
+              <div class="modal-footer" style="padding:5px 15px 5px 15px">
                   <div class="btnmodal" data-dismiss="modal">
                     <a class="btn pointer" style="color: gray;" data-dismiss="modal">Skip Trial</a>
-                    <a href="{% url 'account_signup' %}" class="btn pointer" style="color: blue;" data-dismiss="modal">7 DAYS FREE</a>
+                    <a href="{% url 'account_signup' %}" class="btn pointer" style="color: #679141;font-size:16px" data-dismiss="modal">7 DAYS FREE</a>
                 </div>
   
               </div>

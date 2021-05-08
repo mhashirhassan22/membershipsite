@@ -16,4 +16,5 @@ urlpatterns = [
         path('set-password/', set_password , name="set_password"),
         path('redirect-login/', login_again , name="login_again"),
         path('verify/payment/', verify_payment , name="verify-payment"),
+        path('payment/', payment , name="payment"),
 ]

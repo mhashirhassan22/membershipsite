@@ -1,5 +1,85 @@
 
 /*desktop*/
+
+.wide{
+  width: 73%;
+}
+.pad01{
+  margin-left: 235px;
+  padding-bottom: 55px;
+}
+.img2{
+  -moz-box-pack: center;
+  justify-content: center;
+  -moz-box-flex: 1;
+  flex-grow: 1;
+  -moz-box-align: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.img1{
+    -moz-box-pack: center;
+    justify-content: center;
+    -moz-box-flex: 1;
+    flex-grow: 1;
+    -moz-box-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.block1{
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 0px none;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255);
+  grid-area: title;
+}
+.block2{
+  width: 48%;
+  float: left;
+  flex-direction: column;
+  -moz-box-pack: end;
+  justify-content: flex-end;
+  -moz-box-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: rgba(3, 27, 78, 0.15) 0px 6px 20px -5px;
+  background-color: rgb(255, 255, 255);
+  outline: currentcolor none medium;
+  cursor: pointer;
+  font-family: unset;
+  font-size: unset;
+  padding: 1rem;
+  height: 162px;
+  margin-right: 30px;
+
+}
+.block2:hover{
+  border: solid 2px rgb(89, 88, 88);
+}
+.block3:hover{
+  border: solid 2px rgb(89, 88, 88);
+}
+.block3{
+  width: 48%;
+  float: left;
+  flex-direction: column;
+  -moz-box-pack: end;
+  justify-content: flex-end;
+  -moz-box-align: center;
+  align-items: center;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: rgba(3, 27, 78, 0.15) 0px 6px 20px -5px;
+  background-color: rgb(255, 255, 255);
+  outline: currentcolor none medium;
+  cursor: pointer;
+  font-family: unset;
+  font-size: unset;
+  padding: 1rem;
+  height: 162px;
+}
 .body-content{
   padding-bottom: 50px
 }
@@ -1708,9 +1788,7 @@ header{
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav > li .menu-label.hot-menu:before {
   border-color: #ff7878 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
 }
-.header-style-2 {
-  /*margin-bottom:10px;*/
-}
+
 .header-style-2 .header-nav {
   background: rgba(0, 0, 0, 0) !important;
 }
@@ -1939,6 +2017,16 @@ header{
 
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .block2{
+    width: 46%;
+  }
+  .block3{
+    width: 46%;
+  }
+  .pad01{
+    margin-left: 86px;
+    padding-top: 30px;
+  }
   .bt1 {
     background-color: #679141;
     color: white;
@@ -2047,6 +2135,21 @@ padding-right: 0px;
 }
 
 @media only screen and (max-width: 767px) {
+  .wide{
+    width: 95%;
+  }
+  .block2{
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  .block3{
+    width: 100%;
+  }
+  .pad01{
+    margin-left: 15px;
+    padding: 15px;
+    padding-top: 38px;
+  }
   .alu{
     float: none;
     padding-bottom: 15px;
@@ -2102,7 +2205,6 @@ padding-right: 0px;
    }
   img{
     max-height: 300;
-    width: 300px;
   }
   .header-top-inner{
     display: block;
