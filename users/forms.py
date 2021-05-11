@@ -107,3 +107,18 @@ class CustomSignupForm(UserCreationForm):
         #     raise ValidationError(self.error_messages['Credit card number not correct'])
 
         return user
+
+class CheckoutForm(forms.ModelForm):
+    subscription_options = [
+    ('1-month', '1-Month subscription ($10 USD/Mon)'),
+    ('6-month', '6-Month subscription Save $10 ($50 USD/Mon)'),
+    ('1-year', '1-Year subscription Save $30 ($90 USD/Mon)'),
+    ]
+
+class SubscriptionForm(forms.Form):
+    subscription_options = [
+    ('1-month', '1-Month subscription ($10 USD/Mon)'),
+    ('6-month', '6-Month subscription Save $10 ($50 USD/Mon)'),
+    ('1-year', '1-Year subscription Save $30 ($90 USD/Mon)'),
+    ]
+    plans = forms.ChoiceField(choices=subscription_options)

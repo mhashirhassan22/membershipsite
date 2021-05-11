@@ -1,0 +1,14 @@
+{% extends 'homepage/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div style="padding: 50px;color: #16222A;">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ f }}
+            <input type="submit" value="Subscribe">
+        </form>
+    </div>
+</div>
+{% endblock content %}

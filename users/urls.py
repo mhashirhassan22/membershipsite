@@ -18,4 +18,11 @@ urlpatterns = [
         path('redirect-login/', login_again , name="login_again"),
         path('verify/payment/', verify_payment , name="verify-payment"),
         path('payment/', payment , name="payment"),
+        path('subscribe/', subscription , name="subscription"),
+        path('process_subscription/', process_subscription , name="process_subscription"),
+        path('payment_done/', payment_done, name="payment_done"),
+        path('payment_cancelled/', payment_cancelled, name="payment_cancelled"),
+        path('paypal/', include('paypal.standard.ipn.urls')),
+
+
 ]

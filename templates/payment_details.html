@@ -1,75 +1,32 @@
+{% extends "homepage/base.html" %}
 {% load static %}
 
-<html>
-<head>
-<link rel="stylesheet" href=" {% static 'assets/css/accounts.css' %} ">
-<script src="https://kit.fontawesome.com/c2bb281b83.js" crossorigin="anonymous"></script>
-</head>
 
-<body>
-<nav>
-<h1>NSAMR</h1>
-</nav>
-<div class="container" id="container">
-      <div class="form-container sign-up-container">
-        <form>
-          <h1>Sign Up</h1>
-          <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social"><i class="fab fa-google"></i></a>
-            <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
-          </div>
-          <span>or use your email for registration</span>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button onclick="return false;">Sign Up</button>
-        </form>
+{% block content %}
+<div class="content">
+  <div class="container " >
+        <form class="signup " onsubmit="return false" autocomplete="off">
+            <h1 >Create account</h1>
+
+            <div class="signup__field">
+              <input class="signup__input" type="text" name="username" id="username" required />
+              <label class="signup__label" for="username">Username</label>
+            </div>
+
+            <div class="signup__field">
+              <input class="signup__input" type="text" name="email" id="email" required />
+              <label class="signup__label" for="email">Email</label>
+            </div>
+
+            <div class="signup__field">
+              <input class="signup__input" type="password" name="password" id="password" required />
+              <label class="signup__label" for="password">Password</label>
+            </div>
+            
+            <button>Sign up</button>
+            <hr>
+            <h2>Already have an account? <span>Sign in</span></h2>
+          </form>
       </div>
-      <div class="form-container sign-in-container">
-        <form>
-          <h1>Sign In</h1>
-          <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="social"><i class="fab fa-google"></i></a>
-            <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
-          </div>
-          <span>or use your account</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <a href="#">Forgot your password?</a>
-          <button onclick="return false;">Sign In</button>
-        </form>
-      </div>
-      <div class="overlay-container">
-        <div class="overlay">
-          <div class="overlay-panel overlay-left">
-            <h1>Welcome Back!</h1>
-            <p>Please login with your personal info</p>
-            <button class="ghost" id="signIn">Sign In</button>
-          </div>
-          <div class="overlay-panel overlay-right">
-            <h1>Hello, Friend!</h1>
-            <p>Enter your personal details and start your journey with us</p>
-            <button class="ghost" id="signUp">Sign Up</button>
-          </div>
-        </div>
-      </div>
-    </div>
- {% comment %} Sciript Files  {% endcomment %}
-<script>
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
-const container = document.getElementById("container");
-
-signUpButton.addEventListener("click", () => {
-  container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener("click", () => {
-  container.classList.remove("right-panel-active");
-});
-
-</script>
-</body>
-</html>
+</div>
+{% endblock content %}

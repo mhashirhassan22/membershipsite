@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from decimal import Decimal
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
-from django.urls import reverse
+from django.urls import reverse , include
 from django.contrib.auth.decorators import login_required
 from cities_light.models import City, Country, Region
 from .models import *
@@ -14,6 +14,10 @@ from .models import User
 import json
 from django.http import JsonResponse
 from datetime import date
+from .forms import SubscriptionForm, CheckoutForm
+from django.views.decorators.csrf import csrf_exempt
+from paypal.standard.forms import PayPalPaymentsForm
+
 
 # @login_required
 def index(request):
@@ -160,3 +164,63 @@ def verify_payment(request):
 
         # obj.save()
         return JsonResponse(context)
+@csrf_exempt
+def payment_done(request):
+    return render(request, 'payment_done.html')
+
+@csrf_exempt
+def payment_cancelled(request):
+    return render(request, 'payment_cancelled.html')
+
+def subscription(request):
+    if request.method=="POST":
+        f=SubscriptionForm(request.POST)
+        if f.is_valid():
+            request.session['subscription_plan'] = request.POST.get('plans')
+            return redirect('/process_subscription')
+    else:
+        f=SubscriptionForm()
+    return render(request,'subscription_form.html',locals())
+
+def process_subscription(request):
+
+    subscription_plan = request.session.get('subscription_plan')
+    host = request.get_host()
+
+    if subscription_plan == '1-month':
+        price = "10"
+        billing_cycle = 1
+        billing_cycle_unit = "M"
+    elif subscription_plan == '6-month':
+        price = "50"
+        billing_cycle = 6
+        billing_cycle_unit = "M"
+    else:
+        price = "90"
+        billing_cycle = 1
+        billing_cycle_unit = "Y"
+       
+    cancel_url = request.build_absolute_uri(reverse('users:payment_cancelled'))
+    done_url = request.build_absolute_uri(reverse('users:payment_done'))
+    paypal_dict  = {
+        "cmd": "_xclick-subscriptions",
+        'business': settings.PAYPAL_RECEIVER_EMAIL,
+        "a3": price,  # monthly price
+        "p3": billing_cycle,  # duration of each unit (depends on unit)
+        "t3": billing_cycle_unit,  # duration unit ("M for Month")
+        "src": "1",  # make payments recur
+        "sra": "1",  # reattempt payment on payment error
+        "no_note": "1",  # remove extra notes (optional)
+        'item_name': 'Content subscription',
+        'custom': 1,     # custom data, pass something meaningful here
+        'currency_code': 'USD',
+        'notify_url': 'http://{}{}'.format(host,
+                                           done_url),
+        'return_url': 'http://{}{}'.format(host,
+                                           done_url),
+        'cancel_return': 'http://{}{}'.format(host,
+                                             cancel_url),
+    }
+
+    form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
+    return render(request, 'process_subscription.html', locals())

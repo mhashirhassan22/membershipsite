@@ -60,13 +60,15 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-
+    #Paypal
+    'paypal.standard.ipn',
 
     'users',
     "cities_light",
 ]
+PAYPAL_RECEIVER_EMAIL = 'hassanbaras5@gmail.com'
 
-
+PAYPAL_TEST = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

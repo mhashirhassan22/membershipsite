@@ -1,5 +1,9 @@
 
 /*desktop*/
+.paypal{
+  padding: 50px;
+  color: #16222A;
+}
 .addcard{
   display: flex;
   flex-shrink: 0;
