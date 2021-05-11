@@ -24,6 +24,9 @@ def index(request):
 def payment(request):
     return render(request, 'payment_method.html', {})
 
+def payment_details(request):
+    return render(request, 'payment_details.html', {})
+
 def contactus(request):
     if request.method == "GET":
         context = {}

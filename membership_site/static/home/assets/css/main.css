@@ -1,6 +1,19 @@
 
 /*desktop*/
-
+.addcard{
+  display: flex;
+  flex-shrink: 0;
+  -moz-box-align: center;
+  align-items: center;
+  height: 69px;
+  background-color: rgb(255, 255, 255) none repeat scroll 0% 0%;
+  color: black;
+  padding: 0px 5px;
+  border-bottom: 1px solid rgb(241, 241, 241);
+}
+.wide2{
+  width: 27%;
+}
 .wide{
   width: 73%;
 }

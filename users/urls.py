@@ -9,6 +9,7 @@ urlpatterns = [
         path('', index , name="index"),
         path('login/', login , name="login"),
         path('contactus/', contactus , name="contactus"),
+        path('payment_details/', payment_details , name="payment_details"),
         path('signup/', signup , name="signup"),
         path('forgot-password/', forgot , name="forgot"),
         path('forgot-password-request/', requestcode , name="forget_password"),
