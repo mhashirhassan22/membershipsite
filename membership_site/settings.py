@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     'users',
     "cities_light",
 ]
-PAYPAL_RECEIVER_EMAIL = 'hassanbaras5@gmail.com'
+PAYPAL_RECEIVER_EMAIL = 'ReceptionistA1_api1.gmail.com 
 
 PAYPAL_TEST = True
 
