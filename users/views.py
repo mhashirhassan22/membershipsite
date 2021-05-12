@@ -200,8 +200,9 @@ def process_subscription(request):
         billing_cycle = 1
         billing_cycle_unit = "Y"
        
-    cancel_url = request.build_absolute_uri(reverse('users:payment_cancelled'))
-    done_url = request.build_absolute_uri(reverse('users:payment_done'))
+    cancel_url = '/payment_cancelled'
+    print(cancel_url)
+    done_url = '/payment_done'
     paypal_dict  = {
         "cmd": "_xclick-subscriptions",
         'business': settings.PAYPAL_RECEIVER_EMAIL,
