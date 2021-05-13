@@ -19,6 +19,7 @@ urlpatterns = [
 
         path('paypal-pay/', PaypalFormView.as_view(), name='paypal-pay'),
         path('paypal-sub/', PaypalSub, name='paypal-sub'),
+        path('process_subscription/', views.process_subscription, name='process_subscription'),
         path('paypal-return/', PaypalReturnView.as_view(), name='paypal-return'),
         path('paypal-cancel/', PaypalCancelView.as_view(), name='paypal-cancel'),
 ]
