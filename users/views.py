@@ -222,7 +222,7 @@ def process_subscription(request):
         'custom': 1,     # custom data, pass something meaningful here
         'currency_code': 'USD',
         'notify_url': 'http://{}{}'.format(host,
-                                           '/paypal-ipn'),
+                                           reverse('paypal-ipn')),
 
         'return_url': 'http://{}{}'.format(host,
                                            done_url),

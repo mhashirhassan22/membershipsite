@@ -19,7 +19,7 @@ from django.urls import path, include, re_path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
-    path('', include('paypal.standard.ipn.urls')),
+    path('paypal/', include('paypal.standard.ipn.urls')),
     path('accounts/', include("allauth.urls")),
     
 
