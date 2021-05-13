@@ -23,15 +23,7 @@ class YourLoginForm(LoginForm):
 
 
 class CustomSignupForm(UserCreationForm):
-    country = forms.ModelChoiceField(queryset=Country.objects.all(), empty_label="-", to_field_name="id")
-    city = forms.ModelChoiceField(queryset=City.objects.all().distinct(), empty_label="-")
-    state = forms.ModelChoiceField(queryset=Region.objects.all().distinct(), empty_label="-")
-    timezone = forms.ChoiceField(choices=[(x, x) for x in pytz.common_timezones])
-    interest = forms.ChoiceField(choices=[(x.name, x.name) for x in Interest.objects.all().distinct()], required=False)
-    servicearea = forms.ModelChoiceField(queryset=ServiceArea.objects.all().distinct(), empty_label="-")
-    # cc_number = CardNumberField(label='Card Number', required=False)
-    # cc_expiry = forms.DateTimeField(required=False)
-    # cc_code = SecurityCodeField(label='CVV/CVC', required=False)
+    phone = forms.CharField(max_length=14)
 
 
     error_message = UserCreationForm.error_messages.update(
@@ -41,22 +33,9 @@ class CustomSignupForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
         fields = [
-            'first_name',
-            'last_name',
             'email',
-            'username',
             'password1',
-            'password2',
-            'work_title',
-            'business_name',
-            'website',
-            'address',
             'phone',
-            'country',
-            'city',
-            'state',
-            'timezone',
-            'servicearea'
             
         ]
 
@@ -80,33 +59,6 @@ class CustomSignupForm(UserCreationForm):
 
         raise ValidationError(self.error_messages["duplicate_username"])
 
-
-    
-    def save(self, request):
-        # Ensure you call the parent classes save.
-        # .save() returns a User object.
-        user = super(CustomSignupForm, self).save(request)
-
-        for x in request.POST.getlist("checks[]"):
-            obj = UserInterest()
-            obj.user = user
-            interest = Interest.objects.get(name=x)
-            obj.interest = interest
-            obj.save()
-
-        # try:
-        #     obj = CreditCard()
-        #     obj.cc_number = request.POST['card_number']
-        #     obj.cc_code = request.POST['card_code']
-        #     obj.cc_expiry = request.POST['card_month'] + request.POST['card_year']
-        #     print(obj.cc_expiry)
-        #     obj.save()
-        #     user.credit_card = obj
-        #     user.save()
-        # except:
-        #     raise ValidationError(self.error_messages['Credit card number not correct'])
-
-        return user
 
 class CheckoutForm(forms.ModelForm):
     subscription_options = [

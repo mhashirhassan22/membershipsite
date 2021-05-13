@@ -4,869 +4,121 @@
 
 
 {% block content %}
-{% include 'head.html' %}
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+
+
+{% include 'head.html' %}   
 {% load static %}
-<style>
-.hint { display: none; }
-input:focus + .hint { display: inline; }
-  body{
-    /* background: url('{% static "img/marketing.jpg" %}') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; */
-  }
-  
- .footer {
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: #679141;
-   color: white;
-   text-align: center;
- }
- .dropdown:hover > .dropdown-menu {
-    display: block;
-}
-.dropdown > .dropdown-toggle:active {
-    /*Without this, clicking will make it sticky*/
-    pointer-events: none;
-}
-.hovel:hover{
-  color:white;
-  background-color: #3b5898bb;
-}
-
-
-
-* {
-    margin: 0;
-    padding: 0
-}
-
-html {
-    height: 100%
-}
-
-#grad1 {
-    /* border: #000000;
-    border-width: 8px;
-    border-style: solid; */
-}
-
-#msform {
-    text-align: center;
-    position: relative;
-    margin-top: 20px
-}
-
-#msform fieldset .form-card {
-    background: white;
-    border: 0 none;
-    border-radius: 0px;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-    padding: 20px 40px 30px 40px;
-    box-sizing: border-box;
-    width: 94%;
-    margin: 0 3% 20px 3%;
-    position: relative
-}
-
-#msform fieldset {
-    background: white;
-    border: 0 none;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0;
-    padding-bottom: 20px;
-    position: relative
-}
-
-#msform fieldset:not(:first-of-type) {
-    display: none
-}
-
-#msform fieldset .form-card {
-    text-align: left;
-    color: #9E9E9E
-}
-
-#msform input,
-#msform textarea {
-    padding: 0px 8px 4px 8px;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    border-radius: 0px;
-    margin-bottom: 25px;
-    margin-top: 2px;
-    width: 100%;
-    box-sizing: border-box;
-    color: #2C3E50;
-    font-size: 18px;
-    letter-spacing: 1px
-}
-
-#msform input:focus,
-#msform textarea:focus {
-    -moz-box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-    border: none;
-    font-weight: bold;
-    border-bottom: 2px solid skyblue;
-    outline-width: 0
-}
-
-#msform .action-button {
-    width: 100px;
-    background: #679141;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px
-}
-
-#msform .action-button:hover,
-#msform .action-button:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue
-}
-
-#msform .action-button-previous {
-    width: 100px;
-    background: #616161;
-    font-weight: bold;
-    color: white;
-    border: 0 none;
-    border-radius: 0px;
-    cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 5px
-}
-
-#msform .action-button-previous:hover,
-#msform .action-button-previous:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #616161
-}
-
-select.list-dt {
-    border: none;
-    outline: 0;
-    border-bottom: 1px solid #ccc;
-    padding: 2px 5px 3px 5px;
-    margin: 2px
-}
-
-select.list-dt:focus {
-    border-bottom: 2px solid #679141
-}
-
-.card {
-    z-index: 0;
-    border: none;
-    border-radius: 0.5rem;
-    position: relative
-}
-
-.fs-title {
-    font-size: 25px;
-    color: #2C3E50;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-align: left
-}
-
-#progressbar {
-    margin-bottom: 30px;
-    overflow: hidden;
-    color: lightgrey
-}
-
-#progressbar .active {
-    color: #000000
-}
-
-#progressbar li {
-    list-style-type: none;
-    font-size: 12px;
-    width: 20%;
-    float: left;
-    position: relative
-}
-
-#progressbar #account:before {
-    font-family: FontAwesome;
-    content: "\f023"
-}
-
-#progressbar #personal:before {
-    font-family: FontAwesome;
-    content: "\f007"
-}
-
-#progressbar #interest:before {
-    font-family: FontAwesome;
-    content: "\f150"
-}
-#progressbar #payment:before {
-    font-family: FontAwesome;
-    content: "\f09d"
-}
-
-#progressbar #confirm:before {
-    font-family: FontAwesome;
-    content: "\f00c"
-}
-
-#progressbar li:before {
-    width: 50px;
-    height: 50px;
-    line-height: 45px;
-    display: block;
-    font-size: 18px;
-    color: #ffffff;
-    background: lightgray;
-    border-radius: 50%;
-    margin: 0 auto 10px auto;
-    padding: 2px
-}
-
-#progressbar li:after {
-    content: '';
-    width: 100%;
-    height: 2px;
-    background: lightgray;
-    position: absolute;
-    left: 0;
-    top: 25px;
-    z-index: -1
-}
-
-#progressbar li.active:before,
-#progressbar li.active:after {
-    background: #679141
-}
-
-.radio-group {
-    position: relative;
-    margin-bottom: 25px
-}
-
-.radio {
-    display: inline-block;
-    width: 204;
-    height: 104;
-    border-radius: 0;
-    background: lightblue;
-    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.2);
-    box-sizing: border-box;
-    cursor: pointer;
-    margin: 8px 2px
-}
-
-.radio:hover {
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3)
-}
-
-.radio.selected {
-    box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1)
-}
-
-.fit-image {
-    width: 100%;
-    object-fit: cover
-}
-
-.regular-checkbox + label {
-	background-color: #fafafa;
-	border: 1px solid #cacece;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
-	border-radius: 3px;
-	display: inline-block;
-	position: relative;
-}
-
-.regular-checkbox + label:active, .regular-checkbox:checked + label:active {
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
-}
-
-.regular-checkbox:checked + label {
-	background-color: #e9ecee;
-	border: 1px solid #adb8c0;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
-	color: #99a1a7;
-}
-
-.regular-checkbox:checked + label:after {
-	content: '\2714';
-	font-size: 14px;
-	position: absolute;
-	top: 0px;
-	left: 3px;
-	color: #99a1a7;
-}
-
-
-.big-checkbox + label {
-	padding: 18px;
-}
-
-.big-checkbox:checked + label:after {
-	font-size: 28px;
-	left: 6px;
-}
-
-
-</style>
-
-<script> 
-
-function submitform(){
-  $("#logform").submit();
-}
-
-
-</script>
-    <body>
-
-      <div class="bs-example">
-        <nav class="navbar navbar-expand-md navbar-light " style="background-color: #679141">
-            <a href="#" class="navbar-brand">
-                <img src="{% static 'img/logo.png' %}" height="80" alt="NSMAR">
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-    
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <a href="{% url 'account_signup' %}" class="nav-item nav-link active" style="color: white;">Become A Member</a>
-                </div>
-                <div class="navbar-nav ml-auto px-5">
-                  <ul id="topnav" class="navbar-nav  w-100 justify-content-left px-1 py-2" >
-                  <li class="nav-item" style="display: flex;align-items: flex-start;">
-                    <a class="nav-link" href="#" style="color: white;">
-                        Already A Member?  Call Us We Are Here To Serve You </a>  
-
-                        <a class="nav-link" href="?" style="color: white;">
-                            <strong style="text-decoration: underline;font-size: larger;"> 555 123 4567</strong> </a>  
-                        
-
-                  </li>                
-                  </ul>
-                </div>
-            </div>
-  
-        </nav>
-        <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: -1%; display: flex; align-items: flex-end;">
-
-          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar2Collapse">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse  justify-content-left navbar-collapse" id="navbar2Collapse">
-            <div class="navbar-nav d-flex justify-content-end">
-                <a href="#" class="hovel nav-item nav-link active" style="padding-right: 35px;padding-left: 30px;">
-                    Email us: 
-                    <strong style="text-decoration: underline;"> sales@nsamr.ca </strong>
-                </a>
-            </div>
-
-        </div>
-          <div class="collapse  justify-content-end navbar-collapse" id="navbar2Collapse">
-              <div class="navbar-nav d-flex justify-content-end" style="margin-right: 5%;">
-  
-                <li class="nav-item" style="display: flex;align-items: flex-start;">
-                    <a class="nav-link" href="#" style="color: black;">
-                        Not Yet A Member?  Call Us And Get The Help You Need </a>  
-
-                        <a class="nav-link" href="?" style="color: black;">
-                            <strong style="text-decoration: underline;font-size: larger;"> 145 145 1234 </strong> </a>  
-                        
-
-                  </li>   
-              </div>
-
-          </div>
-
-      </nav>
-    </div>
-
-
-
-<!-- MultiStep Form -->
-<div class="container-fluid" id="grad1">
-  <div class="row justify-content-center mt-0">
-      <div class="col-11 col-xl-9 col-md-7 col-lg-6 text-center p-0 mb-3" style="border: #2C3E50;">
-          <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
-              <h2><strong>Membership Registration</strong></h2>
-              <p>Get Customized Help And Expert Assistance.  Each Member is catered to based on their specific needs.  
-                  A ‘one size fits all’ approach is neither 
-                  appropriate nor proportionate, as developments occur at different speeds in different sectors, different areas.  
-                  We really do it for <strong style="color: red;">you</strong>!</p>
-              <div class="row">
-                  <div class="col-md-12 mx-0">
-                      
-                        <form id="msform" method="post" action="{% url 'account_signup' %}">
-                            {% csrf_token %}
-                                {% if form.errors %}
-                                    {% for field in form %}
-                                        {% for error in field.errors %}
-                                            {{ error|escape }}
-                                        {% endfor %}
-                                     {% endfor %}
-                                    {% for error in form.non_field_errors %}
-                                        {{ error|escape }}
-                                    {% endfor %}
-                                {% endif %}   
-                          <!-- progressbar -->
-                          <ul id="progressbar">
-                              <li class="active" id="account"><strong>Account</strong></li>
-                              <li id="personal"><strong>Personal</strong></li>
-                              <li id="interest"><strong>Interest</strong></li>
-                              <li id="payment"><strong>Payment</strong></li>
-                              <li id="confirm"><strong>Finish</strong></li>
-                          </ul> <!-- fieldsets -->                                  
-                          <fieldset id="10">
-                            <p id="fieldset1error" style="color: red;border-style: solid;border-color: red;font-weight:600;display: none;"></p> 
+<div class="container register">
+  <div class="row">
+      <div class="col-md-3 register-left">
+          <img src="{% static 'img/logo.png' %}" alt=""/>
+          <p>National Sales & Marketing Resources</p><br>
+          <small>Already have an account?</small>
+          <a href="{{ login_url }}" name="" style="color: #3b5998;">Login</a><br/>
+      </div>
+      <div class="col-md-9 register-right">
+          <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+              <li class="nav-item">
+                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Individual</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Business</a>
+              </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="register-heading">Register as a Individual</h3>
+                  <form method="post" action="{% url 'account_signup' %}">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                        {{ error|escape }}
+                        {% endfor %}
+                    {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    {{ error|escape }}
+                    {% endfor %}
+                {% endif %}                  
+                <div class="row register-form">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <input type="email" name="email" class="form-control" placeholder="Your Email *" required/>
+                          </div>
+                          <div class="form-group">
+                              <input type="password" name="password1" class="form-control" placeholder="Password *"  required/>
+                          </div>
+                          <div class="form-group">
+                              <input type="text" id="phone" name="phone" maxlength="15" minlength="8" class="form-control" placeholder="Phone *" required/>
+                          </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <input type="password" name="password2" class="form-control" placeholder="Confirm Password *"  required/>
+                        </div>
+                    </div>
                           
-                              <div class="form-card">
-                                  <h2 class="fs-title">Account Information</h2>
-                                  <input type="email" id="Email" name="email" placeholder="Email Id" /> 
-                                  <input type="text" id="User Name" name="username" placeholder="UserName" />
-                                   <input type="password" id="Password" name="password1" placeholder="Password" /> <span class="hint">Minimum 8 length, 1 uppercase, 1 smallcase and 1 special character</span>
-                                   <p id="passwordMeter" style="color: #2C3E50;"></p>
-                                   <input type="password" id="Confirm Password" name="password2" placeholder="Confirm Password"/>
-                                   <input type="text" id="Phone" name="phone" placeholder="Contact No." />
-                                   <small>Please enter phone with country code and without spaces</small>
-                                   <p>If this is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about 
-                                       your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. 
-                                       If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:</p>
-                                    <div class="d-flex justify-content-left" style="display: inline-flex;"> 
-                                        <label for="flexCheckDefault" style="width:95%;float:left">
-                                            Contact me using automated calls
-                                            (We may still call you using other means if we need to speak with you.)                                    
-                                        </label>
-                                    <input type="checkbox" value="" id="flexCheckDefault" class="regular-checkbox big-checkbox" style="width:5%;float:left;height: 22px;" checked>
+                          {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                          {% endif %}
+                      <input type="submit" class="btnRegister"  value="Register"/>
 
-                                  </div>
-                                  <div class="d-flex justify-content-left" style="display: inline-flex;width: auto; align-self: flex-start;"> 
-                                    <label for="flexCheckChecked" style="width:95%;float:left"> 
-                                        Contact me using text messages
-                                    </label>
-                                    <input type="checkbox" value="" id="flexCheckChecked" class="regular-checkbox big-checkbox" style="width:5%;float:left;height: 22px;" checked>
-
-                                  </div>
-                                  <p style="padding-top: 10px;">
-                                    Adding my number confirms that I'm authorized to add this number and consent to receiving autodialed and prerecorded calls and
-                                     texts for the reasons described in our <strong>Privacy Policy</strong>. 
-                                     Standard rates may apply.
-                                </p>
-                                </div> 
-                              <input type="button" name="next" class="next action-button" value="Next Step" />
-                          </fieldset>
-                          <fieldset id="11">
-                            <p id="fieldset2error" style="color: red;border-style: solid;border-color: red;font-weight:600;display: none;"></p> 
-                          
-                              <div class="form-card">
-                                  <h2 class="fs-title">Personal Information</h2> 
-                                  <input type="text" id="First Name" name="first_name" placeholder="First Name" /> 
-                                  <input type="text" id="Last Name" name="last_name" placeholder="Last Name" /> 
-                                  <input type="text" id="Business Name" name="business_name" placeholder="Business Name" /> 
-                                  <input type="text" id="Website Name" name="website" placeholder="Website URL" /> 
-                                  <input type="text" id="Work Title" name="work_title" placeholder="Work Title" /> 
-                                  <input type="text" id="Address" name="address" placeholder="Address" />
-                                  
-                                 
-                                    <div class="form-group">
-                                        <strong> Select Country </strong>
-                                        <select class="form-control" name="country" id="select1">
-                                            <option disabled selected value> -- </option>
-                                            {% for id, name in form.country.field.choices %}
-                                            <option value="{{id}}">{{ name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                        <br>
-                                        <strong> Select Region </strong>
-                                        <select class="form-control" name="state" id="select3">
-                                            <option id="disabled1" disabled selected value> -- </option>
-                                            {% for region in form.state.field.queryset %}
-                                                        <option value="{{ region.country_id }}" data-region="{{ region.id }}">{{ region.name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                        <br>
-                                        <strong> Select City </strong>
-                                        <select class="form-control" name="city" id="select2">
-                                            <option id="disabled2" disabled selected value> -- </option>
-                                            {% for city in form.city.field.queryset %}
-                                                    <option value="{{ city.region_id }}">{{ city.name }}</option>
-                                            {% endfor %}
-                                        </select>
-                                    </div>
-                                    <br>
-                                    <strong> Select Timezone </strong>
-                                    {{form.timezone}}
-                                <br>
-                                <br>
-                                <strong> Select Service Area </strong>
-                                <select class="form-control" name="servicearea" id="select2">
-                                    <option id="disabled2" disabled selected value> -- </option>
-                                    {% for city in form.servicearea.field.queryset %}
-                                            <option value="{{ city.id }}">{{ city.name }}</option>
-                                    {% endfor %}
-                                </select>
-                                    <script>
-                                        var $select1 = $('#select1'),
-                                            $select2 = $('#select2'),
-                                            $options = $select2.find('option');
-                                            $select3 = $('#select3'),
-                                            $options3 = $select3.find('option');
-    
-                                        $select1.on('change', function() {
-                                            $select3.html($options3.filter('[value="' + this.value + '"]'));
-                                            document.getElementById("disabled1").selected=true;
-                                            // $select2.html($options.filter('[value="' + this.value + '"]'));
-                                        }).trigger('change');
-    
-    
-                                        
-                                        $select3.on('change', function() {
-                                            var value2 = $(this).find(':selected').data('region');
-                                            $select2.html($options.filter('[value="' + value2 + '"]'));
-                                            document.getElementById("disabled2").selected=true;
-                                        }).trigger('change');
-                                    </script>                                  
-                              </div> 
-                              <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
-                              <input type="button" name="next" class="next action-button" value="Next Step" />
-                          </fieldset>
-
-
-
-
-
-                          <fieldset id="113">
-                            <div class="form-card">
-                                <h2 class="fs-title">Topic of Interest</h2> 
-
-                              <div class="card shadow border-0 mb-5">
-                                  <div class="card-body p-5">
-                                      <ul name="checks[]" class="list-group list-group-horizontal-xl mx-auto" style="display: grid;grid-template-columns: repeat(4, 1fr);grid-gap: 1em;">
-                                          {% for value, i in form.interest.field.choices %}
-
-                                          <li class="list-group-item">
-                                              <div class="custom-control custom-checkbox">
-                                                  <input class="custom-control-input" name="checks[]" value="{{i}}" id="{{i}}" type="checkbox">
-                                                  <label class="cursor-pointer font-italic d-block custom-control-label" for="{{i}}">{{i}}</label>
-                                              </div>
-                                          </li>
-                                          <input name="interest" value="{{i}}" hidden>
-                                          {% endfor %}
-                                          
-                                      </ul>
-                                  </div>
-                              </div>
-                                
-                            </div> 
-                            <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
-                            <input type="button" name="next" class="next action-button" value="Next Step" />
-                        </fieldset>
-
-
-                          <fieldset>
-                              <div class="form-card">
-                                  <h2 class="fs-title">Payment Information</h2>
-                                  <div class="radio-group">
-                                  </div> <label class="pay">Card Holder Name*</label> <input type="text" name="holdername" placeholder="" />
-                                  <div class="row">
-                                      <div class="col-9"> <label class="pay">Card Number*</label> <input type="text" name="card_number" placeholder="" /> </div>
-                                      <div class="col-3"> <label class="pay">CVC*</label> <input type="password" name="card_code" placeholder="***" /> </div>
-                                  </div>
-                                  <div class="row">
-                                      <div class="col-3"> <label class="pay">Expiry Date*</label> </div>
-                                      <div class="col-9"> <select class="list-dt" id="month" name="card_month">
-                                              <option selected>Month</option>
-                                              <option>January</option>
-                                              <option>February</option>
-                                              <option>March</option>
-                                              <option>April</option>
-                                              <option>May</option>
-                                              <option>June</option>
-                                              <option>July</option>
-                                              <option>August</option>
-                                              <option>September</option>
-                                              <option>October</option>
-                                              <option>November</option>
-                                              <option>December</option>
-                                          </select> <select class="list-dt" id="year" name="card_year">
-                                              <option selected>Year</option>
-                                          </select> 
-                                        </div>
-                                  </div>
-                              </div> <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> <input name="make_payment" type="submit" class="next action-button" value="Confirm" />
-                          </fieldset>
-                          <fieldset>
-                              <div class="form-card">
-                                  <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                  <div class="row justify-content-center">
-                                      <div class="col-3"> <img src="https://img.icons8.com/color/96/000000/ok--v2.png" class="fit-image"> </div>
-                                  </div> <br><br>
-                                  <div class="row justify-content-center">
-                                      <div class="col-7 text-center">
-                                          <h5>You Have Successfully Signed Up</h5>
-                                      </div>
-                                  </div>
-                              </div>
-                          </fieldset>
-                      </form>
                   </div>
+              </form>
+              
               </div>
           </div>
       </div>
   </div>
-</div>
-<div class="d-flex flex-column">
-    <nav>
-    </nav>
-    <main class="flex-fill">
-    </main>
-    <footer class="footer">
-        <p>Copyright Protected - NSMAR</p>
-    </footer>
-</div>
 
+</div>				                            
 
-    </body>
-
-
-    
+                                  
 <script>
-function usernameIsValid(username) {
-    return /^[0-9a-zA-Z_.-]+$/.test(username);
-}
-function emailIsValid(email){
-    return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email);
-}
-function passwordIsValid(password){
-    //>8 characters, atleast one small, atleast one capital, atleast one number, atleast one special character
-    return !(/^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$/.test(password));
-}
-function phoneIsValid(phone){
-    return /^\d+$/.test(phone.substring(1));
-}
-function websiteIsValid(website){
-    return /^((?!-)[A-Za-z0-9-]{1, 63}(?<!-)\\.)+[A-Za-z]{2, 6}$/.test(website);
-}
-
-
-
-$(document).ready(function(){
+  // Get the modal
+  var modal = document.getElementById("bModal");
   
-  var current_fs, next_fs, previous_fs; //fieldsets
-  var opacity;
+  // Get the button that opens the modal
+  // var btn = document.getElementById("myBtn");
   
-
-  $("#Password").on("keyup change", function(e) {
-    let p = $("#Password")[0].value;
-  if(!passwordIsValid(p)){
-      $("#passwordMeter").text("Weak Password");  
-      $("#passwordMeter").css("color", "red");
-      return;
-  }
-  else if(passwordIsValid(p) && p.length > 12){
-    $("#passwordMeter").text("Strong Password");  
-    $("#passwordMeter").css("color", "green");
-    return;
-
-  }
-  else{
-    $("#passwordMeter").text("Good Password");  
-    $("#passwordMeter").css("color", "orange");
-    return;
-
-  }
-});
-
-$("#Password").on("focusout", function(e) {
-    $("#passwordMeter").css("display", "none");
-});
-
-
-$("#Password").on("focusin", function(e) {
-    $("#passwordMeter").css("display", "block");
-});
-  $(".next").click(function(){
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
   
-  current_fs = $(this).parent();
-  var f = document.getElementById($(this).closest("fieldset").attr('id'));
-  var input = f.getElementsByTagName("input");
-    if(f.id == "10"){
-        var email = input[0].value;
-        var username = input[1].value;
-        var password = input[2].value;
-        var password2 = input[3].value;
-        var phone = input[4].value;
-        var error = document.getElementById("fieldset1error");
+  // When the user clicks the button, open the modal 
+  $('#BusinessForm').on('submit', function(e){
+      $("#div2").empty();
+      var para = document.createElement("p");
+      var node = document.createTextNode("if ");
+      node.textContent += document.getElementById("phone").value;
+      node.textContent += " is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:";
+      para.appendChild(node);
+      var element = document.getElementById("div2");
+      element.appendChild(para);
+      modal.style.display = "block";
+      e.preventDefault();
+});
+  // btn.onclick = function() {
 
-        if(email == "" || !emailIsValid(email)){
-            error.innerHTML = "Please enter valid email";
-            error.style.display = "block";
-            window.scrollTo(0,0);
-            return;
+      
 
-        }
-        else if(username == "" || !usernameIsValid(username)){
-            error.innerHTML = "Please enter valid username";
-            error.style.display = "block";
-            window.scrollTo(0,0);
-            return;
-
-        }
-        else if(password == "" || !passwordIsValid(password)){
-            error.innerHTML = "Password must have:\n Minimum 8 characters \n >1 small letter \n >1 capital letter \n >1 special case letter" ;
-            error.style.display = "block";
-            window.scrollTo(0,0);
-            return;
-
-        }
-        else if(password2 == "" || password!=password2){
-            error.innerHTML = "Confirm password does not match.";
-            error.style.display = "block";
-            window.scrollTo(0,0);
-            return;
-        }
-        else if(phone == "" || !phoneIsValid(phone)){
-            error.innerHTML = "Please enter valid phone number";
-            error.style.display = "block";
-            window.scrollTo(0,0);
-            return;
-        }
-
-        error.innerHTML = "Alert: ";
-        error.style.display = "none";
+  // }
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+    document.getElementById("myModal").style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
-    if(f.id == "11"){
-        for (i = 0; i < 7; i++) {
-            if(input[i].value == ""){
-                // window.alert("All fields are required!");
-                if(input[i].checkValidity()){
-                    document.getElementById("fieldset2error").innerHTML = "Please enter valid " + input[i].id;
-                    document.getElementById("fieldset2error").style.display = "block";
-                    input[i].focus();
-                    return;
-                }
-            }
-
-        }
-
-        document.getElementById("fieldset2error").innerHTML = "Alert: ";
-        document.getElementById("fieldset2error").style.display = "none";
+    if (event.target == document.getElementById("myModal")){
+      document.getElementById("myModal").style.display = "none";
     }
-  console.log(input[1].value);
-  next_fs = $(this).parent().next();
-  
-  //Add Class Active
-  $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-  
-  //show the next fieldset
-  next_fs.show();
-  //hide the current fieldset with style
-  current_fs.animate({opacity: 0}, {
-  step: function(now) {
-  // for making fielset appear animation
-  opacity = 1 - now;
-  
-  current_fs.css({
-  'display': 'none',
-  'position': 'relative'
-  });
-  next_fs.css({'opacity': opacity});
-  },
-  duration: 600
-  });
-  window.scrollTo(0,0); 
-  });
-  
-  $(".previous").click(function(){
-  
-  current_fs = $(this).parent();
-  previous_fs = $(this).parent().prev();
-  
-  //Remove class active
-  $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-  
-  //show the previous fieldset
-  previous_fs.show();
-  
-  //hide the current fieldset with style
-  current_fs.animate({opacity: 0}, {
-  step: function(now) {
-  // for making fielset appear animation
-  opacity = 1 - now;
-  
-  current_fs.css({
-  'display': 'none',
-  'position': 'relative'
-  });
-  previous_fs.css({'opacity': opacity});
-  },
-  duration: 600
-  });
-  });
-  
-  $('.radio-group .radio').click(function(){
-  $(this).parent().find('.radio').removeClass('selected');
-  $(this).addClass('selected');
-  });
-  
-  $(".submit").click(function(){
-  return false;
-  })
-
-
-
-
-  
-  });
-
-  function verify(){
-            var csrf_token = $('[name="csrfmiddlewaretoken"]').val();
-            var card_number = $(".card_number").value;
-            var card_code = $(".card_code").value;
-            var card_month = $(".card_month").value;
-            var card_year = $(".card_year");
-            if(card_number == "" && card_code == "" && card_month == "" && card_year == ""){
-                $("#carderror").innerHTML = "All fields are required";
-                return;
-            }
-            $.ajax({
-                url: "/verify/payment/",
-                type: "POST",
-                data: {
-                    'csrfmiddlewaretoken': csrf_token,
-                    'card_number': JSON.stringify(card_number),
-                    'card_code': JSON.stringify(card_code),
-                    'card_expiry': JSON.stringify(card_month+card_year),        
-                },
-                success: function(data) {
-                    if (data["success"]){
-                        console.log("Payment verified");
-                    }
-                    else 
-                    {
-                        console.log("NOT VERIFIED");
-                    }
-                }
-            });
   }
-
   </script>
+
 
 {% endblock %}
 
