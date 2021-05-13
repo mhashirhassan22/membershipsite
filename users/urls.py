@@ -24,5 +24,6 @@ urlpatterns = [
         path('payment_done/', payment_done, name="payment_done"),
         path('payment_cancelled/', payment_cancelled, name="payment_cancelled"),
         path('paypal/', include('paypal.standard.ipn.urls')),
+        url(r'^paypal_ipn/', include('paypal.standard.ipn.urls')),
 
 ]

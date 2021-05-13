@@ -15,13 +15,9 @@ import json
 from django.http import JsonResponse
 from datetime import date
 from .forms import SubscriptionForm, CheckoutForm
-from django.views.decorators.csrf import csrf_exempt
 from paypal.standard.forms import PayPalPaymentsForm
-from paypal.standard.ipn.signals import valid_ipn_received
+from paypal.standard.ipn.signals import valid_ipn_received , payment_was_successful
 from django.dispatch import receiver
-from paypal.standard.models import ST_PP_COMPLETED
-
-
 
 # @login_required
 def index(request):
@@ -180,7 +176,7 @@ def payment_cancelled(request):
 @receiver(valid_ipn_received)
 def paypal_ipn(sender, **kwargs):
     ipn_obj = sender
-    print('Ipn Received')
+    return HttpResponse('Okay')
 
 def subscription(request):
     if request.method=="POST":
