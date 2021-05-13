@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
     path('accounts/', include("allauth.urls")),
+    path('paypal/', include('paypal.standard.ipn.urls')),
     
 
     # re_path(r'^checkout/paypal/', include('paypal.express.urls')),

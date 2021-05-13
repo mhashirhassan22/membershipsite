@@ -62,8 +62,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
 
-    'users',
+    'users.apps.UsersConfig',
     "cities_light",
+    'paypal.standard.ipn'
 ]
 
 

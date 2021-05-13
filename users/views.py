@@ -14,6 +14,10 @@ from .models import User
 import json
 from django.http import JsonResponse
 from datetime import date
+from paypal.standard.forms import PayPalPaymentsForm
+from django.views.generic import TemplateView
+from django.views.generic.edit import FormView
+
 
 # @login_required
 def index(request):
@@ -154,3 +158,32 @@ def verify_payment(request):
 
         # obj.save()
         return JsonResponse(context)
+
+
+
+
+class PaypalFormView(FormView):
+    template_name = 'paypal_form.html'
+    form_class = PayPalPaymentsForm
+
+    def get_initial(self):
+        return {
+            "business": 'aminanaseer82@gmail.com',
+            "amount": 20,
+            "currency_code": "USD",
+            "item_name": 'Example item',
+            "invoice": 1234,
+            "notify_url": self.request.build_absolute_uri(reverse('paypal-ipn')),
+            "return_url": self.request.build_absolute_uri(reverse('users:paypal-return')),
+            "cancel_return": self.request.build_absolute_uri(reverse('users:paypal-cancel')),
+            "lc": 'EN',
+            "no_shipping": '1',
+        }
+
+
+
+class PaypalReturnView(TemplateView):
+    template_name = 'paypal_success.html'
+
+class PaypalCancelView(TemplateView):
+    template_name = 'paypal_cancel.html'

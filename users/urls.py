@@ -16,4 +16,8 @@ urlpatterns = [
         path('set-password/', set_password , name="set_password"),
         path('redirect-login/', login_again , name="login_again"),
         path('verify/payment/', verify_payment , name="verify-payment"),
+
+        path('paypal-pay/', PaypalFormView.as_view(), name='paypal-pay'),
+        path('paypal-return/', PaypalReturnView.as_view(), name='paypal-return'),
+        path('paypal-cancel/', PaypalCancelView.as_view(), name='paypal-cancel'),
 ]

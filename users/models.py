@@ -125,3 +125,38 @@ class Contact(models.Model):
     email = models.CharField(max_length=100)
     message = models.TextField()
     is_resolved = models.BooleanField(default=False)
+
+
+class MembershipPlan(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    description = models.TextField()
+    monthly_price = models.CharField(max_length=50)
+    yearly_price = models.CharField(max_length=50)
+
+
+
+try:
+    if(MembershipPlan.objects.count()<2):
+        t = MembershipPlan.objects.create(title="Essential",description="Starter Plan",monthly_price="10",yearly_price="100")
+        t = MembershipPlan.objects.create(title="Gold",description="For Individuals",monthly_price="20",yearly_price="199")
+        t = MembershipPlan.objects.create(title="Platinum",description="For Small Businesses or startups",monthly_price="50",yearly_price="549")
+        t = MembershipPlan.objects.create(title="Enterprise",description="VVIP package",monthly_price="100",yearly_price="999")
+except:
+    pass  
+
+
+
+
+class Subscription(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.PROTECT,
+    )
+    membership = models.ForeignKey(
+        MembershipPlan,
+        on_delete=models.PROTECT,
+        related_name='subscription'
+    )
+    is_active = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
