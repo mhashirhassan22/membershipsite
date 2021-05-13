@@ -175,6 +175,7 @@ def payment_done(request):
 @csrf_exempt
 def payment_cancelled(request):
     return render(request, 'payment_cancelled.html')
+    print('cancel')
 
 @receiver(valid_ipn_received)
 def paypal_ipn(sender, **kwargs):
