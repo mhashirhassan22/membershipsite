@@ -17,6 +17,10 @@ from datetime import date
 from .forms import SubscriptionForm, CheckoutForm
 from django.views.decorators.csrf import csrf_exempt
 from paypal.standard.forms import PayPalPaymentsForm
+from paypal.standard.ipn.signals import valid_ipn_received
+from django.dispatch import receiver
+from paypal.standard.models import ST_PP_COMPLETED
+
 
 
 # @login_required
@@ -172,6 +176,11 @@ def payment_done(request):
 def payment_cancelled(request):
     return render(request, 'payment_cancelled.html')
 
+@receiver(valid_ipn_received)
+def paypal_ipn(sender, **kwargs):
+    ipn_obj = sender
+    print('Ipn Received')
+
 def subscription(request):
     if request.method=="POST":
         f=SubscriptionForm(request.POST)
@@ -217,7 +226,7 @@ def process_subscription(request):
         'custom': 1,     # custom data, pass something meaningful here
         'currency_code': 'USD',
         'notify_url': 'http://{}{}'.format(host,
-                                           'paypal-ipn'),
+                                           '/paypal_ipn'),
         'return_url': 'http://{}{}'.format(host,
                                            done_url),
         'cancel_return': 'http://{}{}'.format(host,

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include
+from django.conf.urls import url
 from .import views
 from .views import *
 
@@ -23,6 +24,5 @@ urlpatterns = [
         path('payment_done/', payment_done, name="payment_done"),
         path('payment_cancelled/', payment_cancelled, name="payment_cancelled"),
         path('paypal/', include('paypal.standard.ipn.urls')),
-
 
 ]
