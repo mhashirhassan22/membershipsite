@@ -199,7 +199,8 @@ def process_subscription(request):
         price = "90"
         billing_cycle = 1
         billing_cycle_unit = "Y"
-       
+    
+    #notify = request.build_absolute_uri(reverse('paypal-ipn'))
     cancel_url = '/payment_cancelled'
     print(cancel_url)
     done_url = '/payment_done'
@@ -216,7 +217,7 @@ def process_subscription(request):
         'custom': 1,     # custom data, pass something meaningful here
         'currency_code': 'USD',
         'notify_url': 'http://{}{}'.format(host,
-                                           '/paypal-ipn'),
+                                           'paypal-ipn'),
         'return_url': 'http://{}{}'.format(host,
                                            done_url),
         'cancel_return': 'http://{}{}'.format(host,
