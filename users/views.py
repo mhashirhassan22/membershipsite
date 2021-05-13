@@ -16,7 +16,7 @@ from django.http import JsonResponse
 from datetime import date
 from .forms import SubscriptionForm, CheckoutForm
 from paypal.standard.forms import PayPalPaymentsForm
-from paypal.standard.ipn.signals import valid_ipn_received , payment_was_successful
+from paypal.standard.ipn.signals import valid_ipn_received 
 from django.dispatch import receiver
 
 # @login_required
