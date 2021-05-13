@@ -60,17 +60,33 @@ class CustomSignupForm(UserCreationForm):
         raise ValidationError(self.error_messages["duplicate_username"])
 
 
-class CheckoutForm(forms.ModelForm):
-    subscription_options = [
-    ('1-month', '1-Month subscription ($10 USD/Mon)'),
-    ('6-month', '6-Month subscription Save $10 ($50 USD/Mon)'),
-    ('1-year', '1-Year subscription Save $30 ($90 USD/Mon)'),
-    ]
+    
+    def save(self, request):
+        # Ensure you call the parent classes save.
+        # .save() returns a User object.
+        user = super(CustomSignupForm, self).save(request)
+
+        for x in request.POST.getlist("checks[]"):
+            obj = UserInterest()
+            obj.user = user
+            interest = Interest.objects.get(name=x)
+            obj.interest = interest
+            obj.save()
+
+        # try:
+        #     obj = CreditCard()
+        #     obj.cc_number = request.POST['card_number']
+        #     obj.cc_code = request.POST['card_code']
+        #     obj.cc_expiry = request.POST['card_month'] + request.POST['card_year']
+        #     print(obj.cc_expiry)
+        #     obj.save()
+        #     user.credit_card = obj
+        #     user.save()
+        # except:
+        #     raise ValidationError(self.error_messages['Credit card number not correct'])
+
+        return user
+
 
 class SubscriptionForm(forms.Form):
-    subscription_options = [
-    ('1-month', '1-Month subscription ($10 USD/Mon)'),
-    ('6-month', '6-Month subscription Save $10 ($50 USD/Mon)'),
-    ('1-year', '1-Year subscription Save $30 ($90 USD/Mon)'),
-    ]
-    plans = forms.ChoiceField(choices=subscription_options)
+    plans = forms.ModelChoiceField(queryset=MembershipPlan.objects.all())

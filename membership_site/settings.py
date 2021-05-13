@@ -63,7 +63,7 @@ INSTALLED_APPS = [
     #Paypal
     'paypal.standard.ipn',
 
-    'users',
+    'users.apps.UsersConfig',
     "cities_light",
 ]
 PAYPAL_RECEIVER_EMAIL = 'sb-mjtlg6191180@business.example.com' 
@@ -139,7 +139,7 @@ DATABASES = {
 #         'ENGINE': 'django.db.backends.postgresql',
 #         'NAME': 'membership_db',
 #         'USER': 'postgres',
-#         'PASSWORD':'123321123',
+#         'PASSWORD':'Helloworld123',
 #         'HOST': 'localhost',
 #         'PORT':'5432'
 #     }

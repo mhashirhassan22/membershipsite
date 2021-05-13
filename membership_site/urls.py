@@ -21,6 +21,7 @@ urlpatterns = [
     path('', include('users.urls')),
     path('paypal/', include('paypal.standard.ipn.urls')),
     path('accounts/', include("allauth.urls")),
+    path('paypal/', include('paypal.standard.ipn.urls')),
     
 
     # re_path(r'^checkout/paypal/', include('paypal.express.urls')),

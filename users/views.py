@@ -14,10 +14,10 @@ from .models import User
 import json
 from django.http import JsonResponse
 from datetime import date
-from .forms import SubscriptionForm, CheckoutForm
 from paypal.standard.forms import PayPalPaymentsForm
-from paypal.standard.ipn.signals import valid_ipn_received 
-from django.dispatch import receiver
+from django.views.generic import TemplateView
+from django.views.generic.edit import FormView
+from .forms import *
 
 # @login_required
 def index(request):
@@ -164,74 +164,73 @@ def verify_payment(request):
 
         # obj.save()
         return JsonResponse(context)
-@csrf_exempt
-def payment_done(request):
-    return render(request, 'payment_done.html')
 
-@csrf_exempt
-def payment_cancelled(request):
-    return render(request, 'payment_cancelled.html')
 
-@receiver(valid_ipn_received)
-def paypal_ipn(sender, **kwargs):
-    ipn_obj = sender
-    return HttpResponse("Payment Recieved!")
 
-def subscription(request):
-    if request.method=="POST":
-        f=SubscriptionForm(request.POST)
+
+class PaypalFormView(FormView):
+    template_name = 'paypal_form.html'
+    form_class = PayPalPaymentsForm
+
+    def get_initial(self):
+        return {
+            "business": 'aminanaseer82@gmail.com',
+            "amount": 20,
+            "currency_code": "USD",
+            "item_name": 'Example item',
+            "invoice": 1234,
+            "notify_url": self.request.build_absolute_uri(reverse('paypal-ipn')),
+            "return_url": self.request.build_absolute_uri(reverse('users:paypal-return')),
+            "cancel_return": self.request.build_absolute_uri(reverse('users:paypal-cancel')),
+            "lc": 'EN',
+            "no_shipping": '1',
+        }
+
+
+
+class PaypalReturnView(TemplateView):
+    template_name = 'paypal_success.html'
+
+class PaypalCancelView(TemplateView):
+    template_name = 'paypal_cancel.html'
+
+
+def PaypalSub(request):
+    if request.method=="GET":
+        context={
+            'memberships': MembershipPlan.objects.all(),
+            'form': SubscriptionForm()
+        }
+        return render(request, 'select_membership.html',context)
+    else:
+        f = SubscriptionForm(request.POST)
         if f.is_valid():
-            request.session['subscription_plan'] = request.POST.get('plans')
-            return redirect('/process_subscription')
-    else:
-        f=SubscriptionForm()
-    return render(request,'subscription_form.html',locals())
+            plan = MembershipPlan.objects.get(id=request.POST['plans'])
+            host = request.get_host()
+            price = plan.monthly_price
+            billing_cycle = 1
+            print(price)
+            print(host)
+            print(plan)
+            billing_cycle_unit = "M"
 
-def process_subscription(request):
 
-    subscription_plan = request.session.get('subscription_plan')
-    host = request.get_host()
+            paypal_dict = {
+                "cmd": "_xclick-subscriptions",
+                "business": 'receiver_email@example.com',
+                "a3": "9.99",                      # monthly price
+                "p3": 1,                           # duration of each unit (depends on unit)
+                "t3": "M",                         # duration unit ("M for Month")
+                "src": "1",                        # make payments recur
+                "sra": "1",                        # reattempt payment on payment error
+                "no_note": "1",                    # remove extra notes (optional)
+                "item_name": "my cool subscription",
+                "notify_url": "http://www.example.com/your-ipn-location/",
+                "return": "http://www.example.com/your-return-location/",
+                "cancel_return": "http://www.example.com/your-cancel-location/",
+            }
 
-    if subscription_plan == '1-month':
-        price = "10"
-        billing_cycle = 1
-        billing_cycle_unit = "M"
-    elif subscription_plan == '6-month':
-        price = "50"
-        billing_cycle = 6
-        billing_cycle_unit = "M"
-    else:
-        price = "90"
-        billing_cycle = 1
-        billing_cycle_unit = "Y"
-    
-    #notify = request.build_absolute_uri(reverse('paypal-ipn'))
-    cancel_url = '/payment_cancelled'
-    print(cancel_url)
-    done_url = '/payment_done'
-    paypal_dict  = {
-        "cmd": "_xclick-subscriptions",
-        'business': settings.PAYPAL_RECEIVER_EMAIL,
-        "a3": price,  # monthly price
-        "p3": billing_cycle,  # duration of each unit (depends on unit)
-        "t3": billing_cycle_unit,  # duration unit ("M for Month")
-        "src": "1",  # make payments recur
-        "sra": "1",  # reattempt payment on payment error
-        "no_note": "1",  # remove extra notes (optional)
-        'item_name': 'Content subscription',
-        'custom': 1,     # custom data, pass something meaningful here
-        'currency_code': 'USD',
-        'notify_url': 'http://{}{}'.format(host,
-                                           reverse('paypal-ipn')),
-
-        'return_url': 'http://{}{}'.format(host,
-                                           done_url),
-        'cancel_return': 'http://{}{}'.format(host,
-                                             cancel_url),
-    }
-
-    form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
-    return render(request, 'process_subscription.html', locals())
-
-def membership(request):
-    return render(request,'membership.html')
+            # Create the instance.
+            form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
+            return render(request, 'process_subscription.html', {'form': form})
+    return render(request, 'paypal_success.html',{})
