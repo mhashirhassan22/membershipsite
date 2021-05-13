@@ -1,5 +1,8 @@
 
 /*desktop*/
+.modal {
+  pointer-events: none;
+}
 .paypal{
   padding: 50px;
   color: #16222A;
@@ -1994,7 +1997,7 @@ header{
     color:#679141;
     margin-top: 0px;
     padding-top: 12px;
-    margin-right: 60px;
+    margin-right: 37px;
   }
   .col-sm-4 {
     width: 41%;

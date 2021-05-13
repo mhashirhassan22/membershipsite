@@ -174,7 +174,7 @@ class PaypalFormView(FormView):
 
     def get_initial(self):
         return {
-            "business": 'aminanaseer82@gmail.com',
+            "business": settings.PAYPAL_RECEIVER_EMAIL,
             "amount": 20,
             "currency_code": "USD",
             "item_name": 'Example item',
@@ -217,7 +217,7 @@ def PaypalSub(request):
 
             paypal_dict = {
                 "cmd": "_xclick-subscriptions",
-                "business": 'receiver_email@example.com',
+                "business": settings.PAYPAL_RECEIVER_EMAIL,
                 "a3": "9.99",                      # monthly price
                 "p3": 1,                           # duration of each unit (depends on unit)
                 "t3": "M",                         # duration unit ("M for Month")
