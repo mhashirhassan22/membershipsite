@@ -133,7 +133,8 @@ class MembershipPlan(models.Model):
     monthly_price = models.CharField(max_length=50)
     yearly_price = models.CharField(max_length=50)
 
-
+    def __str__(self):
+        return self.title
 
 try:
     if(MembershipPlan.objects.count()<2):
@@ -142,7 +143,7 @@ try:
         t = MembershipPlan.objects.create(title="Platinum",description="For Small Businesses or startups",monthly_price="50",yearly_price="549")
         t = MembershipPlan.objects.create(title="Enterprise",description="VVIP package",monthly_price="100",yearly_price="999")
 except:
-    pass  
+    pass
 
 
 

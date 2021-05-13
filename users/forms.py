@@ -107,3 +107,7 @@ class CustomSignupForm(UserCreationForm):
         #     raise ValidationError(self.error_messages['Credit card number not correct'])
 
         return user
+
+
+class SubscriptionForm(forms.Form):
+    plans = forms.ModelChoiceField(queryset=MembershipPlan.objects.all())

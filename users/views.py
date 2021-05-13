@@ -17,7 +17,7 @@ from datetime import date
 from paypal.standard.forms import PayPalPaymentsForm
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
-
+from .forms import *
 
 # @login_required
 def index(request):
@@ -187,3 +187,44 @@ class PaypalReturnView(TemplateView):
 
 class PaypalCancelView(TemplateView):
     template_name = 'paypal_cancel.html'
+
+
+def PaypalSub(request):
+    if request.method=="GET":
+        context={
+            'memberships': MembershipPlan.objects.all(),
+            'form': SubscriptionForm()
+        }
+        return render(request, 'select_membership.html',context)
+    else:
+        f = SubscriptionForm(request.POST)
+        if f.is_valid():
+            plan = MembershipPlan.objects.get(id=request.POST['plans'])
+            host = request.get_host()
+            price = plan.monthly_price
+            billing_cycle = 1
+            print(price)
+            print(host)
+            print(plan)
+            billing_cycle_unit = "M"
+
+
+            paypal_dict = {
+                "cmd": "_xclick-subscriptions",
+                "business": 'receiver_email@example.com',
+                "a3": "9.99",                      # monthly price
+                "p3": 1,                           # duration of each unit (depends on unit)
+                "t3": "M",                         # duration unit ("M for Month")
+                "src": "1",                        # make payments recur
+                "sra": "1",                        # reattempt payment on payment error
+                "no_note": "1",                    # remove extra notes (optional)
+                "item_name": "my cool subscription",
+                "notify_url": "http://www.example.com/your-ipn-location/",
+                "return": "http://www.example.com/your-return-location/",
+                "cancel_return": "http://www.example.com/your-cancel-location/",
+            }
+
+            # Create the instance.
+            form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
+            return render(request, 'process_subscription.html', {'form': form})
+    return render(request, 'paypal_success.html',{})

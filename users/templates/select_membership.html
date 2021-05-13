@@ -1,0 +1,6 @@
+
+<form method="POST" action="{% url 'users:paypal-sub'  %}">
+    {% csrf_token %}
+    {{form}}
+    <button type="submit">Submit</button>
+</form>
