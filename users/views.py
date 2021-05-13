@@ -232,3 +232,6 @@ def process_subscription(request):
 
     form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
     return render(request, 'process_subscription.html', locals())
+
+def membership(request):
+    return render(request,'membership.html')
