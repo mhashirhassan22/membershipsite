@@ -225,7 +225,7 @@ def PaypalSub(request):
         return render(request, 'membership.html',context)
     else:
         request.session['plan_type'] = request.POST['sub']
-        print(request.session['plan_type'])
+        print(request.POST['sub'])
         return redirect('users:process_subscription')
     return render(request, 'paypal_success.html',{})
 
