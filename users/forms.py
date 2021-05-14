@@ -17,9 +17,9 @@ class YourLoginForm(LoginForm):
     def __init__(self, *args, **kwargs):
         super(YourLoginForm, self).__init__(*args, **kwargs)
         self.fields['login'].widget.attrs.update(
-            {'type': 'email', 'class': 'form-control', 'placeholder': 'Email *'})
+            {'type': 'email', 'class': 'signup__input', 'placeholder': 'Email *'})
         self.fields['password'].widget.attrs.update(
-            {'type': 'password', 'class': 'form-control', 'placeholder': 'Password *'})
+            {'type': 'password', 'class': 'signup__input', 'placeholder': 'Password *'})
 
 
 class CustomSignupForm(UserCreationForm):
@@ -45,7 +45,7 @@ class CustomSignupForm(UserCreationForm):
 
         for field in self.fields:
             self.fields[field].widget.attrs.update(
-                {'placeholder': field.title(), 'class': 'form-control'})
+                {'placeholder': field.title(), 'class': 'signup__input'})
         
 
 

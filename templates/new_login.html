@@ -1,0 +1,158 @@
+
+
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block content %}
+
+
+
+{% include 'head.html' %}   
+{% load static %}
+<style>
+      
+ .footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #679141;
+   color: white;
+   text-align: center;
+ }
+</style>
+
+<div class="bs-example">
+    <nav class="navbar navbar-expand-md navbar-light " style="background-color: #679141">
+        <a href="#" class="navbar-brand">
+            <img src="{% static 'img/logo.png' %}" height="80" alt="NSMAR">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="{% url 'account_signup' %}" class="nav-item nav-link active" style="color: white;">Become A Member</a>
+            </div>
+            <div class="navbar-nav ml-auto px-5">
+              <ul id="topnav" class="navbar-nav  w-100 justify-content-left px-1 py-2" >
+              <li class="nav-item" style="display: flex;align-items: flex-start;">
+                <a class="nav-link" href="#" style="color: white;">
+                    Already A Member?  Call Us We Are Here To Serve You </a>  
+
+                    <a class="nav-link" href="?" style="color: white;">
+                        <strong style="text-decoration: underline;font-size: larger;"> 555 123 4567</strong> </a>  
+                    
+
+              </li>                
+              </ul>
+            </div>
+        </div>
+
+    </nav>
+    <nav class="navbar navbar-expand-md navbar-light bg-light" style="margin-top: -1%; display: flex; align-items: flex-end;">
+
+      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar2Collapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse  justify-content-left navbar-collapse" id="navbar2Collapse">
+        <div class="navbar-nav d-flex justify-content-end">
+            <a href="#" class="hovel nav-item nav-link active" style="padding-right: 35px;padding-left: 30px;">
+                Email us: 
+                <strong style="text-decoration: underline;"> sales@nsamr.ca </strong>
+            </a>
+        </div>
+
+    </div>
+      <div class="collapse  justify-content-end navbar-collapse" id="navbar2Collapse">
+          <div class="navbar-nav d-flex justify-content-end" style="margin-right: 5%;">
+
+            <li class="nav-item" style="display: flex;align-items: flex-start;">
+                <a class="nav-link" href="#" style="color: black;">
+                    Not Yet A Member?  Call Us And Get The Help You Need </a>  
+
+                    <a class="nav-link" href="?" style="color: black;">
+                        <strong style="text-decoration: underline;font-size: larger;"> 145 145 1234 </strong> </a>  
+                    
+
+              </li>   
+          </div>
+
+      </div>
+
+  </nav>
+</div>
+
+
+
+
+
+
+
+<div class="container register">
+  <div class="row">
+      <div class="col-md-3 register-left">
+          <img src="{% static 'img/logo.png' %}" alt=""/>
+          <p>National Sales & Marketing Resources</p><br>
+          <small>Not a member?</small>
+          <a name="" style="color: #3b5998;" href="{{ signup_url }}">Signup</a><br/>
+      </div>
+      <div class="col-md-9 register-right">
+
+          <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <h3 class="login-heading">Welcome Back</h3>
+                  <form class="login" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+
+                  <div class="row register-form">
+                      <div class="col-md-12">
+                        {% if form.errors %}
+                        {% for field in form %}
+                        {% for error in field.errors %}
+                            <p style="color: rgb(219, 44, 44);">{{ error|escape }}</p>
+                        {% endfor %}
+                     {% endfor %}
+                    {% for error in form.non_field_errors %}
+                    <p style="color: rgb(219, 44, 44);">{{ error|escape }}</p>
+                    {% endfor %}
+                {% endif %}   
+                          <div class="form-group">
+                              <input type="text" name="login" class="form-control" placeholder="Email *" required/>
+                          </div>
+                          <div class="form-group">
+                              <input type="password" name="password" class="form-control" placeholder="Password *" required/>
+                          </div>
+                          {% if redirect_field_value %}
+                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                          {% endif %}
+                          <div>
+                              <a href="{% url 'users:forget_password' %}">Forgot Password?</a>
+                          </div>
+                          <button id="myBtn" class="btnlogin">Login</button>
+                      </div>
+
+                  </div>
+
+              </form>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+</div>	
+<div class="d-flex flex-column" style="margin-top: 6%;">
+    <nav>
+    </nav>
+    <main class="flex-fill">
+    </main>
+    <footer class="footer">
+        <p>Copyright Protected - NSMAR</p>
+    </footer>
+</div>
+{% endblock %}
+
+
+

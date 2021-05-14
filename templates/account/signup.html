@@ -1,126 +1,65 @@
+{% extends "homepage/base.html" %}
 {% load i18n %}
 {% load static %}
 {% load account socialaccount %}
 
 
 {% block content %}
-
-
-{% include 'head.html' %}   
-{% load static %}
-<div class="container register">
-  <div class="row">
-      <div class="col-md-3 register-left">
-          <img src="{% static 'img/logo.png' %}" alt=""/>
-          <p>National Sales & Marketing Resources</p><br>
-          <small>Already have an account?</small>
-          <a href="{{ login_url }}" name="" style="color: #3b5998;">Login</a><br/>
-      </div>
-      <div class="col-md-9 register-right">
-          <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-              <li class="nav-item">
-                  <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Individual</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Business</a>
-              </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                  <h3 class="register-heading">Register as a Individual</h3>
-                  <form method="post" action="{% url 'account_signup' %}">
-                    {% csrf_token %}
-                    {% if form.errors %}
-                    {% for field in form %}
-                        {% for error in field.errors %}
-                        {{ error|escape }}
-                        {% endfor %}
-                    {% endfor %}
-                    {% for error in form.non_field_errors %}
-                    {{ error|escape }}
-                    {% endfor %}
-                {% endif %}                  
-                <div class="row register-form">
-                      <div class="col-md-6">
-                          <div class="form-group">
-                              <input type="email" name="email" class="form-control" placeholder="Your Email *" required/>
-                          </div>
-                          <div class="form-group">
-                              <input type="password" name="password1" class="form-control" placeholder="Password *"  required/>
-                          </div>
-                          <div class="form-group">
-                              <input type="text" id="phone" name="phone" maxlength="15" minlength="8" class="form-control" placeholder="Phone *" required/>
-                          </div>
+<div class="content">
+  <div class="container">
+        <form class="signup" method="post" action="{% url 'account_signup' %}">
+            <h1 style="margin:0px 0px 15px 0px ">Create account</h1>
+                {% csrf_token %}
+                  {% if form.errors %}
+                    <div style="color:maroon;padding-left:10px">
+                      {% for field in form %}
+                          {% for error in field.errors %}
+                          {{ error|escape }}
+                          {% endfor %}
+                      {% endfor %}
+                      {% for error in form.non_field_errors %}
+                      {{ error|escape }}
+                      {% endfor %}
                       </div>
-                      <div class="col-md-4">
-                        <div class="form-group">
-                            <input type="password" name="password2" class="form-control" placeholder="Confirm Password *"  required/>
-                        </div>
-                    </div>
-                          
-                          {% if redirect_field_value %}
-                          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                          {% endif %}
-                      <input type="submit" class="btnRegister"  value="Register"/>
+                  {% endif %} 
+                  <br>
+                  <br>
 
-                  </div>
-              </form>
-              
-              </div>
-          </div>
+
+            <div class="signup__field">
+              <label>Email</label>
+              <input class="signup__input" type="email" name="email" placeholder="Your Email *"  required/>
+            </div>
+
+            <div class="signup__field">
+              <label>Phone</label>
+              <input class="signup__input" id="phone" type="text" name="phone" maxlength="15" minlength="8" placeholder="Your contact number *"  required/>
+            </div>
+
+            <div class="signup__field">
+              <label>Password</label>
+              <input class="signup__input" type="password" name="password1" placeholder="Password *"  required />
+            </div>
+
+            <div class="signup__field">
+              <label>Confirm Password</label>
+              <input class="signup__input" type="password" name="password2" placeholder="Confirm Password *"  required />
+            </div>
+
+            {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+
+            <button type="submit" value="Register">Signup</button>
+            
+            <h4>Already have an account? <span><a href="{{ login_url }}" >Signin</a></span></h4>
+          </form>
       </div>
-  </div>
-
-</div>				                            
-
-                                  
-<script>
-  // Get the modal
-  var modal = document.getElementById("bModal");
-  
-  // Get the button that opens the modal
-  // var btn = document.getElementById("myBtn");
-  
-  // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close")[0];
-  
-  // When the user clicks the button, open the modal 
-  $('#BusinessForm').on('submit', function(e){
-      $("#div2").empty();
-      var para = document.createElement("p");
-      var node = document.createTextNode("if ");
-      node.textContent += document.getElementById("phone").value;
-      node.textContent += " is your mobile number, you confirm that you are authorized to add this number and give us permission to contact you about your accounts using automated calls or texts to: service your accounts, investigate fraud, or collect a debt, and promotions. If you don’t want to receive automated calls or texts, you can change your preferences by unchecking below:";
-      para.appendChild(node);
-      var element = document.getElementById("div2");
-      element.appendChild(para);
-      modal.style.display = "block";
-      e.preventDefault();
-});
-  // btn.onclick = function() {
-
-      
-
-  // }
-  // When the user clicks on <span> (x), close the modal
-  span.onclick = function() {
-    modal.style.display = "none";
-    document.getElementById("myModal").style.display = "none";
-  }
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-    if (event.target == document.getElementById("myModal")){
-      document.getElementById("myModal").style.display = "none";
-    }
-  }
-  </script>
+</div>
+{% endblock content %}
 
 
-{% endblock %}
+
 
 
 
