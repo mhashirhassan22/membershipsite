@@ -1,3 +1,5 @@
+
+from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from decimal import Decimal
@@ -18,6 +20,26 @@ from paypal.standard.forms import PayPalPaymentsForm
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
 from .forms import *
+
+
+
+
+import logging
+
+from django.http import HttpResponse, QueryDict
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+
+from paypal.standard.ipn.forms import PayPalIPNForm
+from paypal.standard.ipn.models import PayPalIPN
+from paypal.standard.models import DEFAULT_ENCODING
+from paypal.utils import warn_untested
+
+logger = logging.getLogger(__name__)
+
+CONTENT_TYPE_ERROR = ("Invalid Content-Type - PayPal is only expected to use "
+                      "application/x-www-form-urlencoded. If using django's "
+                      "test Client, set `content_type` explicitly")
 
 # @login_required
 def index(request):
@@ -167,6 +189,7 @@ class PaypalFormView(FormView):
     form_class = PayPalPaymentsForm
 
     def get_initial(self):
+        print(self.request.build_absolute_uri(reverse('paypal-ipn')))
         return {
             "business": 'aminanaseer82@gmail.com',
             "amount": 20,
@@ -182,13 +205,11 @@ class PaypalFormView(FormView):
 
 
 
-class PaypalReturnView(TemplateView):
-    template_name = 'paypal_success.html'
 
 class PaypalCancelView(TemplateView):
     template_name = 'paypal_cancel.html'
 
-
+@login_required
 def PaypalSub(request):
     if request.method=="GET":
         context={
@@ -199,60 +220,24 @@ def PaypalSub(request):
     else:
         f = SubscriptionForm(request.POST)
         if f.is_valid():
-            plan = MembershipPlan.objects.get(id=request.POST['plans'])
-            host = request.get_host()
-            price = plan.monthly_price
-            billing_cycle = 1
+            request.session['plan_type'] = request.POST['plans']
             return redirect('users:process_subscription')
-            print(price)
-            print(host)
-            print(plan)
-            billing_cycle_unit = "M"
-
-
-            paypal_dict = {
-                "cmd": "_xclick-subscriptions",
-                "business": 'receiver_email@example.com',
-                "currency_code": "USD",
-                "a3": "9.99",                      # monthly price
-                "p3": 1,                           # duration of each unit (depends on unit)
-                "t3": "M",                         # duration unit ("M for Month")
-                "src": "1",                        # make payments recur
-                "sra": "1",                        # reattempt payment on payment error
-                "no_note": "1",                    # remove extra notes (optional)
-                "item_name": "my cool subscription",
-                "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
-                "return_url": request.build_absolute_uri(reverse('users:paypal-return')),
-                "cancel_return": request.build_absolute_uri(reverse('users:paypal-cancel')),
-            }
-
-            # Create the instance.
-            form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
-            return render(request, 'process_subscription.html', {'form': form})
     return render(request, 'paypal_success.html',{})
 
 
 def process_subscription(request):
-    subscription_plan = '1-month'
-    host = request.get_host()
-
-    if subscription_plan == '1-month':
-        price = "10"
-        billing_cycle = 1
-        billing_cycle_unit = "M"
-    elif subscription_plan == '6-month':
-        price = "50"
-        billing_cycle = 6
-        billing_cycle_unit = "M"
+    membership_id = request.session.get('plan_type')
+    mem_obj = None
+    if membership_id:
+        mem_obj = MembershipPlan.objects.get(id=membership_id)
     else:
-        price = "90"
-        billing_cycle = 1
-        billing_cycle_unit = "Y"
+        print("FALSE")
+        return None
+    price = mem_obj.monthly_price
+    billing_cycle = 1
+    billing_cycle_unit = "M"
     
-    #notify = request.build_absolute_uri(reverse('paypal-ipn'))
-    cancel_url = '/payment_cancelled'
-    print(cancel_url)
-    done_url = '/payment_done'
+    print(request.build_absolute_uri(reverse('users:paypal-ips')))
     paypal_dict  = {
         "cmd": "_xclick-subscriptions",
         'business': 'sb-mjtlg6191180@business.example.com',
@@ -262,14 +247,35 @@ def process_subscription(request):
         "src": "1",  # make payments recur
         "sra": "1",  # reattempt payment on payment error
         "no_note": "1",  # remove extra notes (optional)
-        'item_name': 'Content subscription',
-        'custom': 1,     # custom data, pass something meaningful here
-        'currency_code': 'USD',
-        "notify_url": request.build_absolute_uri(reverse('paypal-ipn')),
+        'item_name': mem_obj.title,
+        'custom': 122,     # custom data, pass something meaningful here
+        "notify_url": 'https://516c5674add8.ngrok.io/paypal-ips/',
         "return_url": request.build_absolute_uri(reverse('users:paypal-return')),
         "cancel_return": request.build_absolute_uri(reverse('users:paypal-cancel')),
-        "lc": 'EN',
     }
 
     form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe")
     return render(request, 'process_subscription.html', locals())
+
+
+
+
+
+def ips(request):
+    print("CALLING"*30)
+    return HttpResponse("OKAY")
+
+
+
+def payment_success(request):
+    membership_id = request.session.get('plan_type')
+    print('creating')
+    print(membership_id)
+    mem_obj = MembershipPlan.objects.get(id=membership_id)
+    if(mem_obj):
+        obj = Subscription()
+        obj.membership = mem_obj
+        obj.user = request.user
+        obj.is_active = True
+        obj.save()
+    return render(request, 'paypal_success.html')
