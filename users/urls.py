@@ -20,6 +20,8 @@ urlpatterns = [
         path('verify/payment/', verify_payment , name="verify-payment"),
         path('paypal-pay/', PaypalFormView.as_view(), name='paypal-pay'),
         path('paypal-sub/', PaypalSub, name='paypal-sub'),
-        path('paypal-return/', PaypalReturnView.as_view(), name='paypal-return'),
+        path('paypal-ips/', ips, name='paypal-ips'),
+        path('process_subscription/', views.process_subscription, name='process_subscription'),
+        path('paypal-return/', payment_success, name='paypal-return'),
         path('paypal-cancel/', PaypalCancelView.as_view(), name='paypal-cancel'),
 ]

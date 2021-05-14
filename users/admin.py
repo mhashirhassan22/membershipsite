@@ -44,3 +44,12 @@ class ContactAdmin(admin.ModelAdmin):
     list_editable = ('is_resolved',)
 
 admin.site.register(Contact, ContactAdmin)
+
+
+class SubAdmin(admin.ModelAdmin):
+    list_display = ('membership','user','is_active','created_at')
+
+admin.site.register(Subscription, SubAdmin)
+
+
+admin.site.register(MembershipPlan)
