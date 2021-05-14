@@ -23,7 +23,6 @@
                       </div>
                   {% endif %}  
                 <br>
-                <br>
 
             <div class="signup__field">
               <label>Email</label>
@@ -39,10 +38,11 @@
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
 
-            <button type="submit" id="myBtn">Login</button>
-            <br>
-            <a href="{% url 'users:forget_password' %}">Forgot Password?</a>
-            <h4>Not a member? <span><a href="{{ signup_url }}" >Signup</a></span></h4>
+            <button type="submit" id="myBtn" style="font-size:18px">Login</button>
+            <div style="width:100%;border-top:1px solid lightgray;margin:20px 0px"></div>
+            <h4><a  style="color:black"  href="{% url 'users:forget_password' %}"><b>Forgot Password?</b></a></h4>
+            <div style="width:100%;border-top:1px solid lightgray;margin:20px 0px"></div>
+            <h4>Not a member? <span><a style="color:black" href="{{ signup_url }}" ><b>Signup</b></a></span></h4>
           </form>
       </div>
 </div>

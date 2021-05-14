@@ -3,7 +3,7 @@
 
 
 .content{
-    background-image:url('https://storage.needpix.com/rsynced_images/yellow-green-blur-background.jpg');
+  background: rgba(0, 0, 0, 0) linear-gradient(to right, rgb(51, 77, 80), rgb(203, 202, 165)) repeat scroll 0% 0%;
     background-size: cover;
     margin-top:0px;padding-top:0px;
   align-items: center;

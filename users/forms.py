@@ -34,6 +34,7 @@ class CustomSignupForm(UserCreationForm):
         model = User
         fields = [
             'email',
+            'username',
             'password1',
             'phone',
             

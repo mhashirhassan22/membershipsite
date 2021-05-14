@@ -222,12 +222,11 @@ def PaypalSub(request):
             'memberships': MembershipPlan.objects.all(),
             'form': SubscriptionForm()
         }
-        return render(request, 'select_membership.html',context)
+        return render(request, 'membership.html',context)
     else:
-        f = SubscriptionForm(request.POST)
-        if f.is_valid():
-            request.session['plan_type'] = request.POST['plans']
-            return redirect('users:process_subscription')
+        request.session['plan_type'] = request.POST['sub']
+        print(request.session['plan_type'])
+        return redirect('users:process_subscription')
     return render(request, 'paypal_success.html',{})
 
 

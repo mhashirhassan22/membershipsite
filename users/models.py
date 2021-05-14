@@ -6,14 +6,7 @@ from creditcards import types
 import uuid
 # # Create your models here.
 
-class MembershipPlan(models.Model):
-    title = models.CharField(max_length=100, unique=True)
-    description = models.TextField()
-    monthly_price = models.CharField(max_length=50)
-    yearly_price = models.CharField(max_length=50)
 
-    def __str__(self):
-        return self.title
 
 class CreditCard(models.Model):
     cc_number = CardNumberField(('card number'))
@@ -134,7 +127,14 @@ class Contact(models.Model):
     is_resolved = models.BooleanField(default=False)
 
 
+class MembershipPlan(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+    description = models.TextField()
+    monthly_price = models.CharField(max_length=50)
+    yearly_price = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.title
 
 try:
     if(MembershipPlan.objects.count()<2):

@@ -232,7 +232,11 @@ body {
         <li>1 Account</li>
         <li>Branded with Lorem</li>
       </ul>
-      <button name="sub" value="essentails" style="color:white;background-color:black">Register!</button>
+      <form action="{% url 'users:paypal-sub' %}" method="POST">
+        {% csrf_token %}
+        <input value="Click" name="sub" value="4" hidden/>
+        <button name="sub" value="1" style="color:white;background-color:black" type="submit">Register!</button>
+      </form>
     </div>
     <div class="element" style="color:#BBA31F;">
       <div class="info">
@@ -252,12 +256,16 @@ body {
         <li>More Services</li>
         <li>White Labels</li>
       </ul>
-      <button name="sub" value="gold" style="color:white;background-color:#DDB000">Register!</button>
+      <form action="{% url 'users:paypal-sub' %}" method="POST">
+        {% csrf_token %}
+        <input value="Click" name="sub" value="4" hidden/>
+        <button name="sub" value="2" style="color:white;background-color:#DDB000" type="submit">Register!</button>
+      </form>
     </div>
     <div class="element" style="color:#818a9d;">
       <div class="info">
         <h2>PLATINUM</h2>
-        <p>Get exclusive packages and services.</p>
+        <p>Get exclusive packages and services with 24/7 support in Premium membership</p>
       </div>
       <span class="price">$100</span>
       <div class="period">
@@ -272,7 +280,11 @@ body {
         <li>Customized Account</li>
         <li>Made with your brand</li>
       </ul>
-      <button name="sub" value="platinum" style="color:white;background-color:#818a9d">Register!</button>
+      <form action="{% url 'users:paypal-sub' %}" method="POST">
+        {% csrf_token %}
+        <input value="Click" name="sub" value="4" hidden/>
+        <button name="sub" value="3" style="color:white;background-color:#818a9d" type="submit">Register!</button>
+      </form>
     </div>
     <div class="element" style="color:#8C001A;">
       <div class="info">
@@ -292,7 +304,13 @@ body {
         <li>More services</li>
         <li>More products access</li>
       </ul>
-      <button name="sub" value="enterprise" style="color:white;background-color:#8C001A">Register!</button>
+      <form action="{% url 'users:paypal-sub' %}" method="POST">
+        {% csrf_token %}
+        <input value="Click" name="sub" value="4" hidden/>
+        <button name="sub" value="4" style="color:white;background-color:#8C001A" type="submit">Register!</button>
+      </form>
+
+      
     </div>
   </div>
 </section>

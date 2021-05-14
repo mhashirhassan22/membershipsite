@@ -37,22 +37,26 @@
             </div>
 
             <div class="signup__field">
+              <label>Username</label>
+              <input class="signup__input" type="text" name="username" placeholder="User Name*"  required />
+            </div>
+
+            <div class="signup__field">
               <label>Password</label>
               <input class="signup__input" type="password" name="password1" placeholder="Password *"  required />
             </div>
 
-            <div class="signup__field">
+           <div class="signup__field">
               <label>Confirm Password</label>
-              <input class="signup__input" type="password" name="password2" placeholder="Confirm Password *"  required />
+              <input class="signup__input" type="password" name="password2" placeholder="User Name*"  required />
             </div>
-
             {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
 
-            <button type="submit" value="Register">Signup</button>
-            
-            <h4>Already have an account? <span><a href="{{ login_url }}" >Signin</a></span></h4>
+            <button type="submit" value="Register" style="font-size:18px">Signup</button>
+            <div style="width:100%;border-top:1px solid lightgray;margin:20px 0px"></div>
+            <h4>Already have an account? <span ><a style="color:black" href="{{ login_url }}" ><b>Signin</b></a></span></h4>
           </form>
       </div>
 </div>
